@@ -1,0 +1,23 @@
+{
+  "name": "bot-works",
+  "version": "1.0.0",
+  "description": "Build a bot in Node.js on Microsoft Bot Framework.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/morphet81/BotWorks.git"
+  },
+  "keywords": [
+    "bot",
+    "slack"
+  ],
+  "author": "Alexandre OBELLIANNE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/morphet81/BotWorks/issues"
+  },
+  "homepage": "https://github.com/morphet81/BotWorks#readme"
+}
