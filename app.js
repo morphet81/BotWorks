@@ -79,6 +79,7 @@ var connector = new builder.ChatConnector({
     appId: '1acda086-2dbe-4d12-8690-a4b19a8985f2',
     appPassword: 'PJN3jkngKiucpUMgzaxkmFz'
 });
+
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
@@ -95,6 +96,13 @@ intents.matches(/^change name/i, [
     },
     function (session, results) {
         session.send('Ok... Changed your name to %s', session.userData.name);
+    }
+]);
+
+intents.matches(/^\/laoban/i, [
+    function (session) {
+        session.send('Augustin Missoffe');
+        session.endDialog();
     }
 ]);
 
