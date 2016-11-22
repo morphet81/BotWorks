@@ -137,7 +137,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 //    }
 //})
 //.matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
-    .matches('Employees', (session, args) => {
+    .matches('GetPhoceisSize', (session, args) => {
         session.send('Your are looking for information about employees');
     })
     .onDefault((session) => {
