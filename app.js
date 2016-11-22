@@ -1,36 +1,46 @@
-///**
-// * Created by alexandre on 21/11/2016.
-// */
-//var restify = require('restify');
-//var builder = require('botbuilder');
-//
-////var server = restify.createServer();
-////server.listen(process.env.PORT || 3000, function (){
-////    console.log('%s listening to %s', server.name, server.url);
-////});
-//
-////var connector = new builder.ChatConnector({
-////    appId: '1acda086-2dbe-4d12-8690-a4b19a8985f2',
-////    appPassword: 'PJN3jkngKiucpUMgzaxkmFz'
-////});
-//
-//var connector = new builder.ConsoleConnector().listen();
-//
-//
-//
-////server.post('/api/message', connector.listen());
-//
-//
-//
-//var bot = new builder.UniversalBot(connector);
+require('dotenv-extended').load();
+
+var builder = require('botbuilder');
+var restify = require('restify');
+
+//=========================================================
+// Bot Setup
+//=========================================================
+
+// Setup Restify Server
+var server = restify.createServer();
+server.listen(process.env.port || process.env.PORT || 3978, function () {
+    console.log('%s listening to %s', server.name, server.url);
+});
+
+// Create chat bot
+var connector = new builder.ChatConnector({
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
+
+var bot = new builder.UniversalBot(connector);
+server.post('/api/messages', connector.listen());
+
+//=========================================================
+// Bots Dialogs
+//=========================================================
+
 //var intents = new builder.IntentDialog();
-//
+
 //intents.matches(/^change name/i, [
 //    function (session) {
 //        session.beginDialog('/profile');
 //    },
 //    function (session, results) {
 //        session.send('Ok... Changed your name to %s', session.userData.name);
+//    }
+//]);
+//
+//intents.matches(/^laoban/i, [
+//    function (session) {
+//        session.send('Augustin Missoffe');
+//        session.endDialog();
 //    }
 //]);
 //
@@ -56,75 +66,96 @@
 //        session.endDialog();
 //    }
 //]);
-//
-////bot.dialog('/', function(session) {
-////    session.send('Hello World');
-////});
 
-var builder = require('botbuilder');
-var restify = require('restify');
+const LuisModelUrl = process.env.LUIS_MODEL_URL;
 
-//=========================================================
-// Bot Setup
-//=========================================================
+// Main dialog with LUIS
+var recognizer = new builder.LuisRecognizer(LuisModelUrl);
+var intents = new builder.IntentDialog({ recognizers: [recognizer] })
+    //.matches('SearchHotels', [
+    //    function (session, args, next) {
+    //        session.send('Welcome to the Hotels finder! we are analyzing your message: \'%s\'', session.message.text);
+    //
+    //        // try extracting entities
+    //        var cityEntity = builder.EntityRecognizer.findEntity(args.entities, 'builtin.geography.city');
+    //        var airportEntity = builder.EntityRecognizer.findEntity(args.entities, 'AirportCode');
+    //        if (cityEntity) {
+    //            // city entity detected, continue to next step
+    //            session.dialogData.searchType = 'city';
+    //            next({ response: cityEntity.entity });
+    //        } else if (airportEntity) {
+    //            // airport entity detected, continue to next step
+    //            session.dialogData.searchType = 'airport';
+    //            next({ response: airportEntity.entity });
+    //        } else {
+    //            // no entities detected, ask user for a destination
+    //            builder.Prompts.text(session, 'Please enter your destination');
+    //        }
+    //    },
+    //    function (session, results) {
+    //        var destination = results.response;
+    //
+    //        var message = 'Looking for hotels';
+    //        if (session.dialogData.searchType === 'airport') {
+    //            message += ' near %s airport...';
+    //        } else {
+    //            message += ' in %s...';
+    //        }
+    //
+    //        session.send(message, destination);
+    //
+    //        // Async search
+    //        Store
+    //            .searchHotels(destination)
+    //            .then((hotels) => {
+    //                // args
+    //                session.send('I found %d hotels:', hotels.length);
+    //
+    //                var message = new builder.Message()
+    //                    .attachmentLayout(builder.AttachmentLayout.carousel)
+    //                    .attachments(hotels.map(hotelAsAttachment));
+    //
+    //                session.send(message);
+    //
+    //                // End
+    //                session.endDialog();
+    //            });
+    //    }
+    //])
+    //.matches('ShowHotelsReviews', (session, args) => {
+    //    // retrieve hotel name from matched entities
+    //    var hotelEntity = builder.EntityRecognizer.findEntity(args.entities, 'Hotel');
+    //    if (hotelEntity) {
+    //        session.send('Looking for reviews of \'%s\'...', hotelEntity.entity);
+    //        Store.searchHotelReviews(hotelEntity.entity)
+    //            .then((reviews) => {
+    //                var message = new builder.Message()
+    //                    .attachmentLayout(builder.AttachmentLayout.carousel)
+    //                    .attachments(reviews.map(reviewAsAttachment));
+    //                session.send(message)
+    //            });
+    //    }
+    //})
+    //.matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
+    .onDefault((session) => {
+        session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+    });
 
-// Setup Restify Server
-var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
-    console.log('%s listening to %s', server.name, server.url);
-});
-
-// Create chat bot
-var connector = new builder.ChatConnector({
-    appId: '1acda086-2dbe-4d12-8690-a4b19a8985f2',
-    appPassword: 'PJN3jkngKiucpUMgzaxkmFz'
-});
-
-var bot = new builder.UniversalBot(connector);
-server.post('/api/messages', connector.listen());
-
-//=========================================================
-// Bots Dialogs
-//=========================================================
-
-var intents = new builder.IntentDialog();
-bot.dialog('/', intents);
-
-intents.matches(/^change name/i, [
-    function (session) {
-        session.beginDialog('/profile');
-    },
-    function (session, results) {
-        session.send('Ok... Changed your name to %s', session.userData.name);
-    }
-]);
-
-intents.matches(/^laoban/i, [
-    function (session) {
-        session.send('Augustin Missoffe');
-        session.endDialog();
-    }
-]);
-
-intents.onDefault([
-    function (session, args, next) {
-        if (!session.userData.name) {
-            session.beginDialog('/profile');
-        } else {
-            next();
+if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
+    bot.use({
+        botbuilder: function (session, next) {
+            spellService
+                .getCorrectedText(session.message.text)
+                .then(text => {
+                    session.message.text = text;
+                    next();
+                })
+                .catch((error) => {
+                    console.error(error);
+                    next();
+                });
         }
-    },
-    function (session, results) {
-        session.send('Hello %s!', session.userData.name);
-    }
-]);
+    })
+}
 
-bot.dialog('/profile', [
-    function (session) {
-        builder.Prompts.text(session, 'Hi! What is your name?');
-    },
-    function (session, results) {
-        session.userData.name = results.response;
-        session.endDialog();
-    }
-]);
+bot.dialog('/', intents);
