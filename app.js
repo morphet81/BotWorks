@@ -14,6 +14,12 @@ var connector = new builder.ChatConnector({
     appPassword: 'PJN3jkngKiucpUMgzaxkmFz'
 });
 
+
+
+server.post('/api/message', connector.listen());
+
+
+
 var bot = new builder.UniversalBot(connector);
 var intents = new builder.IntentDialog();
 
@@ -49,8 +55,6 @@ bot.dialog('/profile', [
     }
 ]);
 
-server.post('/api/message', connector.listen());
-
-bot.dialog('/', function(session) {
-    session.send('Hello World');
-});
+//bot.dialog('/', function(session) {
+//    session.send('Hello World');
+//});
