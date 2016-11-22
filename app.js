@@ -3,6 +3,7 @@
  */
 var restify = require('restify');
 var builder = require('botbuilder');
+
 //
 //var server = restify.createServer();
 //server.listen(process.env.PORT || 3000, function (){
@@ -21,3 +22,5 @@ var builder = require('botbuilder');
 //bot.dialog('/', function(session) {
 //    session.send('Hello World');
 //});
+
+console.log('Hello World');
