@@ -99,7 +99,7 @@ intents.matches(/^change name/i, [
     }
 ]);
 
-intents.matches(/^\/laoban/i, [
+intents.matches(/^laoban/i, [
     function (session) {
         session.send('Augustin Missoffe');
         session.endDialog();
