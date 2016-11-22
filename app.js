@@ -4,6 +4,8 @@
 var restify = require('restify');
 var builder = require('botbuilder');
 
+console.log("Hello World");
+
 var server = restify.createServer();
 server.listen(process.env.PORT || 3000, function (){
     console.log('%s listening to %s', server.name, server.url);
