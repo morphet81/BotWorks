@@ -1,7 +1,7 @@
 /**
  * Created by alexandre on 21/11/2016.
  */
-var restify = require('restify');
+//var restify = require('restify');
 var builder = require('botbuilder');
 
 console.log("Hello World");
