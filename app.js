@@ -9,7 +9,7 @@ var app    = express();
 var wechatConnector = new connector.WechatConnector({
     wechatAppId: 'wxc684e65175be456e',
     wechatSecret: 'fe7e6e25584e218ed86499171bf0a421',
-    wechatToken: 'phoceisdev2'
+    wechatToken: 'phoceisdev2token'
 });
 
 var bot = new builder.UniversalBot(wechatConnector);
