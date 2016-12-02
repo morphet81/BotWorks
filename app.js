@@ -1,165 +1,50 @@
-// This loads the environment variables from the .env file
-require('dotenv-extended').load();
-
 var builder = require('botbuilder');
-var restify = require('restify');
-var Store = require('./store');
-// var spellService = require('./spell-service');
-var util = require('util');
-
-// Setup Restify Server
-var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
-    console.log('%s listening to %s', server.name, server.url);
-});
-
-// Initialize WeChat
 var wechatBotBuilder = require('botbuilder-wechat');
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var fs = require('fs');
 
 var bot = new wechatBotBuilder.WechatBot({
     wechatAppId: 'wxc684e65175be456e',
     wechatSecret: 'fe7e6e25584e218ed86499171bf0a421',
-    wechatToken: 'phoceisdev2'
+    wechatToken: 'phoceisdev2',
+    voiceMessageParser: function(payload, done) {
+        // paylod is a buffer containing an AMR Audio File
+        // parsing logic goes in here
+        // call service like ibm watson or microsoft speech
+        done('Hello!');
+    }
 });
 
-var express = require('express');
-var app = express();
-app.use('/wc', bot.getWechatCallbackHandler());
+bot.add('/', [
+    function (session) {
+        builder.Prompts.text(session, "Hello... What's your name?");
+    },
+    function (session, results) {
+        session.userData.name = results.response;
+        builder.Prompts.number(session, "Hi " + results.response + ", How many years have you been coding?");
+    },
+    function (session, results) {
+        session.userData.coding = results.response;
+        builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
+    },
+    function (session, results) {
+        session.userData.language = results.response.entity;
+        session.send("Got it... " + session.userData.name +
+            " you've been programming for " + session.userData.coding +
+            " years and use " + session.userData.language + ".");
+    }
+]);
 
-// Create chat bot
-var connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
+app.use('/bot/wc', bot.getWechatCallbackHandler());
+
+app.get('*', function(req, res) {
+    res.status(404).end();
 });
-// var bot = new builder.UniversalBot(connector);
-// server.post('/api/messages', connector.listen());
 
-// Main dialog with LUIS
-var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL);
-var chineseRecognizer = new builder.LuisRecognizer(process.env.LUIS_CN_MODEL_URL);
+var port = process.env.PORT || 3000;
 
-var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chineseRecognizer] })
-    .matches('SearchHotels', [
-        function (session, args, next) {
-            session.send('Welcome to the Hotels finder! we are analyzing your message: \'%s\'', session.message.text);
-
-            // try extracting entities
-            var cityEntity = builder.EntityRecognizer.findEntity(args.entities, 'builtin.geography.city');
-            var airportEntity = builder.EntityRecognizer.findEntity(args.entities, 'AirportCode');
-            if (cityEntity) {
-                // city entity detected, continue to next step
-                session.dialogData.searchType = 'city';
-                next({ response: cityEntity.entity });
-            } else if (airportEntity) {
-                // airport entity detected, continue to next step
-                session.dialogData.searchType = 'airport';
-                next({ response: airportEntity.entity });
-            } else {
-                // no entities detected, ask user for a destination
-                builder.Prompts.text(session, 'Please enter your destination');
-            }
-        },
-        function (session, results) {
-            var destination = results.response;
-
-            var message = 'Looking for hotels';
-            if (session.dialogData.searchType === 'airport') {
-                message += ' near %s airport...';
-            } else {
-                message += ' in %s...';
-            }
-
-            session.send(message, destination);
-
-            // Async search
-            Store
-                .searchHotels(destination)
-                .then((hotels) => {
-                    // args
-                    session.send('I found %d hotels:', hotels.length);
-
-                    var message = new builder.Message()
-                        .attachmentLayout(builder.AttachmentLayout.carousel)
-                        .attachments(hotels.map(hotelAsAttachment));
-
-                    session.send(message);
-
-                    // End
-                    session.endDialog();
-                });
-        }
-    ])
-    .matches('ShowHotelsReviews', (session, args) => {
-        // retrieve hotel name from matched entities
-        var hotelEntity = builder.EntityRecognizer.findEntity(args.entities, 'Hotel');
-        if (hotelEntity) {
-            session.send('Looking for reviews of \'%s\'...', hotelEntity.entity);
-            Store.searchHotelReviews(hotelEntity.entity)
-                .then((reviews) => {
-                    var message = new builder.Message()
-                        .attachmentLayout(builder.AttachmentLayout.carousel)
-                        .attachments(reviews.map(reviewAsAttachment));
-                    session.send(message)
-                });
-        }
-    })
-    .matches('GetPhoceisSize', (session, args) => {
-        session.send("There are currently 7 Phoceis team members");
-    })
-    .matches('GetPhoceisLocation', (session, args) => {
-        session.send("Phoceis Asia is located in Shanghai, 655 Changhua Road");
-    })
-    .matches(/^GetPhoceisLocationCN/i, (session) => {
-        session.send("Phoceis Asia is located in Shanghai, 655 Changhua Road");
-    })
-    .matches('GetPhoceisLocationCN', (session, args) => {
-        session.send("Yep, c'est loupé.....");
-    })
-    .matches('GetBeerDay', (session, args) => {
-        session.send("Beer day is on Friday. Don't hesitate to ask Crystal for your favorite beer!");
-    })
-    .matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
-    .onDefault((session) => {
-        session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
-    });
-
-// if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
-//     bot.use({
-//         botbuilder: function (session, next) {
-//             spellService
-//                 .getCorrectedText(session.message.text)
-//                 .then(text => {
-//                     session.message.text = text;
-//                     next();
-//                 })
-//                 .catch((error) => {
-//                     console.error(error);
-//                     next();
-//                 });
-//         }
-//     })
-// }
-
-// bot.dialog('/', intents);
-bot.add('/', intents);
-
-// Helpers
-function hotelAsAttachment(hotel) {
-    return new builder.HeroCard()
-        .title(hotel.name)
-        .subtitle('%d stars. %d reviews. From $%d per night.', hotel.rating, hotel.numberOfReviews, hotel.priceStarting)
-        .images([new builder.CardImage().url(hotel.image)])
-        .buttons([
-            new builder.CardAction()
-                .title('More details')
-                .type('openUrl')
-                .value('https://www.bing.com/search?q=hotels+in+' + encodeURIComponent(hotel.location))
-        ]);
-}
-
-function reviewAsAttachment(review) {
-    return new builder.ThumbnailCard()
-        .title(review.title)
-        .text(review.text)
-        .images([new builder.CardImage().url(review.image)])
-}
+http.listen(port, function() {
+    console.log('== Server started ==');
+});
