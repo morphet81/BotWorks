@@ -13,13 +13,26 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
 
+// Initialize WeChat
+var wechatBotBuilder = require('botbuilder-wechat');
+
+var bot = new wechatBotBuilder.WechatBot({
+    wechatAppId: 'wxc684e65175be456e',
+    wechatSecret: 'fe7e6e25584e218ed86499171bf0a421',
+    wechatToken: 'phoceisdev2'
+});
+
+var express = require('express');
+var app = express();
+app.use('/wc', bot.getWechatCallbackHandler());
+
 // Create chat bot
 var connector = new builder.ChatConnector({
     appId: process.env.MICROSOFT_APP_ID,
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
-var bot = new builder.UniversalBot(connector);
-server.post('/api/messages', connector.listen());
+// var bot = new builder.UniversalBot(connector);
+// server.post('/api/messages', connector.listen());
 
 // Main dialog with LUIS
 var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL);
@@ -127,7 +140,8 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
 //     })
 // }
 
-bot.dialog('/', intents);
+// bot.dialog('/', intents);
+bot.add('/', intents);
 
 // Helpers
 function hotelAsAttachment(hotel) {
