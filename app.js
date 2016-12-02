@@ -4,7 +4,7 @@ require('dotenv-extended').load();
 var builder = require('botbuilder');
 var restify = require('restify');
 var Store = require('./store');
-var spellService = require('./spell-service');
+// var spellService = require('./spell-service');
 var util = require('util');
 
 // Setup Restify Server
@@ -110,22 +110,22 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
         session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
     });
 
-if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
-    bot.use({
-        botbuilder: function (session, next) {
-            spellService
-                .getCorrectedText(session.message.text)
-                .then(text => {
-                    session.message.text = text;
-                    next();
-                })
-                .catch((error) => {
-                    console.error(error);
-                    next();
-                });
-        }
-    })
-}
+// if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
+//     bot.use({
+//         botbuilder: function (session, next) {
+//             spellService
+//                 .getCorrectedText(session.message.text)
+//                 .then(text => {
+//                     session.message.text = text;
+//                     next();
+//                 })
+//                 .catch((error) => {
+//                     console.error(error);
+//                     next();
+//                 });
+//         }
+//     })
+// }
 
 bot.dialog('/', intents);
 
