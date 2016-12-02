@@ -1,50 +1,54 @@
-var builder = require('botbuilder');
-var wechatBotBuilder = require('botbuilder-wechat');
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var fs = require('fs');
+var express   = require('express'),
+    builder   = require('botbuilder'),
+    connector = require('botbuilder-wechat-connector');
 
-var bot = new wechatBotBuilder.WechatBot({
+// Create http server
+var app    = express();
+
+// Create wechat connector
+var wechatConnector = new connector.WechatConnector({
     wechatAppId: 'wxc684e65175be456e',
     wechatSecret: 'fe7e6e25584e218ed86499171bf0a421',
-    wechatToken: 'phoceisdev2',
-    voiceMessageParser: function(payload, done) {
-        // paylod is a buffer containing an AMR Audio File
-        // parsing logic goes in here
-        // call service like ibm watson or microsoft speech
-        done('Hello!');
-    }
+    wechatToken: 'phoceisdev2'
 });
 
-bot.add('/', [
+var bot = new builder.UniversalBot(wechatConnector);
+
+// Bot dialogs
+bot.dialog('/', [
     function (session) {
-        builder.Prompts.text(session, "Hello... What's your name?");
+        if (session.userData && session.userData.name) {
+            if (session.message.attachments &&
+                session.message.attachments.length > 0) {
+                var atm = session.message.attachments[0];
+                if (atm.contentType == connector.WechatAttachmentType.Image) {
+                    var msg = new builder.Message(session).attachments([atm]);
+                    session.send(msg);
+                }
+            }
+            session.send("How are you, " + session.userData.name);
+        } else {
+            builder.Prompts.text(session, "What's your name?");
+        }
     },
     function (session, results) {
         session.userData.name = results.response;
-        builder.Prompts.number(session, "Hi " + results.response + ", How many years have you been coding?");
+        session.send("OK, " + session.userData.name);
+        builder.Prompts.text(session, "What's your age?");
     },
     function (session, results) {
-        session.userData.coding = results.response;
-        builder.Prompts.choice(session, "What language do you code Node using?", ["JavaScript", "CoffeeScript", "TypeScript"]);
-    },
-    function (session, results) {
-        session.userData.language = results.response.entity;
-        session.send("Got it... " + session.userData.name +
-            " you've been programming for " + session.userData.coding +
-            " years and use " + session.userData.language + ".");
+        session.userData.age = results.response;
+        session.send("All right, " + results.response);
     }
 ]);
 
-app.use('/bot/wc', bot.getWechatCallbackHandler());
+app.use('/bot/wechat', wechatConnector.listen());
 
 app.get('*', function(req, res) {
-    res.status(404).end();
+    res.send(200, 'Hello Wechat Bot');
 });
 
-var port = process.env.PORT || 3000;
-
-http.listen(port, function() {
-    console.log('== Server started ==');
+// Start listen on port
+app.listen(process.env.port || 9090, function() {
+    console.log('server is running.');
 });
