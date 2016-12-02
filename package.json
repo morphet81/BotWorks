@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "Build a bot in Node.js on Microsoft Bot Framework.",
   "main": "app.js",
+  "engines":{"node":"6.9.1"},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "engines": {
-    "node": "6.9.1"
   },
   "repository": {
     "type": "git",
@@ -24,8 +22,11 @@
   },
   "homepage": "https://github.com/morphet81/BotWorks#readme",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "botbuilder": "^3.4.4",
+    "bunyan": "^1.8.5",
     "dotenv-extended": "^1.0.4",
-    "restify": "4.0.0"
-  }
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {}
 }
