@@ -93,9 +93,9 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
     .matches('GetPhoceisSize', (session, args) => {
         session.send("There are currently 7 Phoceis team members");
     })
-    // .matches('GetPhoceisLocation', (session, args) => {
-    //     session.send("Phoceis Asia is located in Shanghai, 655 Changhua Road");
-    // })
+    .matches('GetPhoceisLocation', (session, args) => {
+        session.send("Phoceis Asia is located in Shanghai, 655 Changhua Road");
+    })
     .matches(/^GetPhoceisLocationCN/i, (session) => {
         session.send("Phoceis Asia is located in Shanghai, 655 Changhua Road");
     })
