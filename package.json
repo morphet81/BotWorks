@@ -29,7 +29,8 @@
     "bunyan": "^1.8.5",
     "dotenv-extended": "^1.0.4",
     "express": "^4.14.0",
-    "restify": "^4.3.0"
+    "restify": "^4.3.0",
+    "botbuilder-wechat-connector": "^1.0.2"
   },
   "devDependencies": {}
 }
