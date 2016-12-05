@@ -1,70 +1,13 @@
-// var express   = require('express');
-// var wechat = require('wechat');
-// var config = {
-//     token: 'phoceisdev2token',
-//     appid: 'wxc684e65175be456e',
-//     encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
-// };
-//
-// // Create http server
-// var app    = express();
-//
-// app.use(express.query());
-// app.use('/wechat', wechat(config, function (req, res, next) {
-//     // 微信输入信息都在req.weixin上
-//     var message = req.weixin;
-//     if (message.FromUserName === 'diaosi') {
-//         // 回复屌丝(普通回复)
-//         res.reply('hehe');
-//     } else if (message.FromUserName === 'text') {
-//         //你也可以这样回复text类型的信息
-//         res.reply({
-//             content: 'text object',
-//             type: 'text'
-//         });
-//     } else if (message.FromUserName === 'hehe') {
-//         // 回复一段音乐
-//         res.reply({
-//             type: "music",
-//             content: {
-//                 title: "来段音乐吧",
-//                 description: "一无所有",
-//                 musicUrl: "http://mp3.com/xx.mp3",
-//                 hqMusicUrl: "http://mp3.com/xx.mp3",
-//                 thumbMediaId: "thisThumbMediaId"
-//             }
-//         });
-//     } else {
-//         // 回复高富帅(图文回复)
-//         res.reply([
-//             {
-//                 title: '你来我家接我吧',
-//                 description: '这是女神与高富帅之间的对话',
-//                 picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-//                 url: 'http://nodeapi.cloudfoundry.com/'
-//             }
-//         ]);
-//     }
-// }));
-//
-// app.get('*', function(req, res) {
-//     res.send(200, 'Hello Wechat Bot');
-// });
-//
-// // Start listen on port
-// app.listen(process.env.port || 9090, function() {
-//     console.log('server is running.');
-// });
-
-
-var wechat       = require('wechat');
-
 var express   = require('express'),
     builder   = require('botbuilder'),
     connector = require('botbuilder-wechat-connector');
 
 // Create http server
 var app    = express();
+
+// Main dialog with LUIS
+var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL);
+var chineseRecognizer = new builder.LuisRecognizer(process.env.LUIS_CN_MODEL_URL);
 
 // Create wechat connector
 var wechatConnector = new connector.WechatConnector({
@@ -78,56 +21,58 @@ var wechatConnector = new connector.WechatConnector({
 
 var bot = new builder.UniversalBot(wechatConnector);
 
+var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chineseRecognizer] })
+    .matches('GetPhoceisSize', (session, args) => {
+        session.send("There are currently 7 Phoceis team members");
+    })
+    .matches('GetPhoceisLocation', (session, args) => {
+        session.send("Phoceis Asia is located in Shanghai, 655 Changhua Road");
+    })
+    .matches(/^GetPhoceisLocationCN/i, (session) => {
+        session.send("Phoceis Asia is located in Shanghai, 655 Changhua Road");
+    })
+    .matches('GetPhoceisLocationCN', (session, args) => {
+        session.send("Yep, c'est loupé.....");
+    })
+    .matches('GetBeerDay', (session, args) => {
+        session.send("Beer day is on Friday. Don't hesitate to ask Crystal for your favorite beer!");
+    })
+    .matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
+    .onDefault((session) => {
+        session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+    });
+
 // Bot dialogs
-bot.dialog('/', [
-    function (session) {
-        session.send("All right, ");
-        // if (session.userData && session.userData.name) {
-        //     if (session.message.attachments &&
-        //         session.message.attachments.length > 0) {
-        //         var atm = session.message.attachments[0];
-        //         if (atm.contentType == connector.WechatAttachmentType.Image) {
-        //             var msg = new builder.Message(session).attachments([atm]);
-        //             session.send(msg);
-        //         }
-        //     }
-        //     session.send("How are you, " + session.userData.name);
-        // } else {
-        //     builder.Prompts.text(session, "What's your name?");
-        // }
-    },
-    function (session, results) {
-        // session.userData.name = results.response;
-        // session.send("OK, " + session.userData.name);
-        // builder.Prompts.text(session, "What's your age?");
-    },
-    function (session, results) {
-        // session.userData.age = results.response;
-        // session.send("All right, " + results.response);
-    }
-]);
+bot.dialog('/', intents);
+// bot.dialog('/', [
+//     function (session) {
+//         session.send("All right, ");
+//         // if (session.userData && session.userData.name) {
+//         //     if (session.message.attachments &&
+//         //         session.message.attachments.length > 0) {
+//         //         var atm = session.message.attachments[0];
+//         //         if (atm.contentType == connector.WechatAttachmentType.Image) {
+//         //             var msg = new builder.Message(session).attachments([atm]);
+//         //             session.send(msg);
+//         //         }
+//         //     }
+//         //     session.send("How are you, " + session.userData.name);
+//         // } else {
+//         //     builder.Prompts.text(session, "What's your name?");
+//         // }
+//     },
+//     function (session, results) {
+//         // session.userData.name = results.response;
+//         // session.send("OK, " + session.userData.name);
+//         // builder.Prompts.text(session, "What's your age?");
+//     },
+//     function (session, results) {
+//         // session.userData.age = results.response;
+//         // session.send("All right, " + results.response);
+//     }
+// ]);
 
 app.use('/wechat', wechatConnector.listen());
-
-console.log('test');
-
-// var config = {
-//     token: 'phoceisdev2token',
-//     appid: 'wxc684e65175be456e',
-//     encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
-// };
-// app.use('/wechat', wechat(config, function(req, res, next) {
-//     var wechatMessage = req.weixin;
-//
-//         res.reply([
-//             {
-//                 title: '你来我家接我吧',
-//                 description: '这是女神与高富帅之间的对话',
-//                 picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-//                 url: 'http://nodeapi.cloudfoundry.com/'
-//             }
-//         ]);
-// }));
 
 app.get('*', function(req, res) {
     console.log('salut tous');
