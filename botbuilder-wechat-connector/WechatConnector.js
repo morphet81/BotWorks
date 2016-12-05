@@ -45,7 +45,8 @@ var WechatConnector = (function() {
         return wechat(config, function(req, res, next) {
             var wechatMessage = req.weixin;
 
-            console.log('=========    ' + wechatMessage);
+            console.log('>>>>>>>>>    ' + self.options.enableReply);
+            console.log('=========    ' + util.inspect(wechatMessage));
 
             if (!self.options.enableReply) {
                 self.processMessage(wechatMessage);
