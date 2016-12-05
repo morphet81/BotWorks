@@ -70,7 +70,7 @@ var wechatConnector = new connector.WechatConnector({
     wechatAppId: 'wxc684e65175be456e',
     wechatSecret: 'fe7e6e25584e218ed86499171bf0a421',
     wechatToken: 'phoceisdev2token',
-    encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
+    wechatEncodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
 });
 
 var bot = new builder.UniversalBot(wechatConnector);
