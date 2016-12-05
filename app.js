@@ -75,7 +75,8 @@ var wechatConnector = new connector.WechatConnector({
 
     appToken: 'phoceisdev2token',
     appID: 'wxc684e65175be456e',
-    encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
+    encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ',
+    enableReply: true
 });
 
 var bot = new builder.UniversalBot(wechatConnector);
@@ -132,6 +133,7 @@ console.log('test');
 // }));
 
 app.get('*', function(req, res) {
+    console.log('salut tous');
     res.send(200, 'Hello Wechat Bot');
 });
 
