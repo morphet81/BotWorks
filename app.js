@@ -47,6 +47,15 @@ app.use('/wechat', wechat(config, function (req, res, next) {
     }
 }));
 
+app.get('*', function(req, res) {
+    res.send(200, 'Hello Wechat Bot');
+});
+
+// Start listen on port
+app.listen(process.env.port || 9090, function() {
+    console.log('server is running.');
+});
+
 
 
 // var express   = require('express'),
