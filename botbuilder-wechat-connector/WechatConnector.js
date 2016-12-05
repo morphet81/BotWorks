@@ -3,7 +3,8 @@
 var _            = require('lodash'),
     builder      = require('botbuilder'),
     wechat       = require('wechat'),
-    WechatAPI    = require('wechat-api');
+    WechatAPI    = require('wechat-api'),
+    util         = require('util');
 
 const AttachmentType = {
     Image:      'wechat/image',
@@ -31,8 +32,6 @@ var WechatConnector = (function() {
         var self = this;
         var config = this.options.appToken;
 
-        console.log('=========    test');
-
         if (!!this.options.encodingAESKey) {
             config = {
                 token: this.options.appToken,
@@ -41,8 +40,12 @@ var WechatConnector = (function() {
             };
         }
 
+        console.log('=========    test');
+
         return wechat(config, function(req, res, next) {
             var wechatMessage = req.weixin;
+
+            console.log('=========    ' + wechatMessage);
 
             if (!self.options.enableReply) {
                 self.processMessage(wechatMessage);
