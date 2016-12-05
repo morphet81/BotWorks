@@ -6,6 +6,9 @@ var config = {
     encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
 };
 
+// Create http server
+var app    = express();
+
 app.use(express.query());
 app.use('/wechat', wechat(config, function (req, res, next) {
     // 微信输入信息都在req.weixin上
