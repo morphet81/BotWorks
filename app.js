@@ -1,8 +1,9 @@
 require('dotenv-extended').load();
 
-var express   = require('express'),
-    builder   = require('botbuilder'),
-    connector = require('botbuilder-wechat-connector');
+var express     = require('express'),
+    builder     = require('botbuilder'),
+    connector   = require('botbuilder-wechat-connector'),
+    util        = require('util');
 
 // Create http server
 var app    = express();
@@ -41,15 +42,12 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
     })
     .matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
     .onDefault((session) => {
-        session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+        session.send(util.inspect(session));
+        // session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
     });
 
 // Bot dialogs
-bot.dialog('/', [
-    function (session) {
-        session.send("How are you, " + session.userData.name);
-    },
-    intents]);
+bot.dialog('/', intents);
 // bot.dialog('/', [
 //     function (session) {
 //         session.send("All right, ");
