@@ -45,7 +45,11 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
     });
 
 // Bot dialogs
-bot.dialog('/', intents);
+bot.dialog('/', [
+    function (session) {
+        session.send("How are you, " + session.userData.name);
+    },
+    intents]);
 // bot.dialog('/', [
 //     function (session) {
 //         session.send("All right, ");
