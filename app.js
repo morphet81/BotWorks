@@ -1,3 +1,4 @@
+var express   = require('express');
 var wechat = require('wechat');
 var config = {
     token: 'phoceisdev2token',
