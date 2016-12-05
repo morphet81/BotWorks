@@ -25,6 +25,9 @@ var WechatConnector = (function() {
             enableReply: false
         }, opts);
 
+
+        console.log('=========    ' + util.inspect(this.options));
+
         this.wechatAPI = new WechatAPI(this.options.appID, this.options.appSecret);
     }
 
@@ -58,10 +61,7 @@ var WechatConnector = (function() {
             atts = [],
             msgType = wechatMessage.MsgType;
 
-        console.log('=========    test');
-
         if (!this.handler) {
-            console.log('=========    ERROR');
             throw new Error('Error no handler');
         }
 
