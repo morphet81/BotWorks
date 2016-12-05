@@ -40,13 +40,8 @@ var WechatConnector = (function() {
             };
         }
 
-        console.log('=========    test');
-
         return wechat(config, function(req, res, next) {
             var wechatMessage = req.weixin;
-
-            console.log('>>>>>>>>>    ' + self.options.enableReply);
-            console.log('=========    ' + util.inspect(wechatMessage));
 
             if (!self.options.enableReply) {
                 self.processMessage(wechatMessage);
@@ -63,7 +58,10 @@ var WechatConnector = (function() {
             atts = [],
             msgType = wechatMessage.MsgType;
 
+        console.log('=========    test');
+
         if (!this.handler) {
+            console.log('=========    ERROR');
             throw new Error('Error no handler');
         }
 
