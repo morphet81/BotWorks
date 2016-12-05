@@ -109,25 +109,27 @@ bot.dialog('/', [
     }
 ]);
 
-var config = {
-    token: 'phoceisdev2token',
-    appid: 'wxc684e65175be456e',
-    encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
-};
+app.use('/wechat', wechatConnector.listen);
 
-// app.use('/wechat', wechatConnector.listen);
-app.use('/wechat', wechat(config, function(req, res, next) {
-    var wechatMessage = req.weixin;
+console.log('test');
 
-        res.reply([
-            {
-                title: '你来我家接我吧',
-                description: '这是女神与高富帅之间的对话',
-                picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-                url: 'http://nodeapi.cloudfoundry.com/'
-            }
-        ]);
-}));
+// var config = {
+//     token: 'phoceisdev2token',
+//     appid: 'wxc684e65175be456e',
+//     encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
+// };
+// app.use('/wechat', wechat(config, function(req, res, next) {
+//     var wechatMessage = req.weixin;
+//
+//         res.reply([
+//             {
+//                 title: '你来我家接我吧',
+//                 description: '这是女神与高富帅之间的对话',
+//                 picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
+//                 url: 'http://nodeapi.cloudfoundry.com/'
+//             }
+//         ]);
+// }));
 
 app.get('*', function(req, res) {
     res.send(200, 'Hello Wechat Bot');
