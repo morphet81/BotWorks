@@ -2,7 +2,7 @@ var wechat = require('wechat');
 var config = {
     token: 'phoceisdev2token',
     appid: 'wxc684e65175be456e',
-    encodingAESKey: 'encodinAESKey'
+    encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
 };
 
 app.use(express.query());
