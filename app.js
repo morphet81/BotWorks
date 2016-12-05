@@ -76,7 +76,7 @@ var wechatConnector = new connector.WechatConnector({
     appToken: 'phoceisdev2token',
     appID: 'wxc684e65175be456e',
     encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ',
-    enableReply: true
+    enableReply: false
 });
 
 var bot = new builder.UniversalBot(wechatConnector);
