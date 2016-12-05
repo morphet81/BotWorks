@@ -68,8 +68,8 @@ var app    = express();
 
 // Create wechat connector
 var wechatConnector = new connector.WechatConnector({
-    wechatAppId: 'wxc684e65175be456e',
-    wechatSecret: 'fe7e6e25584e218ed86499171bf0a421',
+    appID: 'wxc684e65175be456e',
+    appSecret: 'fe7e6e25584e218ed86499171bf0a421',
     wechatToken: 'phoceisdev2token',
     wechatEncodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ',
 
