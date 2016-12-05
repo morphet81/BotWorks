@@ -41,20 +41,24 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
         session.send("Beer day is on Friday. Don't hesitate to ask Crystal for your favorite beer!");
     })
     .matches('GetBestTeamMate', (session, args) => {
-        var msg = new builder.Message(session).attachments([
-            {
-                contentType: 'wechat/image',
-                content: {
-                    mediaId: './assets/img/nespresso.jpeg'
-                }
-            }
-        ]);
-        session.send(msg);
+
+        wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'wechat/image', function(args) {
+            session.send(util.inspect(args));
+        });
+
+        // var msg = new builder.Message(session).attachments([
+        //     {
+        //         contentType: 'wechat/image',
+        //         content: {
+        //             mediaId: './assets/img/nespresso.jpeg'
+        //         }
+        //     }
+        // ]);
+        // session.send(msg);
     })
     .matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
     .onDefault((session) => {
-        session.send(util.inspect(session));
-        // session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+        session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
     });
 
 // Bot dialogs
