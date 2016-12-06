@@ -6,6 +6,15 @@ var express     = require('express'),
     spellService = require('./spell-service'),
     util        = require('util');
 
+spellService
+    .getCorrectedText('whewsre iss pphoceiss')
+    .then(text => {
+        console.log('=====    ' + util.inspect(text));
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+
 // Create http server
 var app    = express();
 
@@ -74,12 +83,11 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
                 .getCorrectedText(session.message.text)
                 .then(text => {
                     session.message.text = text;
-                    console.log('=====    ' + util.inspect(text));
-                    //next();
+                    next();
                 })
                 .catch((error) => {
                     console.error(error);
-                    //next();
+                    next();
                 });
         }
     })
