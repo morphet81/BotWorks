@@ -6,6 +6,8 @@ var express     = require('express'),
     spellService = require('./spell-service'),
     util        = require('util');
 
+import { BingSpeechClient, VoiceRecognitionResponse } from 'bingspeech-api-client';
+
 spellService
     .getCorrectedText('whewsre iss pphoceiss')
     .then(text => {
@@ -90,7 +92,7 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
                     if(attachment.contentType == connector.WechatAttachmentType.Voice) {
                         console.log('Voice uploaded');
                         wechatConnector.wechatAPI.getMedia(attachment.content.mediaId, function (a1, a2, a3) {
-                            console.log(util.inspect(a3));
+                            console.log(util.inspect(a2));
                         });
                     }
                 }
