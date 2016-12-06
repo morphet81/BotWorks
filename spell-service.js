@@ -1,7 +1,8 @@
 // The exported functions in this module makes a call to Bing Spell Check API that returns spelling corrections.
 // For more info, check out the API reference:
 // https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/56e73036cf5ff81048ee6727
-const request = require('request');
+const   request     = require('request'),
+        util        = require('util');
 
 const SPELL_CHECK_API_URL = "https://api.cognitive.microsoft.com/bing/v5.0/spellcheck/?form=BCSSCK",
     SPELL_CHECK_API_KEY = process.env.BING_Spell_Check_API_KEY;
@@ -27,6 +28,7 @@ exports.getCorrectedText = text => {
                 }
 
                 request.post(requestData, (error, response, body) => {
+                    console.log(util.inspect(response));
                     if (error) {
                         reject(error);
                     }
