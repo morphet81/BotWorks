@@ -1,12 +1,16 @@
+//import { BingSpeechClient, VoiceRecognitionResponse } from 'bingspeech-api-client';
+
 require('dotenv-extended').load();
 
 var express     = require('express'),
     builder     = require('botbuilder'),
     connector   = require('botbuilder-wechat-connector'),
     spellService = require('./spell-service'),
-    util        = require('util');
+    util        = require('util'),
+    bingSpeech  = require('bingspeech-api-client');
 
-//import { BingSpeechClient, VoiceRecognitionResponse } from 'bingspeech-api-client';
+let subscriptionKey = 'cf5b5c31f63449d4917e0b1e5a8ce752';
+let speechClient = new bingSpeech.BingSpeechClient(subscriptionKey);
 
 spellService
     .getCorrectedText('whewsre iss pphoceiss')
@@ -91,8 +95,11 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
                     var attachment = message.attachments[i];
                     if(attachment.contentType == connector.WechatAttachmentType.Voice) {
                         console.log('Voice uploaded');
-                        wechatConnector.wechatAPI.getMedia(attachment.content.mediaId, function (a1, a2, a3) {
-                            console.log(util.inspect(a2));
+                        wechatConnector.wechatAPI.getMedia(attachment.content.mediaId, function (arg, data, response) {
+                            speechClient.recognize(data)
+                                .then(response => {
+                                    console.log(response.results[0].name);
+                                });
                         });
                     }
                 }
