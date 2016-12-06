@@ -3,6 +3,7 @@ require('dotenv-extended').load();
 var express     = require('express'),
     builder     = require('botbuilder'),
     connector   = require('botbuilder-wechat-connector'),
+    spellService = require('./spell-service'),
     util        = require('util');
 
 // Create http server
@@ -23,7 +24,6 @@ var wechatConnector = new connector.WechatConnector({
 });
 
 // Initialize regularly used WeChat medias
-console.log("")
 var bestTeamMatePicture;
 wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'image', function(arg, fileInformation) {
     console.log(util.inspect(fileInformation));
@@ -67,35 +67,25 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
         session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
     });
 
+if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
+    bot.use({
+        botbuilder: function (session, next) {
+            spellService
+                .getCorrectedText(session.message.text)
+                .then(text => {
+                    session.message.text = text;
+                    next();
+                })
+                .catch((error) => {
+                    console.error(error);
+                    next();
+                });
+        }
+    })
+}
+
 // Bot dialogs
 bot.dialog('/', intents);
-// bot.dialog('/', [
-//     function (session) {
-//         session.send("All right, ");
-//         // if (session.userData && session.userData.name) {
-//         //     if (session.message.attachments &&
-//         //         session.message.attachments.length > 0) {
-//         //         var atm = session.message.attachments[0];
-//         //         if (atm.contentType == connector.WechatAttachmentType.Image) {
-//         //             var msg = new builder.Message(session).attachments([atm]);
-//         //             session.send(msg);
-//         //         }
-//         //     }
-//         //     session.send("How are you, " + session.userData.name);
-//         // } else {
-//         //     builder.Prompts.text(session, "What's your name?");
-//         // }
-//     },
-//     function (session, results) {
-//         // session.userData.name = results.response;
-//         // session.send("OK, " + session.userData.name);
-//         // builder.Prompts.text(session, "What's your age?");
-//     },
-//     function (session, results) {
-//         // session.userData.age = results.response;
-//         // session.send("All right, " + results.response);
-//     }
-// ]);
 
 app.use('/wechat', wechatConnector.listen());
 
