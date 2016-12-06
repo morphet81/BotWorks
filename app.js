@@ -79,21 +79,35 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
 if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
     bot.use({
         botbuilder: function (session, next) {
+            var message = session.message;
 
             console.log(util.inspect(session.message.address.user));
-            console.log(util.inspect(session.message.attachments[0]));
-            console.log(util.inspect(session.message.attachments[1]));
 
-            spellService
-                .getCorrectedText(session.message.text)
-                .then(text => {
-                    session.message.text = text;
-                    next();
-                })
-                .catch((error) => {
-                    console.error(error);
-                    next();
-                });
+            if(message.attachments) {
+                for (var i = 0; i < message.attachments ; i++) {
+                    var attachment = message.attachments[i];
+                    if(attachment.contentType == connector.WechatAttachmentType.Voice) {
+                        console.log('Voice uploaded');
+                        connector.WechatAPI.getMedia(attachment.content.mediaId, function (a1, a2, a3) {
+                            console.log(util.inspect(a1));
+                            console.log(util.inspect(a2));
+                            console.log(util.inspect(a3));
+                        });
+                    }
+                }
+            }
+            else {
+                spellService
+                    .getCorrectedText(session.message.text)
+                    .then(text => {
+                        session.message.text = text;
+                        next();
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        next();
+                    });
+            }
         }
     })
 }
