@@ -41,8 +41,8 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
         session.send("Beer day is on Friday. Don't hesitate to ask Crystal for your favorite beer!");
     })
     .matches('GetBestTeamMate', (session, args) => {
-
-        wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'wechat/image', function(args) {
+        wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', AttachmentType.Image, function(args) {
+            console.log('======   ' + AttachmentType.Image);
             console.log(util.inspect(args));
             session.send("ok");
         });
