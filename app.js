@@ -6,7 +6,7 @@ var express     = require('express'),
     spellService = require('./spell-service'),
     util        = require('util');
 
-import { BingSpeechClient, VoiceRecognitionResponse } from 'bingspeech-api-client';
+//import { BingSpeechClient, VoiceRecognitionResponse } from 'bingspeech-api-client';
 
 spellService
     .getCorrectedText('whewsre iss pphoceiss')
