@@ -41,22 +41,19 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
         session.send("Beer day is on Friday. Don't hesitate to ask Crystal for your favorite beer!");
     })
     .matches('GetBestTeamMate', (session, args) => {
-        wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'image', function(a1, a2, a3) {
-            console.log(util.inspect(a1));
-            console.log(util.inspect(a2));
-            console.log(util.inspect(a3));
-            session.send("ok");
-        });
+        wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'image', function(arg, fileInformation) {
+            console.log(util.inspect(fileInformation));
 
-        // var msg = new builder.Message(session).attachments([
-        //     {
-        //         contentType: 'wechat/image',
-        //         content: {
-        //             mediaId: './assets/img/nespresso.jpeg'
-        //         }
-        //     }
-        // ]);
-        // session.send(msg);
+            var msg = new builder.Message(session).attachments([
+                {
+                    contentType: 'wechat/image',
+                    content: {
+                        mediaId: fileInformation.media_id
+                    }
+                }
+            ]);
+            session.send(msg);
+        });
     })
     .matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
     .onDefault((session) => {
