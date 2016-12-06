@@ -84,7 +84,8 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
             console.log(util.inspect(session.message.address.user));
 
             if(message.attachments) {
-                for (var i = 0; i < message.attachments ; i++) {
+                console.log('Message has %d attachments', message.attachments.length);
+                for (var i = 0; i < message.attachments.length ; i++) {
                     var attachment = message.attachments[i];
                     if(attachment.contentType == connector.WechatAttachmentType.Voice) {
                         console.log('Voice uploaded');
