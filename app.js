@@ -11,7 +11,8 @@ var express         = require('express'),
     guid            = require('guid'),
     base64          = require('base-64'),
     bingSpeech      = require('bingspeech-api-client'),
-    request         = require('request');
+    request         = require('request'),
+    FfmpegCommand   = require('fluent-ffmpeg');
 
 let subscriptionKey = 'cf5b5c31f63449d4917e0b1e5a8ce752';
 let speechClient = new bingSpeech.BingSpeechClient(subscriptionKey);
@@ -37,10 +38,18 @@ var wechatConnector = new connector.WechatConnector({
 
 
 
+var command = new FfmpegCommand();
+
+FfmpegCommand('/tmp/test.amr')
+    .save('/tmp/test.wav')
+    .on('stderr', function(stderrLine) {
+        console.log('Stderr output: ' + stderrLine);
+    });
 
 // require('request-debug')(request);
 
-let wav = fs.readFileSync('assets/sounds/hello_alex.wav');
+// let wav = fs.readFileSync('assets/sounds/hello_alex.wav');
+let wav = fs.readFileSync('tmp/test.amr');
 speechClient.recognize(wav)
     .then(response => {
         console.log(response.results[0].name);
@@ -55,7 +64,7 @@ const requestToken = {
     }
 };
 
-wechatConnector.wechatAPI.getMedia('-UliUrvo9ROVwgFmfXGWUKO7ao4E_l1KYfiprWmQzz8AWaSjn5928cYI_A_jlyUP', function (arg, data, response) {
+wechatConnector.wechatAPI.getMedia('tpxGnpRskgyGUH1WND9gKaobe7F8IBYykrcy8vQdPBIVbT9Dd2lsyVwqebTJB8nD', function (arg, data, response) {
     console.log(data);
 
     fs.writeFile("./tmp/test.amr", data, function(err) {
@@ -63,7 +72,7 @@ wechatConnector.wechatAPI.getMedia('-UliUrvo9ROVwgFmfXGWUKO7ao4E_l1KYfiprWmQzz8A
             return console.log(err);
         }
 
-        console.log("The file was saved!");
+        console.log("The file was saved to AMR");
     });
 });
 
