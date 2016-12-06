@@ -74,11 +74,12 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
                 .getCorrectedText(session.message.text)
                 .then(text => {
                     session.message.text = text;
-                    next();
+                    console.log('=====    ' + util.inspect(text));
+                    //next();
                 })
                 .catch((error) => {
                     console.error(error);
-                    next();
+                    //next();
                 });
         }
     })
