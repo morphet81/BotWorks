@@ -55,7 +55,7 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
             {
                 contentType: 'wechat/image',
                 content: {
-                    mediaId: fileInformation.media_id
+                    mediaId: bestTeamMatePicture
                 }
             }
         ]);
