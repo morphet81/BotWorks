@@ -89,7 +89,7 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
                     var attachment = message.attachments[i];
                     if(attachment.contentType == connector.WechatAttachmentType.Voice) {
                         console.log('Voice uploaded');
-                        connector.WechatAPI.getMedia(attachment.content.mediaId, function (a1, a2, a3) {
+                        wechatConnector.WechatAPI.getMedia(attachment.content.mediaId, function (a1, a2, a3) {
                             console.log(util.inspect(a1));
                             console.log(util.inspect(a2));
                             console.log(util.inspect(a3));
