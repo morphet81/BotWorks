@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/morphet81/BotWorks#readme",
   "dependencies": {
+    "bingspeech-api-client": "^2.0.1",
     "bluebird": "^3.4.6",
     "botbuilder": "^3.4.4",
     "botbuilder-wechat-connector": "^1.0.2",

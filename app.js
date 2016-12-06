@@ -79,6 +79,9 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
 if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
     bot.use({
         botbuilder: function (session, next) {
+
+            console.log(util.inspect(session));
+
             spellService
                 .getCorrectedText(session.message.text)
                 .then(text => {
