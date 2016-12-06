@@ -80,7 +80,9 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
     bot.use({
         botbuilder: function (session, next) {
 
-            console.log(util.inspect(session));
+            console.log(util.inspect(session.message.address.user));
+            console.log(util.inspect(session.message.attachments[0]));
+            console.log(util.inspect(session.message.attachments[1]));
 
             spellService
                 .getCorrectedText(session.message.text)
