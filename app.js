@@ -99,6 +99,7 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
                             speechClient.recognize(data)
                                 .then(response => {
                                     console.log(response.results[0].name);
+                                    // console.log(response.results[0].name);
                                 });
                         });
                     }
