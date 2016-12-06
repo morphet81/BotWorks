@@ -43,6 +43,7 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
     .matches('GetBestTeamMate', (session, args) => {
 
         wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'wechat/image', function(args) {
+            console.log(util.inspect(args));
             session.send("ok");
         });
 
