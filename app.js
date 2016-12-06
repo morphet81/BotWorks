@@ -2,24 +2,19 @@
 
 require('dotenv-extended').load();
 
-var express     = require('express'),
-    builder     = require('botbuilder'),
-    connector   = require('botbuilder-wechat-connector'),
-    spellService = require('./spell-service'),
-    util        = require('util'),
-    bingSpeech  = require('bingspeech-api-client');
+var express         = require('express'),
+    builder         = require('botbuilder'),
+    connector       = require('botbuilder-wechat-connector'),
+    spellService    = require('./spell-service'),
+    util            = require('util'),
+    fs              = require('fs'),
+    guid            = require('guid'),
+    base64          = require('base-64'),
+    bingSpeech      = require('bingspeech-api-client'),
+    request         = require('request');
 
 let subscriptionKey = 'cf5b5c31f63449d4917e0b1e5a8ce752';
 let speechClient = new bingSpeech.BingSpeechClient(subscriptionKey);
-
-spellService
-    .getCorrectedText('whewsre iss pphoceiss')
-    .then(text => {
-        console.log('=====    ' + util.inspect(text));
-    })
-    .catch((error) => {
-        console.error(error);
-    });
 
 // Create http server
 var app    = express();
@@ -38,10 +33,83 @@ var wechatConnector = new connector.WechatConnector({
     encodingAESKey: 'gkLTYN1OZ5sYHeWnROB0FbyOuFtNhHErcJQozpN6ZrQ'
 });
 
+
+
+
+
+
+// require('request-debug')(request);
+
+let wav = fs.readFileSync('assets/sounds/hello_alex.wav');
+speechClient.recognize(wav)
+    .then(response => {
+        console.log(response.results[0].name);
+    });
+
+
+const requestToken = {
+    url: 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken',
+    headers: {
+        "Ocp-Apim-Subscription-Key": 'cf5b5c31f63449d4917e0b1e5a8ce752',
+        "Content-Length": 0
+    }
+};
+
+wechatConnector.wechatAPI.getMedia('-UliUrvo9ROVwgFmfXGWUKO7ao4E_l1KYfiprWmQzz8AWaSjn5928cYI_A_jlyUP', function (arg, data, response) {
+    console.log(data);
+
+    fs.writeFile("./tmp/test.amr", data, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+
+        console.log("The file was saved!");
+    });
+});
+
+request.post(requestToken, (error, response, body) => {
+    // Building the request
+    const requestRecognition = {
+        url: 'https://speech.platform.bing.com/recognize',
+        headers: {
+            "Authorization": 'Bearer ' + base64.encode(body),
+            'Content-Type': 'audio/wav'
+        },
+        qs: {
+            version: '3.0',
+            requestid: guid.raw(),
+            appid: process.env.BING_APP_ID,
+            format: 'json',
+            locale: 'en-US',
+            'device.os': 'Android',
+            scenarios: 'ulm',
+            instanceid: guid.raw()          // TODO: change that. should be unique per device
+        },
+        data: wav
+    };
+
+    request.post(requestRecognition, (error, response, body) => {
+        console.log(body);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Initialize regularly used WeChat medias
 var bestTeamMatePicture;
 wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'image', function(arg, fileInformation) {
-    console.log(util.inspect(fileInformation));
     bestTeamMatePicture = fileInformation.media_id;
 });
 
@@ -89,12 +157,15 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
 
             console.log(util.inspect(session.message.address.user));
 
+            var treatedAttachments = false;
+
             if(message.attachments) {
                 console.log('Message has %d attachments', message.attachments.length);
                 for (var i = 0; i < message.attachments.length ; i++) {
                     var attachment = message.attachments[i];
                     if(attachment.contentType == connector.WechatAttachmentType.Voice) {
-                        console.log('Voice uploaded');
+                        console.log('Voice with id %s uploaded', attachment.content.mediaId);
+                        treatedAttachments = true;
                         wechatConnector.wechatAPI.getMedia(attachment.content.mediaId, function (arg, data, response) {
                             speechClient.recognize(data)
                                 .then(response => {
@@ -105,7 +176,8 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
                     }
                 }
             }
-            else {
+
+            if(!treatedAttachments) {
                 spellService
                     .getCorrectedText(session.message.text)
                     .then(text => {
