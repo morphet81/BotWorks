@@ -49,6 +49,7 @@ if(isWin) {
     cmd = '.\\assets\\ffmpeg\\ffmpeg -y -i .\\tmp\\test.amr .\\tmp\\test.wav';
 }
 
+console.log('Will execute commange "%s"', cmd);
 exec(cmd, function(error, stdout, stderr) {
     console.log('======   ' + stdout);
     if(error) {
