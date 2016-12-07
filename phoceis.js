@@ -40,13 +40,15 @@ module.exports = {
         .onDefault((session) => {
             // session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
 
-            builder.Prompts.choice(
-                session,
-                'Are you looking for a flight or a hotel?',
-                ['YES', 'NO'],
-                {
-                    maxRetries: 3,
-                    retryPrompt: 'Not a valid option'
-                });
+            session.send(session.preferredLocale());
+
+            // builder.Prompts.choice(
+            //     session,
+            //     'Are you looking for a flight or a hotel?',
+            //     ['YES', 'NO'],
+            //     {
+            //         maxRetries: 3,
+            //         retryPrompt: 'Not a valid option'
+            //     });
         })
 };
