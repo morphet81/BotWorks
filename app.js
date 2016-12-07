@@ -148,11 +148,14 @@ function ffmpegConvert(input, output, callback) {
                                             if(!error) {
                                                 // Send WAV to Microsoft speech recognition
                                                 let wav = fs.readFileSync(output);
-                                                console.log('>>>>    ' + wav);
                                                 speechClient.recognize(wav)
                                                     .then(response => {
-                                                        // console.log('======    ' + response.results[0].name);
-                                                        console.log('======    ' + util.inspect(response));
+                                                        if(response.results) {
+                                                            console.log('======    ' + response.results[0].name);
+                                                        }
+                                                        else {
+                                                            session.send('Sorry, we did\'t understand what you said. Please check your microphone or speak louder.');
+                                                        }
                                                     });
                                             }
                                             else {
