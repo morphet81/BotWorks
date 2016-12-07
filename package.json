@@ -25,7 +25,6 @@
   "homepage": "https://github.com/morphet81/BotWorks#readme",
   "dependencies": {
     "audiobuffer-to-wav": "^1.0.0",
-    "base-64": "^0.1.0",
     "bingspeech-api-client": "^2.0.1",
     "bluebird": "^3.4.6",
     "botbuilder": "^3.4.4",
