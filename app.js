@@ -12,7 +12,8 @@ var express         = require('express'),
     base64          = require('base-64'),
     bingSpeech      = require('bingspeech-api-client'),
     request         = require('request'),
-    FfmpegCommand   = require('fluent-ffmpeg');
+    FfmpegCommand   = require('fluent-ffmpeg'),
+    exec            = require('child_process').exec;
 
 let subscriptionKey = 'cf5b5c31f63449d4917e0b1e5a8ce752';
 let speechClient = new bingSpeech.BingSpeechClient(subscriptionKey);
@@ -37,19 +38,31 @@ var wechatConnector = new connector.WechatConnector({
 
 
 
+var isWin = /^win/.test(process.platform);
+var cmd = 'ffmpeg -y -i ./tmp/test.amr ./tmp/test.wav';
 
-var command = new FfmpegCommand();
+if(isWin) {
 
-FfmpegCommand('/tmp/test.amr')
-    .save('/tmp/test.wav')
-    .on('stderr', function(stderrLine) {
-        console.log('Stderr output: ' + stderrLine);
-    });
+}
+
+exec(cmd, function(error, stdout, stderr) {
+    if(error) {
+        console.log("There was an error " + error);
+    }
+});
+
+// var command = new FfmpegCommand();
+//
+// FfmpegCommand('/tmp/test.amr')
+//     .save('/tmp/test.wav')
+//     .on('stderr', function(stderrLine) {
+//         console.log('Stderr output: ' + stderrLine);
+//     });
 
 // require('request-debug')(request);
 
 // let wav = fs.readFileSync('assets/sounds/hello_alex.wav');
-let wav = fs.readFileSync('tmp/test.amr');
+let wav = fs.readFileSync('tmp/test.wav');
 speechClient.recognize(wav)
     .then(response => {
         console.log(response.results[0].name);
@@ -64,7 +77,7 @@ const requestToken = {
     }
 };
 
-wechatConnector.wechatAPI.getMedia('tpxGnpRskgyGUH1WND9gKaobe7F8IBYykrcy8vQdPBIVbT9Dd2lsyVwqebTJB8nD', function (arg, data, response) {
+wechatConnector.wechatAPI.getMedia('bELszyADztXmQ5DdbJkv4hobtUgzDX6HifbEmZ4lXsW1fdgC_c9MZ6PxiHepu-a-', function (arg, data, response) {
     console.log(data);
 
     fs.writeFile("./tmp/test.amr", data, function(err) {
