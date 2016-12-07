@@ -148,7 +148,7 @@ function ffmpegConvert(input, output, callback) {
                                             if(!error) {
                                                 // Send WAV to Microsoft speech recognition
                                                 let wav = fs.readFileSync(output);
-                                                console.log('>>>>    ' + wav;
+                                                console.log('>>>>    ' + wav);
                                                 speechClient.recognize(wav)
                                                     .then(response => {
                                                         // console.log('======    ' + response.results[0].name);
