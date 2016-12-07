@@ -39,6 +39,11 @@ var wechatConnector = new connector.WechatConnector({
 
 
 
+exec('ls', function(error, stdout, stderr) {
+    console.log('======   ' + stdout);
+});
+
+
 var isWin = /^win/.test(process.platform);
 var cmd = 'ffmpeg -y -i ./tmp/test.amr ./tmp/test.wav';
 
