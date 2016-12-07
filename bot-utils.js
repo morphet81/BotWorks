@@ -1,6 +1,6 @@
 var exec = require('child_process').exec;
 
-module.exports = function(wechatConnector) {
+module.exports = () => {
     var module = {};
 
     // Convert a file with ffmpeg

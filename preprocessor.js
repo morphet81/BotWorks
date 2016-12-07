@@ -3,7 +3,8 @@ var spellService    = require('./spell-service'),
     util            = require('util'),
     fs              = require('fs'),
     guid            = require('guid'),
-    bingSpeech      = require('bingspeech-api-client');
+    bingSpeech      = require('bingspeech-api-client'),
+    botUtils        = require('./bot-utils');
 
 let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
 
@@ -39,7 +40,7 @@ module.exports = function(wechatConnector) {
                             }
                             else {
                                 // Convert the AMR file to WAV
-                                ffmpegConvert(amrFile, wavFile, function (error, stdout, stderr, output) {
+                                botUtils.ffmpegConvert(amrFile, wavFile, function (error, stdout, stderr, output) {
                                     if(!error) {
                                         // Send WAV to Microsoft speech recognition
                                         let wav = fs.readFileSync(output);
