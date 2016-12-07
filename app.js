@@ -42,7 +42,7 @@ var isWin = /^win/.test(process.platform);
 var cmd = 'ffmpeg -y -i ./tmp/test.amr ./tmp/test.wav';
 
 if(isWin) {
-
+    cmd = './assets/ffmpeg/ffmpeg -y -i ./tmp/test.amr ./tmp/test.wav';
 }
 
 exec(cmd, function(error, stdout, stderr) {
