@@ -71,59 +71,62 @@ exec(cmd, function(error, stdout, stderr) {
 
 // require('request-debug')(request);
 
-// let wav = fs.readFileSync('assets/sounds/hello_alex.wav');
-let wav = fs.readFileSync('tmp/test.wav');
-speechClient.recognize(wav)
-    .then(response => {
-        console.log(response.results[0].name);
-    });
 
 
-const requestToken = {
-    url: 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken',
-    headers: {
-        "Ocp-Apim-Subscription-Key": 'cf5b5c31f63449d4917e0b1e5a8ce752',
-        "Content-Length": 0
-    }
-};
 
-wechatConnector.wechatAPI.getMedia('bELszyADztXmQ5DdbJkv4hobtUgzDX6HifbEmZ4lXsW1fdgC_c9MZ6PxiHepu-a-', function (arg, data, response) {
-    console.log(data);
 
-    fs.writeFile("./tmp/test.amr", data, function(err) {
-        if(err) {
-            return console.log(err);
-        }
-
-        console.log("The file was saved to AMR");
-    });
-});
-
-request.post(requestToken, (error, response, body) => {
-    // Building the request
-    const requestRecognition = {
-        url: 'https://speech.platform.bing.com/recognize',
-        headers: {
-            "Authorization": 'Bearer ' + base64.encode(body),
-            'Content-Type': 'audio/wav'
-        },
-        qs: {
-            version: '3.0',
-            requestid: guid.raw(),
-            appid: process.env.BING_APP_ID,
-            format: 'json',
-            locale: 'en-US',
-            'device.os': 'Android',
-            scenarios: 'ulm',
-            instanceid: guid.raw()          // TODO: change that. should be unique per device
-        },
-        data: wav
-    };
-
-    request.post(requestRecognition, (error, response, body) => {
-        console.log(body);
-    });
-});
+// let wav = fs.readFileSync('tmp/test.wav');
+// speechClient.recognize(wav)
+//     .then(response => {
+//         console.log(response.results[0].name);
+//     });
+//
+//
+// const requestToken = {
+//     url: 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken',
+//     headers: {
+//         "Ocp-Apim-Subscription-Key": 'cf5b5c31f63449d4917e0b1e5a8ce752',
+//         "Content-Length": 0
+//     }
+// };
+//
+// wechatConnector.wechatAPI.getMedia('bELszyADztXmQ5DdbJkv4hobtUgzDX6HifbEmZ4lXsW1fdgC_c9MZ6PxiHepu-a-', function (arg, data, response) {
+//     console.log(data);
+//
+//     fs.writeFile("./tmp/test.amr", data, function(err) {
+//         if(err) {
+//             return console.log(err);
+//         }
+//
+//         console.log("The file was saved to AMR");
+//     });
+// });
+//
+// request.post(requestToken, (error, response, body) => {
+//     // Building the request
+//     const requestRecognition = {
+//         url: 'https://speech.platform.bing.com/recognize',
+//         headers: {
+//             "Authorization": 'Bearer ' + base64.encode(body),
+//             'Content-Type': 'audio/wav'
+//         },
+//         qs: {
+//             version: '3.0',
+//             requestid: guid.raw(),
+//             appid: process.env.BING_APP_ID,
+//             format: 'json',
+//             locale: 'en-US',
+//             'device.os': 'Android',
+//             scenarios: 'ulm',
+//             instanceid: guid.raw()          // TODO: change that. should be unique per device
+//         },
+//         data: wav
+//     };
+//
+//     request.post(requestRecognition, (error, response, body) => {
+//         console.log(body);
+//     });
+// });
 
 
 
