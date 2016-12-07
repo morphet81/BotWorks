@@ -87,7 +87,16 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
     })
     .matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
     .onDefault((session) => {
-        session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+        // session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+
+        builder.Prompts.choice(
+            session,
+            'Are you looking for a flight or a hotel?',
+            ['YES', 'NO'],
+            {
+                maxRetries: 3,
+                retryPrompt: 'Not a valid option'
+            });
     });
 
 // Pre-treatment of the message
