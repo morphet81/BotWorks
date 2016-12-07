@@ -49,7 +49,7 @@ function ffmpegConvert(input, output, callback) {
     });
 };
 
-
+var phoceis = require('./phoceis');
 
 // Build the bot
 var bot = new builder.UniversalBot(wechatConnector);
@@ -173,7 +173,7 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
 }
 
 // Bot dialogs
-bot.dialog('/', intents);
+bot.dialog('/', phoceis.Dialog);
 
 app.use('/wechat', wechatConnector.listen());
 
