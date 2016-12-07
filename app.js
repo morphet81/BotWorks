@@ -144,7 +144,7 @@ function ffmpegConvert(input, output, callback) {
                                     }
                                     else {
                                         // Convert the AMR file to WAV
-                                        ffmpegConvert(input, output, function (error, stdout, stderr, output) {
+                                        ffmpegConvert(amrFile, wavFile, function (error, stdout, stderr, output) {
                                             if(!error) {
                                                 // Send WAV to Microsoft speech recognition
                                                 let wav = fs.readFileSync(output);
