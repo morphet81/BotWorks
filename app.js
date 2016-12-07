@@ -39,9 +39,6 @@ var wechatConnector = new connector.WechatConnector({
 
 
 
-exec('ls', function(error, stdout, stderr) {
-    console.log('======   ' + stdout);
-});
 
 
 var isWin = /^win/.test(process.platform);
