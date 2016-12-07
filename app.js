@@ -55,23 +55,23 @@ function ffmpegConvert(input, output, callback) {
     });
 };
 
-var isWin = /^win/.test(process.platform);
-var input = isWin ? '.\\tmp\\test.amr' : './tmp/test.amr';
-var output = isWin ? '.\\tmp\\test.wav' : './tmp/test.wav';
-
-ffmpegConvert(input, output, function (error, stdout, stderr, output) {
-    if(!error) {
-        let wav = fs.readFileSync(output);
-
-        speechClient.recognize(wav)
-            .then(response => {
-                console.log('======    ' + response.results[0].name);
-            });
-    }
-    else {
-        console.log("There was an error " + error);
-    }
-});
+// var isWin = /^win/.test(process.platform);
+// var input = isWin ? '.\\tmp\\test.amr' : './tmp/test.amr';
+// var output = isWin ? '.\\tmp\\test.wav' : './tmp/test.wav';
+//
+// ffmpegConvert(input, output, function (error, stdout, stderr, output) {
+//     if(!error) {
+//         let wav = fs.readFileSync(output);
+//
+//         speechClient.recognize(wav)
+//             .then(response => {
+//                 console.log('======    ' + response.results[0].name);
+//             });
+//     }
+//     else {
+//         console.log("There was an error " + error);
+//     }
+// });
 
 
 
@@ -132,7 +132,33 @@ ffmpegConvert(input, output, function (error, stdout, stderr, output) {
                             console.log('Voice with id %s uploaded', attachment.content.mediaId);
                             treatedAttachments = true;
                             wechatConnector.wechatAPI.getMedia(attachment.content.mediaId, function (arg, data, response) {
+                                // Define temp files names
+                                var tempFileName = guid.raw(),
+                                    amrFile = './tmp/' + tempFileName + '.amr',
+                                    wavFile = './tmp/' + tempFileName + '.wav';
 
+                                // Write the voice message in tmp folder
+                                fs.writeFile(amrFile, data, function(err) {
+                                    if(err) {
+                                        return console.log("Error while writing file " + err);
+                                    }
+                                    else {
+                                        // Convert the AMR file to WAV
+                                        ffmpegConvert(input, output, function (error, stdout, stderr, output) {
+                                            if(!error) {
+                                                // Send WAV to Microsoft speech recognition
+                                                let wav = fs.readFileSync(output);
+                                                speechClient.recognize(wav)
+                                                    .then(response => {
+                                                        console.log('======    ' + response.results[0].name);
+                                                    });
+                                            }
+                                            else {
+                                                console.log("There was an error " + error);
+                                            }
+                                        });
+                                    }
+                                });
                             });
                         }
                     }
