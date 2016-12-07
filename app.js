@@ -12,7 +12,6 @@ var express         = require('express'),
     base64          = require('base-64'),
     bingSpeech      = require('bingspeech-api-client'),
     request         = require('request'),
-    FfmpegCommand   = require('fluent-ffmpeg'),
     exec            = require('child_process').exec;
 
 let subscriptionKey = 'cf5b5c31f63449d4917e0b1e5a8ce752';
@@ -49,7 +48,7 @@ if(isWin) {
     cmd = '.\\assets\\ffmpeg\\ffmpeg -y -i .\\tmp\\test.amr .\\tmp\\test.wav';
 }
 
-console.log('Will execute commange "%s"', cmd);
+console.log('Will execute command "%s"', cmd);
 exec(cmd, function(error, stdout, stderr) {
     console.log('======   ' + stdout);
     if(error) {
@@ -135,11 +134,6 @@ request.post(requestToken, (error, response, body) => {
 
 
 
-// Initialize regularly used WeChat medias
-var bestTeamMatePicture;
-wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'image', function(arg, fileInformation) {
-    bestTeamMatePicture = fileInformation.media_id;
-});
 
 // Build the bot
 var bot = new builder.UniversalBot(wechatConnector);
@@ -161,17 +155,18 @@ var intents = new builder.IntentDialog({ recognizers: [englishRecognizer, chines
         session.send("Beer day is on Friday. Don't hesitate to ask Crystal for your favorite beer!");
     })
     .matches('GetBestTeamMate', (session, args) => {
-
-        var msg = new builder.Message(session).attachments([
-            {
-                contentType: 'wechat/image',
-                content: {
-                    mediaId: bestTeamMatePicture
+        wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'image', function(arg, fileInformation) {
+            var msg = new builder.Message(session).attachments([
+                {
+                    contentType: 'wechat/image',
+                    content: {
+                        mediaId: fileInformation.media_id
+                    }
                 }
-            }
-        ]);
-        session.send(msg);
-        session.send('Please meet our best team mate! Always there when energy is decreasing a bit!')
+            ]);
+            session.send(msg);
+            session.send('Please meet our best team mate! Always there when energy is decreasing a bit!')
+        });
     })
     .matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
     .onDefault((session) => {

@@ -30,19 +30,14 @@
     "bluebird": "^3.4.6",
     "botbuilder": "^3.4.4",
     "botbuilder-wechat-connector": "^1.0.2",
-    "brfs": "^1.4.3",
     "bunyan": "^1.8.5",
     "child_process": "^1.0.2",
     "dotenv-extended": "^1.0.4",
     "express": "^4.14.0",
-    "fluent-ffmpeg": "^2.1.0",
     "fs": "0.0.1-security",
     "guid": "0.0.12",
     "request": "^2.79.0",
-    "restify": "^4.3.0",
-    "wav-encoder": "^1.1.0",
-    "wavencoder": "^1.0.0",
-    "xhr": "^2.3.1"
+    "restify": "^4.3.0"
   },
   "devDependencies": {}
 }
