@@ -150,7 +150,8 @@ function ffmpegConvert(input, output, callback) {
                                                 let wav = fs.readFileSync(output);
                                                 speechClient.recognize(wav)
                                                     .then(response => {
-                                                        console.log('======    ' + response.results[0].name);
+                                                        // console.log('======    ' + response.results[0].name);
+                                                        console.log('======    ' + util.inspect(response));
                                                     });
                                             }
                                             else {
