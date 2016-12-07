@@ -5,7 +5,6 @@ var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL
 var chineseRecognizer = new builder.LuisRecognizer(process.env.LUIS_CN_MODEL_URL);
 
 module.exports = {
-    Label: 'Hotels',
     Dialog: new builder.IntentDialog({ recognizers: [englishRecognizer, chineseRecognizer] })
         .matches('GetPhoceisSize', (session, args) => {
             session.send("There are currently 7 Phoceis team members");

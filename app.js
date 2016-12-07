@@ -20,6 +20,7 @@ var wechatConnector = new connector.WechatConnector({
 });
 
 // Internal modules
+var welcome = require('./welcome');
 var phoceis = require('./phoceis');
 var preprocessor = require('./preprocessor')(wechatConnector);
 
@@ -28,7 +29,15 @@ var preprocessor = require('./preprocessor')(wechatConnector);
 /**********-**************/
 
 // Build the WeChat bot
-var bot = new builder.UniversalBot(wechatConnector);
+var bot = new builder.UniversalBot(
+    wechatConnector,
+    {
+        localizerSettings: {
+            botLocalePath: "./locale",
+            defaultLocale: "en"
+        }
+    }
+);
 
 // Pre-treatment of the message
 if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
@@ -38,7 +47,8 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
 }
 
 // Bot dialogs
-bot.dialog('/', phoceis.Dialog);
+bot.dialog('/', welcome.Dialog);
+bot.dialog('/phoceis', phoceis.Dialog);
 
 app.use('/wechat', wechatConnector.listen());
 
@@ -51,14 +61,23 @@ var microsoftConnector = new builder.ChatConnector({
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 
-var microsoftBot = new builder.UniversalBot(microsoftConnector);
+var microsoftBot = new builder.UniversalBot(
+    microsoftConnector,
+    {
+        localizerSettings: {
+            botLocalePath: "./locale",
+            defaultLocale: "en"
+        }
+    }
+);
 
 // Bot dialogs
-microsoftBot.dialog('/', phoceis.Dialog);
+microsoftBot.dialog('/', welcome.Dialog);
+microsoftBot.dialog('/phoceis', phoceis.Dialog);
 
 // Pre-treatment of the message
 if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
-    bot.use({
+    microsoftBot.use({
         botbuilder: preprocessor.Core
     })
 }
