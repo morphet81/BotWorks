@@ -152,6 +152,8 @@ function ffmpegConvert(input, output, callback) {
                                                     .then(response => {
                                                         if(response.results) {
                                                             console.log('======    ' + response.results[0].name);
+                                                            session.message.text = response.results[0].name;
+                                                            next();
                                                         }
                                                         else {
                                                             session.send('Sorry, we did\'t understand what you said. Please check your microphone or speak louder.');
