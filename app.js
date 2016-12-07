@@ -46,7 +46,7 @@ var cmd = 'ffmpeg -y -i ./tmp/test.amr ./tmp/test.wav';
 console.log(isWin ? "WINDOWS" : "UNIX");
 
 if(isWin) {
-    cmd = './assets/ffmpeg/ffmpeg -y -i ./tmp/test.amr ./tmp/test.wav';
+    cmd = '.\\assets\\ffmpeg\\ffmpeg -y -i .\\tmp\\test.amr .\\tmp\\test.wav';
 }
 
 exec(cmd, function(error, stdout, stderr) {
