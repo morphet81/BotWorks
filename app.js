@@ -17,7 +17,7 @@ var express         = require('express'),
 let subscriptionKey = 'cf5b5c31f63449d4917e0b1e5a8ce752';
 let speechClient = new bingSpeech.BingSpeechClient(subscriptionKey);
 
-require('request-debug')(request);
+// require('request-debug')(request);
 
 // Create http server
 var app    = express();
