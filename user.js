@@ -1,5 +1,6 @@
 var CacheController = require('node-cache'),
-    botUtils        = require('./bot-utils');
+    botUtils        = require('./bot-utils'),
+    util            = require('util');
 
 var nodeCache = new CacheController();
 
@@ -10,6 +11,8 @@ function User() {
 
     this.save = () => {
         nodeCache.set(this.id, this);
+
+        console.log(util.inspect(this));
     }
 };
 
