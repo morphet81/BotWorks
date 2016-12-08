@@ -14,12 +14,12 @@ var localePromptDialog = [
         // Update preferred locale
         var locale = botUtils.getLocaleCode(results.response.entity);
 
-        // Save user's locale
-        user.locale = locale;
-        user.save();
-
         session.preferredLocale(locale, function (err) {
             if (!err) {
+                // Save user's locale
+                user.locale = locale;
+                user.save();
+
                 session.send('locale_updated');
                 session.replaceDialog('/name_prompt');
             } else {
