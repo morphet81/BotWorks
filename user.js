@@ -11,8 +11,6 @@ function User() {
 
     this.save = () => {
         nodeCache.set(this.id, this);
-
-        console.log(util.inspect(this));
     }
 };
 

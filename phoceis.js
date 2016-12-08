@@ -1,6 +1,6 @@
 var builder     = require('botbuilder'),
     botUtils    = require('./bot-utils'),
-    user        = require('./user');
+    botUser     = require('./user');
 
 // Main dialog with LUIS
 var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL);
@@ -46,8 +46,9 @@ module.exports = (wechatConnector) => {
                 else {
                     session.preferredLocale(localeCode, function (err) {
                         if (!err) {
-                            user.getUser(session).locale = localeCode;
-                            user.getUser(session).save();
+                            var user = botUser.getUser(session);
+                            user.locale = localeCode;
+                            user.save();
                             session.send('change_locale_ok', newLocale);
                         } else {
                             session.error(err);
