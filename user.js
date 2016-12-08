@@ -16,7 +16,11 @@ function User() {
                 console.log('Error while saving user %s', err);
             }
         });
-    }
+    };
+
+    this.setLocale = (locale) => {
+        this.locale = locale;
+    };
 };
 
 module.exports = {
