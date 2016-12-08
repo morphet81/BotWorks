@@ -43,6 +43,7 @@ module.exports = function(wechatConnector) {
                                     if(!error) {
                                         // Send WAV to Microsoft speech recognition
                                         let wav = fs.readFileSync(output);
+                                        console.log('========  %s', user.getUser(session).locale);
                                         speechClient.recognize(wav, user.getUser(session).locale)
                                             .then(response => {
                                                 if(response.results) {
