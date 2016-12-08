@@ -51,8 +51,6 @@ module.exports = (wechatConnector) => {
                         } else {
                             session.error(err);
                         }
-
-                        console.log('=====   %s    %s  ', localeCode, botUser.getUser(session).locale);
                     });
                 }
             }

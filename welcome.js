@@ -17,8 +17,7 @@ var localePromptDialog = [
         session.preferredLocale(locale, function (err) {
             if (!err) {
                 // Save user's locale
-                user.locale = locale;
-                user.save();
+                botUser.getUser(session).setLocale(locale);
 
                 session.send('locale_updated');
                 session.replaceDialog('/name_prompt');
