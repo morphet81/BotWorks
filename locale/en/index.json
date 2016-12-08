@@ -9,5 +9,9 @@
   "phoceis_location": "Phoceis Asia is located in Shanghai, 655 Changhua Road",
   "phoceis_beer_day": "Beer day is on Friday. Don't hesitate to ask Crystal for your favorite beer!",
   "phoceis_best_teammate": "Please meet our best teammate! Always there when energy is decreasing a bit!",
-  "phoceis_help": "You can ask anything about Phoceis, by text or voice message. If there is no answer yet, please excuse me, I am still learning :-)"
+  "phoceis_help": "You can ask anything about Phoceis, by text or voice message. If there is no answer yet, please excuse me, I am still learning :-)",
+
+  "change_locale_no_locale": "I think you did not mention any language... Please could you try again?",
+  "change_locale_not_found": "Sorry, I don't speak %s yet :-( ",
+  "change_locale_ok": "Alright! Let's start speaking %s"
 }

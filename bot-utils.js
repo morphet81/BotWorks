@@ -64,5 +64,21 @@ module.exports = {
 
             session.send(msg);
         }
+    },
+
+    // Get a locale code
+    getLocaleCode: (locale) => {
+        switch (locale.toLowerCase()) {
+            case 'english':
+            case 'american':
+            case '英文':
+            case '英语':
+                return 'en-us';
+            case '中文':
+            case '汉语':
+            case 'chinese':
+            case 'mandarin':
+                return 'zh-cn';
+        }
     }
 };

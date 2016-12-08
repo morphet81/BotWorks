@@ -9,5 +9,9 @@
   "phoceis_location": "上海市静安区昌化路655号二楼B7 200041",
   "phoceis_beer_day": "啤酒日在星期五。 不要犹豫，问水晶你最喜欢的啤酒！",
   "phoceis_best_teammate": "请见我们最好的队友！ 总是在那里，能量减少了一点！",
-  "phoceis_help": "你可以通过文本或语音消息询问有关Phoceis的任何信息。 如果还没有答案，请原谅我，我还在学习"
+  "phoceis_help": "你可以通过文本或语音消息询问有关Phoceis的任何信息。 如果还没有答案，请原谅我，我还在学习",
+
+  "change_locale_no_locale": "我想你没有提到任何语言...请你再试一次？",
+  "change_locale_not_found": "对不起，我还不说%s :-( ",
+  "change_locale_ok": "好的！ 让我们开始说%s"
 }

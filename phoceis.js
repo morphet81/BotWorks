@@ -25,6 +25,34 @@ module.exports = (wechatConnector) => {
             botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg');
             session.send('phoceis_best_teammate');
         })
+        .matches('ChangeLocale', (session, args) => {
+            var newLocale;
+            for(var i=0 ; i<args.entities.length ; i++) {
+                if(args.entities[i].type == 'Locale') {
+                    newLocale = args.entities[i].entity;
+                }
+            }
+
+            if(newLocale == undefined) {
+                session.send('change_locale_no_locale');
+            }
+            else {
+                var localeCode = botUtils.getLocaleCode(newLocale);
+
+                if(localeCode == undefined) {
+                    session.send('change_locale_not_found', newLocale);
+                }
+                else {
+                    session.preferredLocale(localeCode, function (err) {
+                        if (!err) {
+                            session.send('change_locale_ok', newLocale);
+                        } else {
+                            session.error(err);
+                        }
+                    });
+                }
+            }
+        })
         .matches('Help', builder.DialogAction.send('phoceis_help'))
         .onDefault((session) => {
             if(session.message.introduction) {

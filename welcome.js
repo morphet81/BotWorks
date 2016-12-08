@@ -1,5 +1,6 @@
 var builder = require('botbuilder')
     botUser = require('./user'),
+    botUtils = require('./bot-utils'),
     util = require('util');
 
 var localePromptDialog = [
@@ -11,15 +12,7 @@ var localePromptDialog = [
         var user = botUser.getUser(session);
 
         // Update preferred locale
-        var locale;
-        switch (results.response.entity) {
-            case 'English':
-                locale = 'en-us';
-                break;
-            case '中文':
-                locale = 'zh-cn';
-                break;
-        }
+        var locale = botUtils.getLocaleCode(results.response.entity);
 
         // Save user's locale
         user.locale = locale;
