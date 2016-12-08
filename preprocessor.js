@@ -43,7 +43,7 @@ module.exports = function(wechatConnector) {
                                     if(!error) {
                                         // Send WAV to Microsoft speech recognition
                                         let wav = fs.readFileSync(output);
-                                        console.log('========  %s', user.getUser(session).locale);
+                                        // console.log('========  %s', user.getUser(session).locale);
                                         speechClient.recognize(wav, user.getUser(session).locale)
                                             .then(response => {
                                                 if(response.results) {
@@ -52,7 +52,7 @@ module.exports = function(wechatConnector) {
                                                     next();
                                                 }
                                                 else {
-                                                    session.send('Sorry, we did\'t understand what you said. Please check your microphone or speak louder.');
+                                                    session.send('audio_bad');
                                                 }
                                             });
                                     }
