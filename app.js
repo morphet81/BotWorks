@@ -20,8 +20,8 @@ var wechatConnector = new connector.WechatConnector({
 });
 
 // Internal modules
-var welcome = require('./welcome');
-var phoceis = require('./phoceis');
+var phoceis = require('./phoceis')(wechatConnector);
+var welcome = require('./welcome')('/phoceis');
 var preprocessor = require('./preprocessor')(wechatConnector);
 
 /**********-**************/
@@ -47,8 +47,9 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
 }
 
 // Bot dialogs
-bot.dialog('/', welcome.Dialog);
-bot.dialog('/phoceis', phoceis.Dialog);
+bot.dialog('/', welcome.dialog);
+bot.dialog('/phoceis', phoceis.dialog);
+welcome.initDialogs(bot);
 
 app.use('/wechat', wechatConnector.listen());
 
@@ -72,8 +73,9 @@ var microsoftBot = new builder.UniversalBot(
 );
 
 // Bot dialogs
-microsoftBot.dialog('/', welcome.Dialog);
-microsoftBot.dialog('/phoceis', phoceis.Dialog);
+microsoftBot.dialog('/', welcome.dialog);
+microsoftBot.dialog('/phoceis', phoceis.dialog);
+welcome.initDialogs(microsoftBot);
 
 // Pre-treatment of the message
 if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {

@@ -14,5 +14,15 @@ module.exports = {
         exec(cmd, function(error, stdout, stderr) {
             callback(error, stdout, stderr, output);
         });
+    },
+
+    // Get user information from session
+    getSessionUserId: function(session) {
+        return session.message.address.user.id;
+    },
+
+    // Get user information from session
+    getSessionUserName: function(session) {
+        return session.message.address.user.name;
     }
 };

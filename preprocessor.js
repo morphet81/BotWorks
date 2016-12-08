@@ -16,8 +16,6 @@ module.exports = function(wechatConnector) {
     module.Core = function (session, next) {
         var message = session.message;
 
-        console.log('=====    ' + util.inspect(session.message.address.user));
-
         var treatedAttachments = false;
 
         if(message.attachments) {

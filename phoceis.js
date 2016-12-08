@@ -4,24 +4,26 @@ var builder = require('botbuilder');
 var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL);
 var chineseRecognizer = new builder.LuisRecognizer(process.env.LUIS_CN_MODEL_URL);
 
-module.exports = {
-    Dialog: new builder.IntentDialog({ recognizers: [englishRecognizer, chineseRecognizer] })
-        .matches('GetPhoceisSize', (session, args) => {
-            session.send("There are currently 7 Phoceis team members");
+module.exports = (wechatConnector) => {
+    var module = {};
+
+    module.dialog = new builder.IntentDialog({ recognizers: [englishRecognizer, chineseRecognizer] })
+        .matches('Introduction', (session) => {
+            session.send('phoceis_dialog_intro');
         })
-        .matches('GetPhoceisLocation', (session, args) => {
-            session.send("Phoceis Asia is located in Shanghai, 655 Changhua Road");
+        .matches('GetPhoceisSize', (session) => {
+            session.send('phoceis_members_count');
         })
-        .matches(/^GetPhoceisLocationCN/i, (session) => {
-            session.send("Phoceis Asia is located in Shanghai, 655 Changhua Road");
+        .matches('GetPhoceisLocation', (session) => {
+            session.send('phoceis_location');
         })
-        .matches('GetPhoceisLocationCN', (session, args) => {
-            session.send("Yep, c'est loupé.....");
+        .matches('GetBeerDay', (session) => {
+            session.send('phoceis_beer_day');
         })
-        .matches('GetBeerDay', (session, args) => {
-            session.send("Beer day is on Friday. Don't hesitate to ask Crystal for your favorite beer!");
-        })
-        .matches('GetBestTeamMate', (session, args) => {
+        .matches('GetBestTeamMate', (session) => {
+
+            console.log(util.inspect(session.message));
+
             wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'image', function(arg, fileInformation) {
                 var msg = new builder.Message(session).attachments([
                     {
@@ -32,22 +34,18 @@ module.exports = {
                     }
                 ]);
                 session.send(msg);
-                session.send('Please meet our best team mate! Always there when energy is decreasing a bit!')
+                session.send('phoceis_best_teammate')
             });
         })
-        .matches('Help', builder.DialogAction.send('Hi! Try asking me things like \'search hotels in Seattle\', \'search hotels near LAX airport\' or \'show me the reviews of The Bot Resort\''))
+        .matches('Help', builder.DialogAction.send('phoceis_help'))
         .onDefault((session) => {
-            // session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
-
-            session.send(session.preferredLocale());
-
-            // builder.Prompts.choice(
-            //     session,
-            //     'Are you looking for a flight or a hotel?',
-            //     ['YES', 'NO'],
-            //     {
-            //         maxRetries: 3,
-            //         retryPrompt: 'Not a valid option'
-            //     });
+            if(session.message.introduction) {
+                session.send('phoceis_dialog_intro');
+            }
+            else {
+                session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+            }
         })
+
+    return module;
 };

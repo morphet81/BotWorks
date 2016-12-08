@@ -1,4 +1,13 @@
 {
-    "locale_prompt": "请选择您的语言",
-    "locale_updated": "您的首选语言现在是中文."
+  "locale_prompt": "请选择您的语言",
+  "locale_updated": "您的首选语言现在是中文",
+  "name_prompt": "你叫什么？",
+  "name_confirmation": "好的，你叫 %s",
+
+  "phoceis_dialog_intro": "你现在可以问任何你想要的Phoceis",
+  "phoceis_members_count": "当前在Phoceis有8个团队成员",
+  "phoceis_location": "上海市静安区昌化路655号二楼B7 200041",
+  "phoceis_beer_day": "啤酒日在星期五。 不要犹豫，问水晶你最喜欢的啤酒！",
+  "phoceis_best_teammate": "请见我们最好的队友！ 总是在那里，能量减少了一点！",
+  "phoceis_help": "你可以通过文本或语音消息询问有关Phoceis的任何信息。 如果还没有答案，请原谅我，我还在学习"
 }
