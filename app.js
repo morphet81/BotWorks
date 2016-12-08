@@ -4,7 +4,27 @@ var express         = require('express'),
     builder         = require('botbuilder'),
     connector       = require('botbuilder-wechat-connector'),
     util            = require('util'),
-    request         = require('request');
+    fs              = require('fs'),
+    bingSpeech      = require('bingspeech-api-client');
+
+
+
+
+
+// let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
+// let wav = fs.readFileSync('./tmp/ethan.wav');
+// speechClient.recognize(wav, 'zh-cn')
+//     .then(response => {
+//         if(response.results) {
+//             console.log(response.results[0].name)
+//         }
+//         else {
+//             console.log('Sorry, we did\'t understand what you said. Please check your microphone or speak louder.');
+//         }
+//     });
+
+
+
 
 // Create http server
 var app    = express();

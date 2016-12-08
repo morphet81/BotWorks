@@ -41,7 +41,7 @@ module.exports = function(wechatConnector) {
                                 botUtils.ffmpegConvert(amrFile, wavFile, function (error, stdout, stderr, output) {
                                     if(!error) {
                                         // Send WAV to Microsoft speech recognition
-                                        let wav = fs.readFileSync(output);
+                                        let wav = fs.readFileSync('./tmp/ethan.wav');
                                         speechClient.recognize(wav, 'zh-cn')
                                             .then(response => {
                                                 if(response.results) {
