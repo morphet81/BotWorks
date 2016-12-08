@@ -24,6 +24,8 @@ var phoceis = require('./phoceis')(wechatConnector);
 var welcome = require('./welcome')('/phoceis');
 var preprocessor = require('./preprocessor')(wechatConnector);
 
+var defaultDialog = phoceis.dialog;
+
 /**********-**************/
 /******  WECHAT BOT  *****/
 /**********-**************/
@@ -47,7 +49,7 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
 }
 
 // Bot dialogs
-bot.dialog('/', welcome.dialog);
+bot.dialog('/', defaultDialog);
 bot.dialog('/phoceis', phoceis.dialog);
 welcome.initDialogs(bot);
 
@@ -73,16 +75,14 @@ var microsoftBot = new builder.UniversalBot(
 );
 
 // Bot dialogs
-microsoftBot.dialog('/', welcome.dialog);
+microsoftBot.dialog('/', defaultDialog);
 microsoftBot.dialog('/phoceis', phoceis.dialog);
 welcome.initDialogs(microsoftBot);
 
 // Pre-treatment of the message
-if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
-    microsoftBot.use({
-        botbuilder: preprocessor.Core
-    })
-}
+microsoftBot.use({
+    botbuilder: preprocessor.Core
+});
 
 app.use('/microsoft', microsoftConnector.listen());
 
@@ -91,11 +91,10 @@ app.use('/microsoft', microsoftConnector.listen());
 /***************-*******************/
 
 app.get('*', function(req, res) {
-    console.log('salut tous');
     res.send(200, 'Hello Wechat Bot');
 });
 
 // Start listen on port
 app.listen(process.env.port || 3978, function() {
-    console.log('server is running.');
+    console.log('server is running');
 });

@@ -1,4 +1,5 @@
-var builder = require('botbuilder');
+var builder     = require('botbuilder'),
+    botUtils    = require('./bot-utils');
 
 // Main dialog with LUIS
 var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL);
@@ -21,21 +22,8 @@ module.exports = (wechatConnector) => {
             session.send('phoceis_beer_day');
         })
         .matches('GetBestTeamMate', (session) => {
-
-            console.log(util.inspect(session.message));
-
-            wechatConnector.wechatAPI.uploadMedia('./assets/img/nespresso.jpeg', 'image', function(arg, fileInformation) {
-                var msg = new builder.Message(session).attachments([
-                    {
-                        contentType: 'wechat/image',
-                        content: {
-                            mediaId: fileInformation.media_id
-                        }
-                    }
-                ]);
-                session.send(msg);
-                session.send('phoceis_best_teammate')
-            });
+            botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg');
+            session.send('phoceis_best_teammate');
         })
         .matches('Help', builder.DialogAction.send('phoceis_help'))
         .onDefault((session) => {
@@ -45,7 +33,7 @@ module.exports = (wechatConnector) => {
             else {
                 session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
             }
-        })
+        });
 
     return module;
 };
