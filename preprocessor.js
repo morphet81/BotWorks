@@ -45,6 +45,8 @@ module.exports = function(wechatConnector) {
                                         speechClient.recognize(wav, 'zh-cn')
                                             .then(response => {
                                                 if(response.results) {
+                                                    console.log('Bing recognized the string "%s"', response.results[0].name);
+                                                    console.log(util.inspect(response));
                                                     session.message.text = response.results[0].name;
                                                     next();
                                                 }

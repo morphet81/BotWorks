@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preprocessor.js" afterPath="$PROJECT_DIR$/preprocessor.js" />
     </list>
     <ignored path="BotWorks.iws" />
@@ -97,8 +96,8 @@
       <file leaf-file-name="preprocessor.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/preprocessor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="43" column="83" lean-forward="false" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
+            <state relative-caret-position="300">
+              <caret line="48" column="88" lean-forward="false" selection-start-line="48" selection-start-column="88" selection-end-line="48" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -221,6 +220,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BotWorks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BotWorks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tmp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -327,7 +340,7 @@
       <workItem from="1480645706561" duration="5656000" />
       <workItem from="1480668425111" duration="25000" />
       <workItem from="1480668459708" duration="1265000" />
-      <workItem from="1480903000881" duration="52643000" />
+      <workItem from="1480903000881" duration="52804000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -340,7 +353,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59589000" />
+    <option name="totallyTimeSpent" value="59750000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -789,8 +802,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/preprocessor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="43" column="83" lean-forward="false" selection-start-line="43" selection-start-column="83" selection-end-line="43" selection-end-column="83" />
+        <state relative-caret-position="300">
+          <caret line="48" column="88" lean-forward="false" selection-start-line="48" selection-start-column="88" selection-end-line="48" selection-end-column="88" />
           <folding />
         </state>
       </provider>
