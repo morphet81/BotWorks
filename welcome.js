@@ -14,10 +14,10 @@ var localePromptDialog = [
         var locale;
         switch (results.response.entity) {
             case 'English':
-                locale = 'en';
+                locale = 'en-us';
                 break;
             case '中文':
-                locale = 'zh';
+                locale = 'zh-cn';
                 break;
         }
 

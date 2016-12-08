@@ -42,10 +42,9 @@ module.exports = function(wechatConnector) {
                                     if(!error) {
                                         // Send WAV to Microsoft speech recognition
                                         let wav = fs.readFileSync(output);
-                                        speechClient.recognize(wav)
+                                        speechClient.recognize(wav, 'zh-cn')
                                             .then(response => {
                                                 if(response.results) {
-                                                    console.log('======    ' + response.results[0].name);
                                                     session.message.text = response.results[0].name;
                                                     next();
                                                 }
