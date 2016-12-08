@@ -20,6 +20,7 @@ function User() {
 
     this.setLocale = (locale) => {
         this.locale = locale;
+        this.save();
     };
 };
 

@@ -38,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/user.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+              <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -57,8 +57,8 @@
       <file leaf-file-name="phoceis.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/phoceis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="49" column="53" lean-forward="false" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+            <state relative-caret-position="407">
+              <caret line="48" column="75" lean-forward="true" selection-start-line="48" selection-start-column="75" selection-end-line="48" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -356,7 +356,7 @@
       <workItem from="1480645706561" duration="5656000" />
       <workItem from="1480668425111" duration="25000" />
       <workItem from="1480668459708" duration="1265000" />
-      <workItem from="1480903000881" duration="59251000" />
+      <workItem from="1480903000881" duration="59365000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -369,7 +369,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66197000" />
+    <option name="totallyTimeSpent" value="66311000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -811,15 +811,15 @@
     <entry file="file://$PROJECT_DIR$/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="22" column="6" lean-forward="false" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/phoceis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="49" column="53" lean-forward="false" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+        <state relative-caret-position="407">
+          <caret line="48" column="75" lean-forward="true" selection-start-line="48" selection-start-column="75" selection-end-line="48" selection-end-column="75" />
           <folding />
         </state>
       </provider>
