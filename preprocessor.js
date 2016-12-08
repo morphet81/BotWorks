@@ -1,6 +1,5 @@
 var spellService    = require('./spell-service'),
-    // connector       = require('botbuilder-wechat-connector'),
-    connector       = require('./WechatConnector'),
+    connector       = require('botbuilder-wechat-connector'),
     util            = require('util'),
     fs              = require('fs'),
     guid            = require('guid'),

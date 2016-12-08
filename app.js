@@ -2,8 +2,7 @@ require('dotenv-extended').load();
 
 var express         = require('express'),
     builder         = require('botbuilder'),
-    // connector       = require('botbuilder-wechat-connector'),
-    connector       = require('./WechatConnector'),
+    connector       = require('botbuilder-wechat-connector'),
     util            = require('util'),
     fs              = require('fs'),
     bingSpeech      = require('bingspeech-api-client');
