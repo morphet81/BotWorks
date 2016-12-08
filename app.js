@@ -62,11 +62,9 @@ var bot = new builder.UniversalBot(
 );
 
 // Pre-treatment of the message
-if (process.env.IS_SPELL_CORRECTION_ENABLED == "true") {
-    bot.use({
-        botbuilder: preprocessor.Core
-    })
-}
+bot.use({
+    botbuilder: preprocessor.Core
+});
 
 // Bot dialogs
 bot.dialog('/', defaultDialog);
