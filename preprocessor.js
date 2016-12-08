@@ -4,7 +4,8 @@ var spellService    = require('./spell-service'),
     fs              = require('fs'),
     guid            = require('guid'),
     bingSpeech      = require('bingspeech-api-client'),
-    botUtils        = require('./bot-utils');
+    botUtils        = require('./bot-utils'),
+    user            = require('./user');
 
 let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
 
@@ -42,7 +43,7 @@ module.exports = function(wechatConnector) {
                                     if(!error) {
                                         // Send WAV to Microsoft speech recognition
                                         let wav = fs.readFileSync(output);
-                                        speechClient.recognize(wav, 'zh-cn')
+                                        speechClient.recognize(wav, user.getUser(session).locale)
                                             .then(response => {
                                                 if(response.results) {
                                                     console.log('Bing recognized the string "%s"', response.results[0].name);
