@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="" />
+    <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/locale/en/index.json" afterPath="$PROJECT_DIR$/locale/en/index.json" />
+    </list>
     <ignored path="BotWorks.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,17 +72,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/locale/en/index.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="48" lean-forward="true" selection-start-line="4" selection-start-column="48" selection-end-line="5" selection-end-column="106" />
+            <state relative-caret-position="75">
+              <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/locale/zh/index.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
@@ -148,8 +150,8 @@
         <option value="$PROJECT_DIR$/phoceis.js" />
         <option value="$PROJECT_DIR$/user.js" />
         <option value="$PROJECT_DIR$/preprocessor.js" />
-        <option value="$PROJECT_DIR$/locale/en/index.json" />
         <option value="$PROJECT_DIR$/locale/zh/index.json" />
+        <option value="$PROJECT_DIR$/locale/en/index.json" />
       </list>
     </option>
   </component>
@@ -352,7 +354,7 @@
       <workItem from="1480645706561" duration="5656000" />
       <workItem from="1480668425111" duration="25000" />
       <workItem from="1480668459708" duration="1265000" />
-      <workItem from="1480903000881" duration="58063000" />
+      <workItem from="1480903000881" duration="58170000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -365,7 +367,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65009000" />
+    <option name="totallyTimeSpent" value="65116000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -804,18 +806,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/locale/en/index.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="48" lean-forward="true" selection-start-line="4" selection-start-column="48" selection-end-line="5" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/locale/zh/index.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="45" lean-forward="true" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locale/en/index.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding />
         </state>
       </provider>

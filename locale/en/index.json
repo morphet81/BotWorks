@@ -3,7 +3,7 @@
   "locale_updated": "Your preferred language is now english",
   "name_prompt": "What's your name?",
   "name_confirmation": "I will now call you %s",
-  "audio_bad": "Sorry, we did\'t understand what you said. Please check your microphone or speak louder.",
+  "audio_bad": "Sorry, we did't understand what you said. Please check your microphone or speak louder.",
 
   "phoceis_dialog_intro": "You can now ask anything you want about Phoceis",
   "phoceis_members_count": "There are currently 8 team members in Phoceis",
