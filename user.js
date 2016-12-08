@@ -10,8 +10,12 @@ function User() {
     this.locale;
 
     this.save = () => {
-        console.log('Saving object %s', util.inspect(this.locale));
-        nodeCache.set(this.id, this);
+        console.log('Saving object %s', util.inspect(this));
+        nodeCache.set(this.id, this, function(err, success) {
+            if(err) {
+                console.log('Error while saving user %s', err);
+            }
+        });
     }
 };
 
