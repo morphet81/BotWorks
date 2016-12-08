@@ -10,6 +10,7 @@ function User() {
     this.locale;
 
     this.save = () => {
+        console.log('Saving object %s', util.inspect(this.locale));
         nodeCache.set(this.id, this);
     }
 };
@@ -19,6 +20,7 @@ module.exports = {
         var user = nodeCache.get(botUtils.getSessionUserId(session));
 
         if(user == undefined) {
+            console.log('User was not found. Creating a new user');
             user = new User();
             user.id = botUtils.getSessionUserId(session);
             user.name = botUtils.getSessionUserName(session);
