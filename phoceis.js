@@ -24,17 +24,7 @@ module.exports = (wechatConnector) => {
             session.send('phoceis_location');
         })
         .matches('GetBeerDay', (session) => {
-            var answer = session.localizer.gettext(session.preferredLocale(), "phoceis_beer_day");
-
-            botUtils.sendVoice(builder, session, wechatConnector, answer);
-
-            // if(session.message.audio) {
-            //
-            // }
-            // else {
-            //     session.send(answer);
-            // }
-
+            botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_beer_day');
         })
         .matches('GetBestTeamMate', (session) => {
             botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg');
