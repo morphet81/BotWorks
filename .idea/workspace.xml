@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phoceis.js" afterPath="$PROJECT_DIR$/phoceis.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preprocessor.js" afterPath="$PROJECT_DIR$/preprocessor.js" />
     </list>
     <ignored path="BotWorks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,21 +53,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="phoceis.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="phoceis.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/phoceis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
+            <state relative-caret-position="135">
+              <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocessor.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="preprocessor.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/preprocessor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+            <state relative-caret-position="300">
+              <caret line="46" column="93" lean-forward="false" selection-start-line="46" selection-start-column="93" selection-end-line="46" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -154,8 +154,8 @@
         <option value="$PROJECT_DIR$/user.js" />
         <option value="$PROJECT_DIR$/welcome.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/preprocessor.js" />
         <option value="$PROJECT_DIR$/phoceis.js" />
+        <option value="$PROJECT_DIR$/preprocessor.js" />
       </list>
     </option>
   </component>
@@ -332,7 +332,7 @@
       <workItem from="1480668425111" duration="25000" />
       <workItem from="1480668459708" duration="1265000" />
       <workItem from="1480903000881" duration="69691000" />
-      <workItem from="1481266986827" duration="7199000" />
+      <workItem from="1481266986827" duration="7353000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -345,7 +345,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83836000" />
+    <option name="totallyTimeSpent" value="83990000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -703,18 +703,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessor.js">
+    <entry file="file://$PROJECT_DIR$/phoceis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+        <state relative-caret-position="135">
+          <caret line="32" column="53" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phoceis.js">
+    <entry file="file://$PROJECT_DIR$/preprocessor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="53" column="72" lean-forward="false" selection-start-line="53" selection-start-column="72" selection-end-line="53" selection-end-column="72" />
+        <state relative-caret-position="300">
+          <caret line="46" column="93" lean-forward="false" selection-start-line="46" selection-start-column="93" selection-end-line="46" selection-end-column="93" />
           <folding />
         </state>
       </provider>
