@@ -50,11 +50,13 @@ module.exports = function(wechatConnector) {
                                                     if(response.results) {
                                                         console.log('Bing recognized the string "%s"', response.results[0].name);
                                                         session.message.text = response.results[0].name;
-                                                        next();
+                                                        session.message.audio = true;
 
                                                         // Delete files
-                                                        fs.unlinkl(amrFile);
-                                                        fs.unlinkl(wav);
+                                                        fs.unlink(amrFile);
+                                                        fs.unlink(wav);
+
+                                                        next();
                                                     }
                                                     else {
                                                         session.send('audio_bad');

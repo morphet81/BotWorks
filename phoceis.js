@@ -1,10 +1,7 @@
 var builder     = require('botbuilder'),
     botUtils    = require('./bot-utils'),
-    bingSpeech  = require('bingspeech-api-client'),
     botUser     = require('./user'),
     fs          = require('fs');
-
-let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
 
 // Main dialog with LUIS
 var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL);
@@ -27,35 +24,17 @@ module.exports = (wechatConnector) => {
             session.send('phoceis_location');
         })
         .matches('GetBeerDay', (session) => {
-            // session.send('phoceis_beer_day');
+            var answer = session.localizer.gettext(session.preferredLocale(), "phoceis_beer_day");
 
+            botUtils.sendVoice(session, wechatConnector, answer);
 
-            var response = session.localizer.gettext(session.preferredLocale(), "phoceis_beer_day");
+            // if(session.message.audio) {
+            //
+            // }
+            // else {
+            //     session.send(answer);
+            // }
 
-            speechClient.synthesize(response, session.preferredLocale())
-                .then(response => {
-                    console.log('received syntethized voice');
-
-                    fs.writeFile('./tmp/speaking.wav', response.wave, function(err) {
-                        botUtils.ffmpegConvert('./tmp/speaking.wav', './tmp/speaking.amr', function () {
-                            console.log('file writen');
-                            wechatConnector.wechatAPI.uploadMedia('./tmp/speaking.amr', 'voice', function (arg, fileInformation) {
-
-
-                                var msg = new builder.Message(session).attachments([
-                                    {
-                                        contentType: 'wechat/voice',
-                                        content: {
-                                            mediaId: fileInformation.media_id
-                                        }
-                                    }
-                                ]);
-                                session.send(msg);
-                                console.log(util.inspect(fileInformation));
-                            });
-                        });
-                    });
-                });
         })
         .matches('GetBestTeamMate', (session) => {
             botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg');
