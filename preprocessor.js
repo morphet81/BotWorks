@@ -43,13 +43,17 @@ module.exports = function(wechatConnector) {
                                     if(!error) {
                                         // Send WAV to Microsoft speech recognition
                                         let wav = fs.readFileSync(output);
-                                        // console.log('========  %s', user.getUser(session).locale);
+
                                         speechClient.recognize(wav, user.getUser(session).locale)
                                             .then(response => {
                                                 if(response.results) {
                                                     console.log('Bing recognized the string "%s"', response.results[0].name);
                                                     session.message.text = response.results[0].name;
                                                     next();
+
+                                                    // Delete files
+                                                    fs.unlinkl(amrFile);
+                                                    fs.unlinkl(wav);
                                                 }
                                                 else {
                                                     session.send('audio_bad');

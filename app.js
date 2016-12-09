@@ -9,19 +9,6 @@ var express         = require('express'),
 
 var myName = 'aldskafl';
 
-
-// var session = {};
-// session.message = {};
-// session.message.address = {};
-// session.message.address.user = {};
-// session.message.address.user.id = 'truc_flute';
-// var user = botUser.getUser(session);
-//
-// console.log(user.first_name);
-
-
-
-
 // Create http server
 var app    = express();
 
