@@ -5,6 +5,7 @@
   "name_prompt": "What's your name?",
   "name_confirmation": "I will now call you %s",
   "audio_bad": "Sorry, we did't understand what you said. Please check your microphone or speak louder.",
+  "default": "Sorry, I did not understand '%s'. Type 'help' if you need assistance.",
 
   "phoceis_dialog_intro": "You can ask me anything you want about Phoceis",
   "phoceis_members_count": "There are currently 8 team members in Phoceis",

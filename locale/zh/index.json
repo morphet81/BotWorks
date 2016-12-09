@@ -5,6 +5,7 @@
   "name_prompt": "你叫什么？",
   "name_confirmation": "好的，你叫 %s",
   "audio_bad": "对不起，我们不明白你说什么。 请检查您的麦克风或大声。",
+  "default": "对不起，我不明白'%s'。 如果需要帮助，请键入“帮助”。",
 
   "phoceis_dialog_intro": "你现在可以问任何你想要的Phoceis",
   "phoceis_members_count": "当前在Phoceis有8个团队成员",

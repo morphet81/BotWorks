@@ -14,21 +14,21 @@ module.exports = (wechatConnector) => {
         .matches('Greetings', (session) => {
             botUser.getUser(session, function (user) {
                 session.send('hi', user.first_name);
-                session.send('phoceis_dialog_intro');
+                botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_dialog_intro');
             });
         })
         .matches('GetPhoceisSize', (session) => {
-            session.send('phoceis_members_count');
+            botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_members_count');
         })
         .matches('GetPhoceisLocation', (session) => {
-            session.send('phoceis_location');
+            botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_location');
         })
         .matches('GetBeerDay', (session) => {
             botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_beer_day');
         })
         .matches('GetBestTeamMate', (session) => {
             botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg');
-            session.send('phoceis_best_teammate');
+            botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
         })
         .matches('ChangeLocale', (session, args) => {
             var newLocale;
@@ -39,20 +39,20 @@ module.exports = (wechatConnector) => {
             }
 
             if(newLocale == undefined) {
-                session.send('change_locale_no_locale');
+                botUtils.autoAnswer(builder, session, wechatConnector, 'change_locale_no_locale');
             }
             else {
                 var localeCode = botUtils.getLocaleCode(newLocale);
 
                 if(localeCode == undefined) {
-                    session.send('change_locale_not_found', newLocale);
+                    botUtils.autoAnswer(builder, session, wechatConnector, 'change_locale_not_found');
                 }
                 else {
                     session.preferredLocale(localeCode, function (err) {
                         if (!err) {
                             botUser.getUser(session, function (user) {
                                 user.setLocale(localeCode);
-                                session.send('change_locale_ok', newLocale);
+                                botUtils.autoAnswer(builder, session, wechatConnector, 'change_locale_ok');
                             });
                         } else {
                             session.error(err);
@@ -64,10 +64,11 @@ module.exports = (wechatConnector) => {
         .matches('Help', builder.DialogAction.send('phoceis_help'))
         .onDefault((session) => {
             if(session.message.introduction) {
-                session.send('phoceis_dialog_intro');
+                botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_dialog_intro');
             }
             else {
-                session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+                var answer = session.localizer.gettext(session.preferredLocale(), 'default', session.message.text);
+                botUtils.autoAnswer(builder, session, wechatConnector, answer);
             }
         });
 
