@@ -71,7 +71,7 @@ module.exports = {
     },
 
     // Send audio response
-    sendVoice: function(session, wechatConnector, message) {
+    sendVoice: function(builder, session, wechatConnector, message) {
         speechClient.synthesize(message, session.preferredLocale())
             .then(response => {
                 // Define file names

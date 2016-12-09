@@ -26,7 +26,7 @@ module.exports = (wechatConnector) => {
         .matches('GetBeerDay', (session) => {
             var answer = session.localizer.gettext(session.preferredLocale(), "phoceis_beer_day");
 
-            botUtils.sendVoice(session, wechatConnector, answer);
+            botUtils.sendVoice(builder, session, wechatConnector, answer);
 
             // if(session.message.audio) {
             //
