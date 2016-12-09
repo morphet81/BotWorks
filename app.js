@@ -4,7 +4,23 @@ var express         = require('express'),
     builder         = require('botbuilder'),
     connector       = require('botbuilder-wechat-connector'),
     util            = require('util'),
-    fs              = require('fs');
+    fs              = require('fs'),
+    botUser         = require('./user');
+
+var myName = 'aldskafl';
+
+
+// var session = {};
+// session.message = {};
+// session.message.address = {};
+// session.message.address.user = {};
+// session.message.address.user.id = 'truc_flute';
+// var user = botUser.getUser(session);
+//
+// console.log(user.first_name);
+
+
+
 
 // Create http server
 var app    = express();

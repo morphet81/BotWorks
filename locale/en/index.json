@@ -1,12 +1,12 @@
 {
-  "hi": "Hello!",
+  "hi": "Hello %s!",
   "locale_prompt": "Please select your language",
   "locale_updated": "Your preferred language is now english",
   "name_prompt": "What's your name?",
   "name_confirmation": "I will now call you %s",
   "audio_bad": "Sorry, we did't understand what you said. Please check your microphone or speak louder.",
 
-  "phoceis_dialog_intro": "You ask me anything you want about Phoceis",
+  "phoceis_dialog_intro": "You can ask me anything you want about Phoceis",
   "phoceis_members_count": "There are currently 8 team members in Phoceis",
   "phoceis_location": "Phoceis Asia is located in Shanghai, 655 Changhua Road",
   "phoceis_beer_day": "Beer day is on Friday. Don't hesitate to ask Crystal for your favorite beer!",

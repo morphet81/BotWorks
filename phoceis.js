@@ -11,8 +11,10 @@ module.exports = (wechatConnector) => {
 
     module.dialog = new builder.IntentDialog({ recognizers: [englishRecognizer, chineseRecognizer] })
         .matches('Greetings', (session) => {
-            session.send('hi');
-            session.send('phoceis_dialog_intro');
+            botUser.getUser(session, function (user) {
+                session.send('hi', user.first_name);
+                session.send('phoceis_dialog_intro');
+            });
         })
         .matches('GetPhoceisSize', (session) => {
             session.send('phoceis_members_count');
@@ -47,7 +49,7 @@ module.exports = (wechatConnector) => {
                 else {
                     session.preferredLocale(localeCode, function (err) {
                         if (!err) {
-                            botUser.getUser(session, function(user) {
+                            botUser.getUser(session, function (user) {
                                 user.setLocale(localeCode);
                                 session.send('change_locale_ok', newLocale);
                             });

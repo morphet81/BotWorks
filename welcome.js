@@ -1,5 +1,5 @@
 var builder = require('botbuilder')
-    botUser = require('./user'),
+botUser = require('./user'),
     botUtils = require('./bot-utils'),
     util = require('util');
 
@@ -15,8 +15,9 @@ var localePromptDialog = [
         session.preferredLocale(locale, function (err) {
             if (!err) {
                 // Save user's locale
-                botUser.getUser(session, function(user) {
+                botUser.getUser(session, function (user) {
                     user.setLocale(locale);
+
                     session.send('locale_updated');
                     session.replaceDialog('/name_prompt');
                 });
@@ -33,7 +34,7 @@ var namePromptDialog = [
         builder.Prompts.text(session, "name_prompt");
     },
     function (session, results) {
-        botUser.getUser(session, function(user) {
+        botUser.getUser(session, function (user) {
             // Save user's locale
             user.setFirstName(results.response);
             session.endDialog('name_confirmation', user.first_name);
