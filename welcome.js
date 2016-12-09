@@ -59,11 +59,14 @@ module.exports = (nextDialog) => {
                     if(user.first_name == undefined) {
                         session.beginDialog('/name_prompt');
                     }
+                    else {
+                        session.message.introduction = true;
+                        session.replaceDialog(nextDialog);
+                    }
                 }
             });
         },
         function (session) {
-            session.message.text = 'Introduction';
             session.message.introduction = true;
             session.replaceDialog(nextDialog);
         }

@@ -1,4 +1,5 @@
 {
+  "hi": "你好！",
   "locale_prompt": "请选择您的语言",
   "locale_updated": "您的首选语言现在是中文",
   "name_prompt": "你叫什么？",
