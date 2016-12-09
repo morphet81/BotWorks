@@ -70,7 +70,7 @@ module.exports = {
         }
     },
 
-    autoAnswer: function(builder, session, wechatConnector, message) {
+    autoAnswer: function(builder, session, wechatConnector, message, locale) {
         var answer = session.localizer.gettext(session.preferredLocale(), message);
 
         botUtils.sendVoice(builder, session, wechatConnector, answer);
@@ -84,8 +84,8 @@ module.exports = {
     },
 
     // Send audio response
-    sendVoice: function(builder, session, wechatConnector, message) {
-        speechClient.synthesize(message, session.preferredLocale())
+    sendVoice: function(builder, session, wechatConnector, message, locale) {
+        speechClient.synthesize(message, locale == undefined ? session.preferredLocale() : locale)
             .then(response => {
                 // Define file names
                 var voiceName = guid.raw();

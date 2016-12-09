@@ -51,8 +51,9 @@ module.exports = (wechatConnector) => {
                     session.preferredLocale(localeCode, function (err) {
                         if (!err) {
                             botUser.getUser(session, function (user) {
+                                var oldLocale = user.locale;
                                 user.setLocale(localeCode);
-                                botUtils.autoAnswer(builder, session, wechatConnector, 'change_locale_ok');
+                                botUtils.autoAnswer(builder, session, wechatConnector, 'change_locale_ok', oldLocale);
                             });
                         } else {
                             session.error(err);
