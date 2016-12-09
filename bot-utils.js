@@ -98,7 +98,7 @@ module.exports = {
                     if(session.message.address.channelId == channels.wechat) {
                         botUtils.ffmpegConvert(input, output, function () {
                             console.log('file writen');
-                            wechatConnector.wechatAPI.uploadMedia('./tmp/speaking.amr', 'voice', function (arg, fileInformation) {
+                            wechatConnector.wechatAPI.uploadMedia(output, 'voice', function (arg, fileInformation) {
                                 var msg = new builder.Message(session).attachments([
                                     {
                                         contentType: 'wechat/voice',
