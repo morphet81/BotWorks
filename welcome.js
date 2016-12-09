@@ -9,18 +9,17 @@ var localePromptDialog = [
         builder.Prompts.choice(session, "locale_prompt", 'English|中文');
     },
     function (session, results) {
-        var user = botUser.getUser(session);
-
         // Update preferred locale
         var locale = botUtils.getLocaleCode(results.response.entity);
 
         session.preferredLocale(locale, function (err) {
             if (!err) {
                 // Save user's locale
-                botUser.getUser(session).setLocale(locale);
-
-                session.send('locale_updated');
-                session.replaceDialog('/name_prompt');
+                botUser.getUser(session, function(user) {
+                    user.setLocale(locale);
+                    session.send('locale_updated');
+                    session.replaceDialog('/name_prompt');
+                });
             } else {
                 session.error(err);
             }
@@ -34,13 +33,11 @@ var namePromptDialog = [
         builder.Prompts.text(session, "name_prompt");
     },
     function (session, results) {
-        var user = botUser.getUser(session);
-
-        // Save user's locale
-        user.name = results.response;
-        user.save();
-
-        session.endDialog('name_confirmation', user.name);
+        botUser.getUser(session, function(user) {
+            // Save user's locale
+            user.setFirstName(results.response);
+            session.endDialog('name_confirmation', user.first_name);
+        });
     }
 ];
 
@@ -54,14 +51,16 @@ module.exports = (nextDialog) => {
 
     module.dialog = [
         function (session) {
-            var user = botUser.getUser(session);
-
-            if(user.locale == undefined) {
-                session.beginDialog('/locale_prompt');
-            }
-            else {
-                session.beginDialog('/name_prompt');
-            }
+            botUser.getUser(session, function(user) {
+                if(user.locale == undefined) {
+                    session.beginDialog('/locale_prompt');
+                }
+                else {
+                    if(user.first_name == undefined) {
+                        session.beginDialog('/name_prompt');
+                    }
+                }
+            });
         },
         function (session) {
             session.message.text = 'Introduction';

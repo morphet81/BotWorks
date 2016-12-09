@@ -1,21 +1,16 @@
-var CacheController = require('node-cache'),
-    botUtils        = require('./bot-utils'),
-    util            = require('util');
+var botUtils        = require('./bot-utils'),
+    util            = require('util'),
+    database        = require('./database');
 
-var nodeCache = new CacheController();
+var User = function() {
+    this.save = (callback) => {
+        console.log('===    %s', util.inspect(this));
+        database.saveUser(this, callback);
+    };
 
-function User() {
-    this.id;
-    this.name;
-    this.locale;
-
-    this.save = () => {
-        console.log('Saving object %s', util.inspect(this));
-        nodeCache.set(this.id, this, function(err, success) {
-            if(err) {
-                console.log('Error while saving user %s', err);
-            }
-        });
+    this.setFirstName = (firstName) => {
+        this.first_name = firstName;
+        this.save();
     };
 
     this.setLocale = (locale) => {
@@ -24,17 +19,33 @@ function User() {
     };
 };
 
+var userFromMSSql = (record) => {
+    var user = new User();
+
+    user.id = record.id;
+    user.first_name = record.first_name;
+    user.last_name = record.last_name;
+    user.city = record.city;
+    user.sex = record.sex;
+    user.company = record.company;
+    user.phone_number = record.phone_number;
+    user.email_address = record.email_address;
+    user.locale = record.locale;
+
+    return user;
+};
+
 module.exports = {
-    getUser: (session) => {
-        var user = nodeCache.get(botUtils.getSessionUserId(session));
-
-        if(user == undefined) {
-            console.log('User was not found. Creating a new user');
-            user = new User();
-            user.id = botUtils.getSessionUserId(session);
-            user.name = botUtils.getSessionUserName(session);
-        }
-
-        return user;
+    getUser: (session, callback) => {
+        database.getUser(botUtils.getSessionUserId(session), function (record) {
+            if(callback) {
+                if(record) {
+                    callback(userFromMSSql(record));
+                }
+                else {
+                    callback(undefined);
+                }
+            }
+        });
     }
 };

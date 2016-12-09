@@ -4,27 +4,7 @@ var express         = require('express'),
     builder         = require('botbuilder'),
     connector       = require('botbuilder-wechat-connector'),
     util            = require('util'),
-    fs              = require('fs'),
-    bingSpeech      = require('bingspeech-api-client');
-
-
-
-
-
-// let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
-// let wav = fs.readFileSync('./tmp/ethan.wav');
-// speechClient.recognize(wav, 'zh-cn')
-//     .then(response => {
-//         if(response.results) {
-//             console.log(response.results[0].name)
-//         }
-//         else {
-//             console.log('Sorry, we did\'t understand what you said. Please check your microphone or speak louder.');
-//         }
-//     });
-
-
-
+    fs              = require('fs');
 
 // Create http server
 var app    = express();
@@ -44,7 +24,7 @@ var phoceis = require('./phoceis')(wechatConnector);
 var welcome = require('./welcome')('/phoceis');
 var preprocessor = require('./preprocessor')(wechatConnector);
 
-var defaultDialog = phoceis.dialog;
+var defaultDialog = welcome.dialog;
 
 /**********-**************/
 /******  WECHAT BOT  *****/
