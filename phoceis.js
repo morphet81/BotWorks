@@ -27,7 +27,7 @@ module.exports = (wechatConnector) => {
             session.send('phoceis_location');
         })
         .matches('GetBeerDay', (session) => {
-            session.send('phoceis_beer_day');
+            // session.send('phoceis_beer_day');
 
 
             var response = session.localizer.gettext(session.preferredLocale(), "phoceis_beer_day");
@@ -40,7 +40,7 @@ module.exports = (wechatConnector) => {
                         botUtils.ffmpegConvert('./tmp/speaking.wav', './tmp/speaking.amr', function () {
                             console.log('file writen');
                             wechatConnector.wechatAPI.uploadMedia('./tmp/speaking.amr', 'voice', function (arg, fileInformation) {
-                                console.log(fileInformation);
+
 
                                 var msg = new builder.Message(session).attachments([
                                     {
@@ -51,6 +51,7 @@ module.exports = (wechatConnector) => {
                                     }
                                 ]);
                                 session.send(msg);
+                                console.log(util.inspect(fileInformation));
                             });
                         });
                     });
