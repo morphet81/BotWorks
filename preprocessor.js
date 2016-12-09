@@ -5,7 +5,7 @@ var spellService    = require('./spell-service'),
     guid            = require('guid'),
     bingSpeech      = require('bingspeech-api-client'),
     botUtils        = require('./bot-utils'),
-    user            = require('./user');
+    botUser         = require('./user');
 
 let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
 
@@ -24,47 +24,49 @@ module.exports = function(wechatConnector) {
             for (var i = 0; i < message.attachments.length ; i++) {
                 var attachment = message.attachments[i];
                 if(attachment.contentType == connector.WechatAttachmentType.Voice) {
-                    console.log('Voice with id %s uploaded', attachment.content.mediaId);
-                    treatedAttachments = true;
-                    wechatConnector.wechatAPI.getMedia(attachment.content.mediaId, function (arg, data, response) {
-                        // Define temp files names
-                        var tempFileName = guid.raw(),
-                            amrFile = './tmp/' + tempFileName + '.amr',
-                            wavFile = './tmp/' + tempFileName + '.wav';
+                    botUser.getUser(session, function (user) {
+                        console.log('Voice with id %s uploaded', attachment.content.mediaId);
+                        treatedAttachments = true;
+                        wechatConnector.wechatAPI.getMedia(attachment.content.mediaId, function (arg, data, response) {
+                            // Define temp files names
+                            var tempFileName = guid.raw(),
+                                amrFile = './tmp/' + tempFileName + '.amr',
+                                wavFile = './tmp/' + tempFileName + '.wav';
 
-                        // Write the voice message in tmp folder
-                        fs.writeFile(amrFile, data, function(err) {
-                            if(err) {
-                                return console.log("Error while writing file " + err);
-                            }
-                            else {
-                                // Convert the AMR file to WAV
-                                botUtils.ffmpegConvert(amrFile, wavFile, function (error, stdout, stderr, output) {
-                                    if(!error) {
-                                        // Send WAV to Microsoft speech recognition
-                                        let wav = fs.readFileSync(output);
+                            // Write the voice message in tmp folder
+                            fs.writeFile(amrFile, data, function(err) {
+                                if(err) {
+                                    return console.log("Error while writing file " + err);
+                                }
+                                else {
+                                    // Convert the AMR file to WAV
+                                    botUtils.ffmpegConvert(amrFile, wavFile, function (error, stdout, stderr, output) {
+                                        if(!error) {
+                                            // Send WAV to Microsoft speech recognition
+                                            let wav = fs.readFileSync(output);
 
-                                        speechClient.recognize(wav, session.preferredLocale())
-                                            .then(response => {
-                                                if(response.results) {
-                                                    console.log('Bing recognized the string "%s"', response.results[0].name);
-                                                    session.message.text = response.results[0].name;
-                                                    next();
+                                            speechClient.recognize(wav, user.locale)
+                                                .then(response => {
+                                                    if(response.results) {
+                                                        console.log('Bing recognized the string "%s"', response.results[0].name);
+                                                        session.message.text = response.results[0].name;
+                                                        next();
 
-                                                    // Delete files
-                                                    fs.unlinkl(amrFile);
-                                                    fs.unlinkl(wav);
-                                                }
-                                                else {
-                                                    session.send('audio_bad');
-                                                }
-                                            });
-                                    }
-                                    else {
-                                        console.log("There was an error " + error);
-                                    }
-                                });
-                            }
+                                                        // Delete files
+                                                        fs.unlinkl(amrFile);
+                                                        fs.unlinkl(wav);
+                                                    }
+                                                    else {
+                                                        session.send('audio_bad');
+                                                    }
+                                                });
+                                        }
+                                        else {
+                                            console.log("There was an error " + error);
+                                        }
+                                    });
+                                }
+                            });
                         });
                     });
                 }
