@@ -10,6 +10,9 @@ module.exports = (wechatConnector) => {
     var module = {};
 
     module.dialog = new builder.IntentDialog({ recognizers: [englishRecognizer, chineseRecognizer] })
+        .matches('Greetings', (session) => {
+            session.send('%s %s', 'hi', 'phoceis_dialog_intro');
+        })
         .matches('GetPhoceisSize', (session) => {
             session.send('phoceis_members_count');
         })
