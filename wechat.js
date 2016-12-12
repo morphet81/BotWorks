@@ -49,7 +49,7 @@ var WechatConnector = (function() {
                 res.content = "<xml><ToUserName><![CDATA[oHtPEwBmVoxhvl3bw5WLan8s-XZw]]></ToUserName><FromUserName><![CDATA[gh_4bce4ef52d79]]></FromUserName><CreateTime>12345678</CreateTime><MsgType><![CDATA[text]]></MsgType> <Content><![CDATA[Hello]]></Content></xml>";
                 res.status(200).end();
 
-                console.log(util.inspect(req));
+                console.log(util.inspect(wechatMessage));
             } else {
                 next();
             }
