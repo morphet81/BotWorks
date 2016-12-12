@@ -89,7 +89,7 @@ module.exports = {
 
     // Send audio response
     sendVoice: function(builder, session, wechatConnector, message, locale) {
-        speechClient.synthesize(message, locale == undefined ? session.preferredLocale() : locale)
+        speechClient.synthesize(message, 'zh-cn')// locale == undefined ? session.preferredLocale() : locale)
             .then(response => {
                 // Define file names
                 var voiceName = guid.raw();
