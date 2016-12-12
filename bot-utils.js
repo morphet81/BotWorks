@@ -76,6 +76,9 @@ module.exports = {
 
         botUtils.sendVoice(builder, session, wechatConnector, answer);
 
+        console.log(session.preferredLocale());
+        console.log(answer);
+
         // if(session.message.audio) {
         //
         // }
