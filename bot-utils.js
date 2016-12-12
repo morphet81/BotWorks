@@ -74,10 +74,10 @@ module.exports = {
 
         var answer = session.createMessage(message, args);
 
-        botUtils.sendVoice(builder, session, wechatConnector, answer);
+        botUtils.sendVoice(builder, session, wechatConnector, answer.text);
 
         console.log(session.preferredLocale());
-        console.log(answer);
+        console.log(answer.text);
 
         // if(session.message.audio) {
         //
