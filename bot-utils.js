@@ -71,11 +71,6 @@ module.exports = {
     },
 
     autoAnswer: function(builder, session, wechatConnector, message, ...args) {
-
-        session.preferredLocale('zh-cn', function (err) {
-
-        });
-
         var answer = session.createMessage(message, args);
 
         botUtils.sendVoice(builder, session, wechatConnector, answer.text);
@@ -93,6 +88,7 @@ module.exports = {
 
     // Send audio response
     sendVoice: function(builder, session, wechatConnector, message, locale) {
+        console.log('=========    %s', session.preferredLocale());
         speechClient.synthesize(message, 'zh-cn')// locale == undefined ? session.preferredLocale() : locale)
             .then(response => {
                 // Define file names
