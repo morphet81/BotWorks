@@ -1,6 +1,6 @@
 var spellService    = require('./spell-service'),
-    // connector       = require('botbuilder-wechat-connector'),
-    connector       = require('./wechat'),
+    connector       = require('botbuilder-wechat-connector'),
+    // connector       = require('./wechat'),
     util            = require('util'),
     fs              = require('fs'),
     guid            = require('guid'),
@@ -16,8 +16,6 @@ module.exports = function(wechatConnector) {
     module.Label = 'Pre-processor';
 
     module.Core = function (session, next) {
-        session.send('test');
-
         var message = session.message;
 
         var treatedAttachments = false;
