@@ -47,7 +47,7 @@ var WechatConnector = (function() {
                 self.processMessage(wechatMessage);
                 // res.contentType = "text/xml";
                 // res.content = "<xml><ToUserName><![CDATA[oHtPEwBmVoxhvl3bw5WLan8s-XZw]]></ToUserName><FromUserName><![CDATA[gh_4bce4ef52d79]]></FromUserName><CreateTime>12345678</CreateTime><MsgType><![CDATA[text]]></MsgType> <Content><![CDATA[Hello]]></Content></xml>";
-                res.status(200).end();
+                res.status(200).send("<xml><ToUserName><![CDATA[oHtPEwBmVoxhvl3bw5WLan8s-XZw]]></ToUserName><FromUserName><![CDATA[gh_4bce4ef52d79]]></FromUserName><CreateTime>12345678</CreateTime><MsgType><![CDATA[text]]></MsgType> <Content><![CDATA[Hello]]></Content></xml>");
 
                 console.log(util.inspect(wechatMessage));
                 console.log(util.inspect(res));
