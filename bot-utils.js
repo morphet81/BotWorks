@@ -70,8 +70,9 @@ module.exports = {
         }
     },
 
-    autoAnswer: function(builder, session, wechatConnector, message, locale) {
-        var answer = session.localizer.gettext(session.preferredLocale(), message);
+    autoAnswer: function(builder, session, wechatConnector, message, ...args) {
+
+        var answer = session.createMessage(message, args);
 
         botUtils.sendVoice(builder, session, wechatConnector, answer);
 
