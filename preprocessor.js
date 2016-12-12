@@ -15,6 +15,8 @@ module.exports = function(wechatConnector) {
     module.Label = 'Pre-processor';
 
     module.Core = function (session, next) {
+        session.send('');
+
         var message = session.message;
 
         var treatedAttachments = false;
