@@ -72,6 +72,10 @@ module.exports = {
 
     autoAnswer: function(builder, session, wechatConnector, message, ...args) {
 
+        session.preferredLocale('zh-cn', function (err) {
+
+        });
+
         var answer = session.createMessage(message, args);
 
         botUtils.sendVoice(builder, session, wechatConnector, answer.text);
