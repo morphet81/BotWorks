@@ -67,8 +67,7 @@ module.exports = (wechatConnector) => {
                 botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_dialog_intro');
             }
             else {
-                var answer = session.localizer.gettext(session.preferredLocale(), 'default', session.message.text);
-                botUtils.autoAnswer(builder, session, wechatConnector, answer);
+                botUtils.autoAnswer(builder, session, wechatConnector, 'default', session.message.text);
             }
         });
 
