@@ -43,13 +43,13 @@ var WechatConnector = (function() {
         return wechat(config, function(req, res, next) {
             var wechatMessage = req.weixin;
 
-            console.log(util.inspect(req));
-
             if (!self.options.enableReply) {
                 self.processMessage(wechatMessage);
                 res.contentType = "text/xml";
-                res.content = "<xml><ToUserName><![CDATA[toUser]]></ToUserName><FromUserName><![CDATA[fromUser]]></FromUserName><CreateTime>12345678</CreateTime> <MsgType><![CDATA[text]]></MsgType> <Content><![CDATA[Hello]]></Content> </xml>";
+                res.content = "<xml><ToUserName><![CDATA[gh_4bce4ef52d79]]></ToUserName><FromUserName><![CDATA[oHtPEwBmVoxhvl3bw5WLan8s-XZw]]></FromUserName><CreateTime>12345678</CreateTime><MsgType><![CDATA[text]]></MsgType> <Content><![CDATA[Hello]]></Content></xml>";
                 res.status(200).end();
+
+                console.log(util.inspect(res));
             } else {
                 next();
             }
