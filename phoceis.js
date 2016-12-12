@@ -13,8 +13,7 @@ module.exports = (wechatConnector) => {
     module.dialog = new builder.IntentDialog({ recognizers: [englishRecognizer, chineseRecognizer] })
         .matches('Greetings', (session) => {
             botUser.getUser(session, function (user) {
-
-                session.send('hi', user.first_name);
+                botUtils.autoAnswer(builder, session, wechatConnector, 'hi', user.first_name);
                 botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_dialog_intro');
             });
         })
