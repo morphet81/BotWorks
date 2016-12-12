@@ -50,6 +50,7 @@ var WechatConnector = (function() {
                 res.status(200).end();
 
                 console.log(util.inspect(wechatMessage));
+                console.log(util.inspect(req.content));
             } else {
                 next();
             }
