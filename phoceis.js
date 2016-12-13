@@ -94,10 +94,7 @@ module.exports = (wechatConnector) => {
     module.dialog = new builder.IntentDialog({ recognizers: [englishRecognizer, chineseRecognizer] })
         .matches('Greetings', (session) => {
             botUser.getUser(session, function (user) {
-                botUtils.autoAnswer(builder, session, wechatConnector, 'hi', user.first_name)
-                    .then(() => {
-                        botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_dialog_intro');
-                    });
+                botUtils.autoAnswer(builder, session, wechatConnector, 'hi', user.first_name);
             });
         })
         .matches('GetPhoceisSize', (session) => {
@@ -111,8 +108,6 @@ module.exports = (wechatConnector) => {
         })
         .matches('GetBestTeamMate', (session) => {
             botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg', 'phoceis_best_teammate');
-            // session.send('las;dkf;aslkdfj;alsdfjdfjal;sdfj');
-            // botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
         })
         .matches('ChangeLocale', (session, args) => {
             var newLocale;

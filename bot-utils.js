@@ -46,93 +46,69 @@ module.exports = {
 
     // Send an image
     sendImage: function(builder, session, wechatConnector, imagePath, message, ...messageArgs) {
-        return new Promise(function (resolve, reject) {
-            // If user is using Wechat, need to upload the image first
-            if (isWechat(session)) {
-                wechatConnector.wechatAPI.uploadMedia(imagePath, 'image', function (arg, fileInformation) {
-                    var msg = new builder.Message(session).attachments([
-                        {
-                            contentType: 'wechat/image',
-                            content: {
-                                mediaId: fileInformation.media_id
-                            }
+        // If user is using Wechat, need to upload the image first
+        if (isWechat(session)) {
+            wechatConnector.wechatAPI.uploadMedia(imagePath, 'image', function (arg, fileInformation) {
+                var msg = new builder.Message(session).attachments([
+                    {
+                        contentType: 'wechat/image',
+                        content: {
+                            mediaId: fileInformation.media_id
                         }
-                    ]);
-
-                    // Set message
-                    if(message) {
-                        msg.text(session.createMessage(message, messageArgs).text);
                     }
-
-                    // Change the default wechat connector call back to know when the image is really sent
-                    wechatConnector.callback = () => {
-                        resolve();
-                        wechatConnector.callback = undefined;       // Reset the callback
-                    };
-
-                    session.send(msg);
-
-                    resolve();
-                });
-            }
-            else {
-                let picture = fs.readFileSync(imagePath);
-
-                var attachment = {
-                    contentUrl: 'data:image/png;base64, ' + picture.toString('base64'),
-                    contentType: 'image/png',
-                    name: 'BotFrameworkOverview.png'
-                };
-
-                var msg = new builder.Message(session)
-                    .addAttachment(attachment);
+                ]);
 
                 // Set message
                 if(message) {
                     msg.text(session.createMessage(message, messageArgs).text);
                 }
 
-                session.startBatch();
                 session.send(msg);
-                session.sendBatch(function() {
-                    resolve();
-                });
+
+                resolve();
+            });
+        }
+        else {
+            let picture = fs.readFileSync(imagePath);
+
+            var attachment = {
+                contentUrl: 'data:image/png;base64, ' + picture.toString('base64'),
+                contentType: 'image/png',
+                name: 'BotFrameworkOverview.png'
+            };
+
+            var msg = new builder.Message(session)
+                .addAttachment(attachment);
+
+            // Set message
+            if(message) {
+                msg.text(session.createMessage(message, messageArgs).text);
             }
-        })
+
+            session.send(msg);
+        }
     },
 
     autoAnswer: function(builder, session, wechatConnector, message, ...args) {
-        return new Promise(function (resolve, reject) {
-            var answer = session.createMessage(message, args);
+        var answer = session.createMessage(message, args);
 
-            // Change the default wechat connector call back to know when the image is really sent
-            if(isWechat(session)) {
-                wechatConnector.callback = () => {
-                    resolve();
-                    wechatConnector.callback = undefined;       // Reset the callback
-                };
-            }
-
-            session.startBatch();
-            session.send(answer);
-            session.sendBatch(function() {
-                if(!isWechat(session)) {
-                    resolve();
-                }
-            });
-
-            // botUtils.sendVoice(builder, session, wechatConnector, answer.text);
-            //
-            // console.log(session.preferredLocale());
-            // console.log(answer.text);
-
-            // if(session.message.audio) {
-            //
-            // }
-            // else {
-            //     session.send(answer);
-            // }
+        session.startBatch();
+        session.send(answer);
+        session.sendBatch(function() {
+            resolve();
         });
+
+        // botUtils.sendVoice(builder, session, wechatConnector, answer.text);
+        //
+        // console.log(session.preferredLocale());
+        // console.log(answer.text);
+
+        // if(session.message.audio) {
+        //
+        // }
+        // else {
+        //     session.send(answer);
+        // }
     },
 
     // Send audio response

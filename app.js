@@ -2,8 +2,8 @@ require('dotenv-extended').load();
 
 var express         = require('express'),
     builder         = require('botbuilder'),
-    // connector       = require('botbuilder-wechat-connector'),
-    connector       = require('./wechat'),
+    connector       = require('botbuilder-wechat-connector'),
+    // connector       = require('./wechat'),
     util            = require('util'),
     fs              = require('fs'),
     botUser         = require('./user');
@@ -22,11 +22,12 @@ var wechatConnector = new connector.WechatConnector({
 });
 
 // Internal modules
+var holiday = require('./holiday')(wechatConnector);
 var phoceis = require('./phoceis')(wechatConnector);
 var welcome = require('./welcome')('/phoceis');
 var preprocessor = require('./preprocessor')(wechatConnector);
 
-var defaultDialog = welcome.dialog;
+var defaultDialog = holiday.dialog;
 
 /**********-**************/
 /******  WECHAT BOT  *****/
@@ -50,6 +51,7 @@ bot.use({
 
 // Bot dialogs
 bot.dialog('/', defaultDialog);
+bot.dialog('/holiday', holiday.dialog);
 bot.dialog('/phoceis', phoceis.dialog);
 welcome.initDialogs(bot);
 
@@ -76,6 +78,7 @@ var microsoftBot = new builder.UniversalBot(
 
 // Bot dialogs
 microsoftBot.dialog('/', defaultDialog);
+microsoftBot.dialog('/holiday', holiday.dialog);
 microsoftBot.dialog('/phoceis', phoceis.dialog);
 welcome.initDialogs(microsoftBot);
 

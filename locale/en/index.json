@@ -16,5 +16,10 @@
 
   "change_locale_no_locale": "I think you did not mention any language... Please could you try again?",
   "change_locale_not_found": "Sorry, I don't speak %s yet :-( ",
-  "change_locale_ok": "Alright! Let's start speaking %s"
+  "change_locale_ok": "Alright! Let's start speaking %s",
+
+  "holiday_welcome": "Hi Alexandre! You want to go on holiday? All right! Let's find the perfect plan for you!",
+  "holiday_climate": "What kind of climate do you prefer?",
+  "holiday_climate_choice": "Warm|Cold|Temperate",
+  "holiday_location": "Alright! Now please share your location with me, I will try to optimize your destination choice ;-)"
 }
