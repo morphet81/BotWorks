@@ -2,7 +2,8 @@ var exec        = require('child_process').exec,
     bingSpeech  = require('bingspeech-api-client'),
     // bingSpeech  = require('./bingspeech-api-client'),
     fs          = require('fs'),
-    guid        = require('guid');
+    guid        = require('guid'),
+    util        = require('util');
 
 let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
 
@@ -54,7 +55,7 @@ module.exports = {
                         }
                     ]);
 
-                    console.log(session.send);
+                    console.log(util.inspect(session.send));
 
                     session.send(msg, function() {
                         console.log(';laskdjfls;adkfjkdkdkdkkkkkkkkkkkk');
