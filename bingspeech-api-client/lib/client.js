@@ -41,13 +41,14 @@ class BingSpeechClient {
             throw new Error(`Voice recognition failed miserably: ${err.message}`);
         });
     }
-    synthesize(text, locale = 'en-us') {
+    synthesize(text, locale = 'zh-cn') {
         return this.issueToken()
             .then((token) => {
             this.token = token;
             this.tokenExpirationDate = Date.now() + 9 * 60 * 1000;
-            let name = 'Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)';
+            let name = 'Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)';
             let gender = 'Female';
+            console.log('=======   %s', text);
             let ssml = `<speak version='1.0' xml:lang='${locale}'>
                             <voice name='${name}' xml:lang='${locale}' xml:gender='${gender}'>${text}</voice>
                             </speak>`;
