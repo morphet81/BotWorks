@@ -56,10 +56,10 @@
       <file leaf-file-name="client.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bingspeech-api-client/lib/client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="50" column="46" lean-forward="false" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+            <state relative-caret-position="243">
+              <caret line="51" column="94" lean-forward="false" selection-start-line="51" selection-start-column="94" selection-end-line="51" selection-end-column="94" />
               <folding>
-                <marker date="1481597526000" expanded="true" signature="2267:2414" ph="..." />
+                <marker date="1481597608000" expanded="true" signature="2220:2370" ph="..." />
               </folding>
             </state>
           </provider>
@@ -352,7 +352,7 @@
       <workItem from="1480903000881" duration="69691000" />
       <workItem from="1481266986827" duration="7596000" />
       <workItem from="1481275586935" duration="2115000" />
-      <workItem from="1481525770827" duration="10039000" />
+      <workItem from="1481525770827" duration="10121000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -365,7 +365,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96387000" />
+    <option name="totallyTimeSpent" value="96469000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -751,10 +751,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bingspeech-api-client/lib/client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="50" column="46" lean-forward="false" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+        <state relative-caret-position="243">
+          <caret line="51" column="94" lean-forward="false" selection-start-line="51" selection-start-column="94" selection-end-line="51" selection-end-column="94" />
           <folding>
-            <marker date="1481597526000" expanded="true" signature="2267:2414" ph="..." />
+            <marker date="1481597608000" expanded="true" signature="2220:2370" ph="..." />
           </folding>
         </state>
       </provider>

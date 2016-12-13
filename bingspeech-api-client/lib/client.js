@@ -48,9 +48,8 @@ class BingSpeechClient {
             this.tokenExpirationDate = Date.now() + 9 * 60 * 1000;
             let name = 'Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)';
             let gender = 'Female';
-            console.log('=======   %s', text);
             let ssml = `<speak version='1.0' xml:lang='${locale}'>
-                            <voice name='${name}' xml:lang='${locale}' xml:gender='${gender}'>${text}</voice>
+                            <voice name='${name}' xml:lang='${locale}' xml:gender='${gender}'>好的！ 让我们开始说</voice>
                             </speak>`;
             let baseRequest = request.defaults({
                 headers: {
