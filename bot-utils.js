@@ -56,7 +56,9 @@ module.exports = {
                     ]);
 
                     // Set message
-                    msg.text(session.createMessage(message, messageArgs).text);
+                    if(message) {
+                        msg.text(session.createMessage(message, messageArgs).text);
+                    }
 
                     // Change the default wechat connector call back to know when the image is really sent
                     wechatConnector.callback = () => {
@@ -81,10 +83,14 @@ module.exports = {
                 var msg = new builder.Message(session)
                     .addAttachment(attachment);
 
+                // Set message
+                if(message) {
+                    msg.text(session.createMessage(message, messageArgs).text);
+                }
+
                 session.startBatch();
                 session.send(msg);
                 session.sendBatch(function() {
-                    console.log('a;sdkfljas;dlfkja;sldfjlkadsf');
                     resolve();
                 });
             }
@@ -92,21 +98,29 @@ module.exports = {
     },
 
     autoAnswer: function(builder, session, wechatConnector, message, ...args) {
-        var answer = session.createMessage(message, args);
+        return new Promise(function (resolve, reject) {
+            var answer = session.createMessage(message, args);
 
-        session.send(answer);
+            // session.send(answer);
 
-        // botUtils.sendVoice(builder, session, wechatConnector, answer.text);
-        //
-        // console.log(session.preferredLocale());
-        // console.log(answer.text);
+            session.startBatch();
+            session.send(answer);
+            session.sendBatch(function() {
+                resolve();
+            });
 
-        // if(session.message.audio) {
-        //
-        // }
-        // else {
-        //     session.send(answer);
-        // }
+            // botUtils.sendVoice(builder, session, wechatConnector, answer.text);
+            //
+            // console.log(session.preferredLocale());
+            // console.log(answer.text);
+
+            // if(session.message.audio) {
+            //
+            // }
+            // else {
+            //     session.send(answer);
+            // }
+        });
     },
 
     // Send audio response
