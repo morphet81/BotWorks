@@ -108,11 +108,7 @@ module.exports = (wechatConnector) => {
             botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_beer_day');
         })
         .matches('GetBestTeamMate', (session) => {
-            botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg')
-                .then(() => {
-                    console.log('THEN HAS BEEN CALLED');
-                    // botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
-                });
+            botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg', 'phoceis_best_teammate');
             // session.send('las;dkf;aslkdfj;alsdfjdfjal;sdfj');
             // botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
         })

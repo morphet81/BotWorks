@@ -41,7 +41,7 @@ module.exports = {
     },
 
     // Send an image
-    sendImage: function(builder, session, wechatConnector, imagePath) {
+    sendImage: function(builder, session, wechatConnector, imagePath, message, ...messageArgs) {
         return new Promise(function (resolve, reject) {
             // If user is using Wechat, need to upload the image first
             if (session.message.address.channelId == channels.wechat) {
@@ -54,15 +54,13 @@ module.exports = {
                             }
                         }
                     ]);
-                    msg.text("salut");
 
-                    // Change the default wechat connector call back to know when the image is really sent
-                    wechatConnector.callback = () => {
-                        resolve();
-                        wechatConnector.callback = undefined;       // Reset the callback
-                    };
+                    // Set message
+                    msg.text(session.createMessage(message, messageArgs));
 
                     session.send(msg);
+
+                    resolve();
                 });
             }
             else {
