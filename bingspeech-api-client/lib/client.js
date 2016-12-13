@@ -49,7 +49,7 @@ class BingSpeechClient {
             let name = 'Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)';
             let gender = 'Female';
             let ssml = `<speak version='1.0' xml:lang='${locale}'>
-                            <voice name='${name}' xml:lang='${locale}' xml:gender='${gender}'>好的</voice>
+                            <voice name='${name}' xml:lang='${locale}' xml:gender='${gender}'>${text}</voice>
                             </speak>`;
             let baseRequest = request.defaults({
                 headers: {
@@ -65,9 +65,6 @@ class BingSpeechClient {
                 encoding: null,
                 body: ssml
             });
-
-            console.log('======  %s', ssml);
-
             return baseRequest.post(this.BING_SPEECH_ENDPOINT_TTS);
         })
             .then(result => {
