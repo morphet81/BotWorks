@@ -50,7 +50,12 @@ module.exports = {
                         {
                             contentType: 'wechat/image',
                             content: {
-                                mediaId: fileInformation.media_id,
+                                mediaId: fileInformation.media_id
+                            }
+                        },
+                        {
+                            contentType: 'text',
+                            content: {
                                 content: 'salut'
                             }
                         }
