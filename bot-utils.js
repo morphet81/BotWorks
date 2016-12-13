@@ -54,7 +54,9 @@ module.exports = {
                         }
                     ]);
 
-                    session.send([msg], function() {
+                    console.log(session.send);
+
+                    session.send(msg, function() {
                         console.log(';laskdjfls;adkfjkdkdkdkkkkkkkkkkkk');
                     });
                 });
