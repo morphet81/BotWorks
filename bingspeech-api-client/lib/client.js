@@ -65,6 +65,9 @@ class BingSpeechClient {
                 encoding: null,
                 body: ssml
             });
+
+            console.log('======  %s', ssml);
+
             return baseRequest.post(this.BING_SPEECH_ENDPOINT_TTS);
         })
             .then(result => {
