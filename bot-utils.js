@@ -41,34 +41,38 @@ module.exports = {
 
     // Send an image
     sendImage: function(builder, session, wechatConnector, imagePath) {
-        // If user is using Wechat, need to upload the image first
-        if(session.message.address.channelId == channels.wechat) {
-            wechatConnector.wechatAPI.uploadMedia(imagePath, 'image', function (arg, fileInformation) {
-                var msg = new builder.Message(session).attachments([
-                    {
-                        contentType: 'wechat/image',
-                        content: {
-                            mediaId: fileInformation.media_id
+        return new Promise(function (resolve, reject) {
+            // If user is using Wechat, need to upload the image first
+            if (session.message.address.channelId == channels.wechat) {
+                wechatConnector.wechatAPI.uploadMedia(imagePath, 'image', function (arg, fileInformation) {
+                    var msg = new builder.Message(session).attachments([
+                        {
+                            contentType: 'wechat/image',
+                            content: {
+                                mediaId: fileInformation.media_id
+                            }
                         }
-                    }
-                ]);
+                    ]);
+                    session.send(msg);
+                });
+            }
+            else {
+                let picture = fs.readFileSync(imagePath);
+
+                var attachment = {
+                    contentUrl: 'data:image/png;base64, ' + picture.toString('base64'),
+                    contentType: 'image/png',
+                    name: 'BotFrameworkOverview.png'
+                };
+
+                var msg = new builder.Message(session)
+                    .addAttachment(attachment);
+
                 session.send(msg);
-            });
-        }
-        else {
-            let picture = fs.readFileSync(imagePath);
 
-            var attachment = {
-                contentUrl: 'data:image/png;base64, ' + picture.toString('base64'),
-                contentType: 'image/png',
-                name: 'BotFrameworkOverview.png'
-            };
-
-            var msg = new builder.Message(session)
-                .addAttachment(attachment);
-
-            session.send(msg);
-        }
+                resolve();
+            }
+        })
     },
 
     autoAnswer: function(builder, session, wechatConnector, message, ...args) {
