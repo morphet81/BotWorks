@@ -54,6 +54,7 @@ module.exports = {
                         }
                     ]);
                     session.send(msg);
+                    resolve();
                 });
             }
             else {

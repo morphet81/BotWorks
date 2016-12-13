@@ -8,8 +8,6 @@ var express         = require('express'),
     fs              = require('fs'),
     botUser         = require('./user');
 
-var myName = 'aldskafl';
-
 // Create http server
 var app    = express();
 
