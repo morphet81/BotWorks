@@ -113,7 +113,7 @@ module.exports = (wechatConnector) => {
                     console.log('THEN HAS BEEN CALLED');
                     // botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
                 });
-            session.send('las;dkf;aslkdfj;alsdfjdfjal;sdfj');
+            // session.send('las;dkf;aslkdfj;alsdfjdfjal;sdfj');
             // botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
         })
         .matches('ChangeLocale', (session, args) => {
