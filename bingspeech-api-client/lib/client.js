@@ -54,7 +54,7 @@ class BingSpeechClient {
             let baseRequest = request.defaults({
                 headers: {
                     'Authorization': `Bearer ${this.token}`,
-                    'Content-Type': 'application/ssml+xml',
+                    'Content-Type': 'application/ssml+xml;charset=utf-8',
                     'Content-Length': ssml.length,
                     'X-Microsoft-OutputFormat': this.AUDIO_OUTPUT_FORMAT,
                     'X-Search-AppId': '00000000000000000000000000000000',
