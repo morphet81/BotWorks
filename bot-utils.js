@@ -52,14 +52,9 @@ module.exports = {
                             content: {
                                 mediaId: fileInformation.media_id
                             }
-                        },
-                        {
-                            contentType: 'text',
-                            content: {
-                                content: 'salut'
-                            }
                         }
                     ]);
+                    msg.text("salut");
 
                     // Change the default wechat connector call back to know when the image is really sent
                     wechatConnector.callback = () => {
