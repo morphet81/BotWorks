@@ -46,8 +46,7 @@ module.exports = {
             // If user is using Wechat, need to upload the image first
             if (session.message.address.channelId == channels.wechat) {
                 wechatConnector.wechatAPI.uploadMedia(imagePath, 'image', function (arg, fileInformation) {
-                    var msg = session.createMessage(message, messageArgs);
-                    msg.attachments([
+                    var msg = new builder.Message(session).attachments([
                         {
                             contentType: 'wechat/image',
                             content: {
@@ -56,6 +55,9 @@ module.exports = {
                         }
                     ]);
 
+                    // Set message
+                    msg.text(session.createMessage(message, messageArgs).text);
+
                     // Change the default wechat connector call back to know when the image is really sent
                     wechatConnector.callback = () => {
                         resolve();
@@ -63,6 +65,8 @@ module.exports = {
                     };
 
                     session.send(msg);
+
+                    resolve();
                 });
             }
             else {
