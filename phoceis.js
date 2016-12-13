@@ -111,9 +111,9 @@ module.exports = (wechatConnector) => {
             botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg')
                 .then(() => {
                     console.log('THEN HAS BEEN CALLED');
-                    session.send('las;dkf;aslkdfj;alsdfjdfjal;sdfj');
                     // botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
                 });
+            session.send('las;dkf;aslkdfj;alsdfjdfjal;sdfj');
             // botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
         })
         .matches('ChangeLocale', (session, args) => {
