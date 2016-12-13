@@ -55,7 +55,7 @@ module.exports = {
                         }
                     ]);
 
-                    console.log(util.inspect(session.send));
+                    console.log(util.inspect(session.send, true));
 
                     session.send(msg, function() {
                         console.log(';laskdjfls;adkfjkdkdkdkkkkkkkkkkkk');
