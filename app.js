@@ -1,5 +1,7 @@
 require('dotenv-extended').load();
 
+require('request').debug = true
+
 var express         = require('express'),
     builder         = require('botbuilder'),
     connector       = require('botbuilder-wechat-connector'),
@@ -7,7 +9,7 @@ var express         = require('express'),
     util            = require('util'),
     fs              = require('fs');
 
-require('request').debug = true
+// require('request').debug = true
 
 // Create http server
 var app    = express();
