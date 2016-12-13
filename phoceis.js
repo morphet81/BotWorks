@@ -3,6 +3,87 @@ var builder     = require('botbuilder'),
     botUser     = require('./user'),
     fs          = require('fs');
 
+
+
+
+
+
+
+
+
+
+
+// function convert(s) {
+//     return s.split('').map(function(c) {
+//         return '\\u' + ('0000' + c.charCodeAt(0).toString(16).toUpperCase()).slice(-4);
+//     }).join('');
+// }
+//
+//
+// var request = require('request');
+// var util = require('util');
+// var guid = require('guid');
+// var utf8 = require('utf8');
+// var gbk = require('gbk');
+// var urlencode = require('urlencode');
+// var bingSpeech  = require('./bingspeech-api-client');
+// let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
+//
+// request({
+//     uri: 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken',
+//     method: 'POST',
+//     headers: {
+//         'Ocp-Apim-Subscription-Key': process.env.BING_SPEECH_KEY
+//     }
+// }, function (err, res, token) {
+//     request({
+//         uri: 'https://speech.platform.bing.com/synthesize',
+//         method: 'POST',
+//         headers: {
+//             // 'Authorization': 'Bearer ' + new Buffer(token).toString('base64'),
+//             'Authorization': 'Bearer ' + token,
+//             'Content-Type': 'application/ssml+xml; charset=utf-8',
+//             'X-Microsoft-OutputFormat': 'raw-8khz-8bit-mono-mulaw',
+//             'X-Search-AppId': guid.raw(),
+//             'X-Search-ClientID': guid.raw(),
+//             'User-Agent': 'PhoceisBot'
+//         },
+//         body: `<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>Microsoft Bing Voice Output API</voice></speak>`
+//     }, function(err, res, body) {
+//         console.log(util.inspect(res));
+//     });
+// });
+//
+// // var message = urlencode('好的！ 让我们开始说');
+// var message = '好的！ 让我们开始说';
+// // var message = '124345';
+//
+// message = message;
+//
+// console.log(message);
+//
+// // speechClient.synthesize(message, 'zh-cn')
+// //     .then(response => {
+// //         fs.writeFile('./tmp/sound.wav', response.wave, function(err) {
+// //             console.log("Cool");
+// //         });
+// //     })
+// //     .catch(error => {
+// //         console.log(error);
+// //     });
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Main dialog with LUIS
 var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL);
 var chineseRecognizer = new builder.LuisRecognizer(process.env.LUIS_CN_MODEL_URL);

@@ -1,6 +1,6 @@
 var exec        = require('child_process').exec,
-    // bingSpeech  = require('bingspeech-api-client'),
-    bingSpeech  = require('./bingspeech-api-client'),
+    bingSpeech  = require('bingspeech-api-client'),
+    // bingSpeech  = require('./bingspeech-api-client'),
     fs          = require('fs'),
     guid        = require('guid');
 
@@ -74,10 +74,12 @@ module.exports = {
     autoAnswer: function(builder, session, wechatConnector, message, ...args) {
         var answer = session.createMessage(message, args);
 
-        botUtils.sendVoice(builder, session, wechatConnector, answer.text);
+        session.send(answer);
 
-        console.log(session.preferredLocale());
-        console.log(answer.text);
+        // botUtils.sendVoice(builder, session, wechatConnector, answer.text);
+        //
+        // console.log(session.preferredLocale());
+        // console.log(answer.text);
 
         // if(session.message.audio) {
         //
@@ -89,9 +91,7 @@ module.exports = {
 
     // Send audio response
     sendVoice: function(builder, session, wechatConnector, message, locale) {
-        console.log('=========    %s       %s', session.preferredLocale(), message);
-        message = '好的！ 让我们开始说';
-        speechClient.synthesize(message, 'zh-cn')// locale == undefined ? session.preferredLocale() : locale)
+        speechClient.synthesize(message, locale == undefined ? session.preferredLocale() : locale)
             .then(response => {
                 // Define file names
                 var voiceName = guid.raw();
