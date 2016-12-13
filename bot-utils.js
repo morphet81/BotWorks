@@ -53,6 +53,7 @@ module.exports = {
                             }
                         }
                     ]);
+                    session.startBatch();
                     session.send(msg);
                     session.sendBatch(function() {
                         console.log('a;sdkfljas;dlfkja;sldfjlkadsf');
@@ -72,6 +73,7 @@ module.exports = {
                 var msg = new builder.Message(session)
                     .addAttachment(attachment);
 
+                session.startBatch();
                 session.send(msg);
                 session.sendBatch(function() {
                     console.log('a;sdkfljas;dlfkja;sldfjlkadsf');
