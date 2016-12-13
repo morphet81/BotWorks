@@ -3,8 +3,7 @@
 var _            = require('lodash'),
     builder      = require('botbuilder'),
     wechat       = require('wechat'),
-    WechatAPI    = require('wechat-api'),
-    util         = require('util');
+    WechatAPI    = require('wechat-api');
 
 const AttachmentType = {
     Image:      'wechat/image',
@@ -45,9 +44,7 @@ var WechatConnector = (function() {
 
             if (!self.options.enableReply) {
                 self.processMessage(wechatMessage);
-                // res.contentType = "text/xml";
-                // res.content = "<xml><ToUserName><![CDATA[oHtPEwBmVoxhvl3bw5WLan8s-XZw]]></ToUserName><FromUserName><![CDATA[gh_4bce4ef52d79]]></FromUserName><CreateTime>12345678</CreateTime><MsgType><![CDATA[text]]></MsgType> <Content><![CDATA[Hello]]></Content></xml>";
-                res.status(200).send("<xml><ToUserName><![CDATA[oHtPEwBmVoxhvl3bw5WLan8s-XZw]]></ToUserName><FromUserName><![CDATA[gh_4bce4ef52d79]]></FromUserName><CreateTime>12345678</CreateTime><MsgType><![CDATA[text]]></MsgType> <Content><![CDATA[Hello! Should not display the warning message from WeChat...]]></Content></xml>");
+                res.status(200).end();
             } else {
                 next();
             }
@@ -216,9 +213,15 @@ var WechatConnector = (function() {
         }
     };
 
+    WechatConnector.prototype.callback = undefined;
+
     function errorHandle(err) {
         if (err) {
             console.log('Error', err);
+        }
+
+        if(this.callback) {
+            this.callback();
         }
     }
 

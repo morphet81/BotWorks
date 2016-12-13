@@ -55,11 +55,7 @@ module.exports = {
                         }
                     ]);
 
-                    console.log(util.inspect(session.send, true));
-
-                    wechatConnector.send(msg, function() {
-                        console.log(';laskdjfls;adkfjkdkdkdkkkkkkkkkkkk');
-                    });
+                    session.send(msg);
                 });
             }
             else {

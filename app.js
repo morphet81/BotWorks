@@ -2,8 +2,8 @@ require('dotenv-extended').load();
 
 var express         = require('express'),
     builder         = require('botbuilder'),
-    connector       = require('botbuilder-wechat-connector'),
-    // connector       = require('./wechat'),
+    // connector       = require('botbuilder-wechat-connector'),
+    connector       = require('./wechat'),
     util            = require('util'),
     fs              = require('fs'),
     botUser         = require('./user');
@@ -20,6 +20,10 @@ var wechatConnector = new connector.WechatConnector({
     appID: process.env.WECHAT_APP_ID,
     encodingAESKey: process.env.WECHAT_ENCODING_AES_KEY
 });
+
+wechatConnector.callback = () => {
+    console.log("FINISH");
+};
 
 // Internal modules
 var phoceis = require('./phoceis')(wechatConnector);
