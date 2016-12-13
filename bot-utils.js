@@ -55,6 +55,12 @@ module.exports = {
                         }
                     ]);
 
+                    // Change the default wechat connector call back to know when the image is really sent
+                    wechatConnector.callback = () => {
+                        resolve();
+                        wechatConnector.callback = undefined;       // Reset the callback
+                    };
+
                     session.send(msg);
                 });
             }

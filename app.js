@@ -21,10 +21,6 @@ var wechatConnector = new connector.WechatConnector({
     encodingAESKey: process.env.WECHAT_ENCODING_AES_KEY
 });
 
-wechatConnector.callback = () => {
-    console.log("FINISH");
-};
-
 // Internal modules
 var phoceis = require('./phoceis')(wechatConnector);
 var welcome = require('./welcome')('/phoceis');
