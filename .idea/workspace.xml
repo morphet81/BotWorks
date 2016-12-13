@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/client.js" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot-utils.js" afterPath="$PROJECT_DIR$/bot-utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phoceis.js" afterPath="$PROJECT_DIR$/phoceis.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preprocessor.js" afterPath="$PROJECT_DIR$/preprocessor.js" />
     </list>
     <ignored path="BotWorks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,43 +22,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="phoceis.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="phoceis.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/phoceis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="72" column="13" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="72" selection-end-column="13" />
+            <state relative-caret-position="294">
+              <caret line="112" column="10" lean-forward="true" selection-start-line="112" selection-start-column="10" selection-end-line="112" selection-end-column="10" />
               <folding>
-                <marker date="1481610509000" expanded="true" signature="3803:3846" ph="..." />
+                <marker date="1481610908000" expanded="true" signature="3806:3849" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/locale/en/index.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="52" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/locale/zh/index.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bot-utils.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bot-utils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="76" column="29" lean-forward="false" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+            <state relative-caret-position="420">
+              <caret line="98" column="59" lean-forward="true" selection-start-line="98" selection-start-column="59" selection-end-line="98" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -133,9 +109,9 @@
         <option value="$PROJECT_DIR$/locale/en/index.json" />
         <option value="$PROJECT_DIR$/locale/zh/index.json" />
         <option value="$PROJECT_DIR$/bingspeech-api-client/lib/client.js" />
-        <option value="$PROJECT_DIR$/phoceis.js" />
         <option value="$PROJECT_DIR$/preprocessor.js" />
         <option value="$PROJECT_DIR$/bot-utils.js" />
+        <option value="$PROJECT_DIR$/phoceis.js" />
       </list>
     </option>
   </component>
@@ -314,7 +290,7 @@
       <workItem from="1480903000881" duration="69691000" />
       <workItem from="1481266986827" duration="7596000" />
       <workItem from="1481275586935" duration="2115000" />
-      <workItem from="1481525770827" duration="15880000" />
+      <workItem from="1481525770827" duration="16148000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -327,7 +303,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102228000" />
+    <option name="totallyTimeSpent" value="102496000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -697,16 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phoceis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="72" column="13" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="72" selection-end-column="13" />
-          <folding>
-            <marker date="1481610509000" expanded="true" signature="3803:3846" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/preprocessor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -717,9 +683,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot-utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="76" column="29" lean-forward="false" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+        <state relative-caret-position="420">
+          <caret line="98" column="59" lean-forward="true" selection-start-line="98" selection-start-column="59" selection-end-line="98" selection-end-column="59" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phoceis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="112" column="10" lean-forward="true" selection-start-line="112" selection-start-column="10" selection-end-line="112" selection-end-column="10" />
+          <folding>
+            <marker date="1481610908000" expanded="true" signature="3806:3849" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

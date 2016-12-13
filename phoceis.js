@@ -109,7 +109,7 @@ module.exports = (wechatConnector) => {
         })
         .matches('GetBestTeamMate', (session) => {
             botUtils.sendImage(builder, session, wechatConnector, './assets/img/nespresso.jpeg');
-            botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
+            // botUtils.autoAnswer(builder, session, wechatConnector, 'phoceis_best_teammate');
         })
         .matches('ChangeLocale', (session, args) => {
             var newLocale;
