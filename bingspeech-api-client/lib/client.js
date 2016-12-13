@@ -54,7 +54,7 @@ class BingSpeechClient {
             let baseRequest = request.defaults({
                 headers: {
                     'Authorization': `Bearer ${this.token}`,
-                    'Content-Type': 'application/ssml+xml;charset=utf-8',
+                    'Content-Type': 'application/ssml+xml',
                     'Content-Length': ssml.length,
                     'X-Microsoft-OutputFormat': this.AUDIO_OUTPUT_FORMAT,
                     'X-Search-AppId': '00000000000000000000000000000000',
@@ -62,7 +62,7 @@ class BingSpeechClient {
                     'User-Agent': 'bingspeech-api-client'
                 },
                 timeout: 15000,
-                encoding: null,
+                encoding: 'utf-8',
                 body: ssml
             });
             return baseRequest.post(this.BING_SPEECH_ENDPOINT_TTS);

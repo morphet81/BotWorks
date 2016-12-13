@@ -114,7 +114,6 @@ module.exports = {
                                     }
                                 ]);
 
-
                                 fs.unlink(input);
                                 fs.unlink(output);
 
