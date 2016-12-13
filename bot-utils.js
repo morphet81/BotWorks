@@ -53,11 +53,9 @@ module.exports = {
                             }
                         }
                     ]);
-                    session.startBatch();
-                    session.send(msg);
-                    session.sendBatch(function() {
-                        console.log('a;sdkfljas;dlfkja;sldfjlkadsf');
-                        resolve();
+
+                    session.send([msg], function() {
+                        console.log(';laskdjfls;adkfjkdkdkdkkkkkkkkkkkk');
                     });
                 });
             }
