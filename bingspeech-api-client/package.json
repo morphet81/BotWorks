@@ -1,0 +1,119 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "bingspeech-api-client",
+        "scope": null,
+        "escapedName": "bingspeech-api-client",
+        "name": "bingspeech-api-client",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/alexandre/WebstormProjects/BotWorks"
+    ]
+  ],
+  "_from": "bingspeech-api-client@latest",
+  "_id": "bingspeech-api-client@2.0.1",
+  "_inCache": true,
+  "_location": "/bingspeech-api-client",
+  "_nodeVersion": "6.7.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/bingspeech-api-client-2.0.1.tgz_1476115288706_0.03801665594801307"
+  },
+  "_npmUser": {
+    "name": "palmerabollo",
+    "email": "palmerabollo@gmail.com"
+  },
+  "_npmVersion": "3.10.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "bingspeech-api-client",
+    "scope": null,
+    "escapedName": "bingspeech-api-client",
+    "name": "bingspeech-api-client",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/bingspeech-api-client/-/bingspeech-api-client-2.0.1.tgz",
+  "_shasum": "b23f85dfedf922c2027bafd75a414ccd03fbae45",
+  "_shrinkwrap": null,
+  "_spec": "bingspeech-api-client",
+  "_where": "/Users/alexandre/WebstormProjects/BotWorks",
+  "author": {
+    "name": "Guido García",
+    "email": "palmerabollo@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/palmerabollo/bingspeech-api-client/issues"
+  },
+  "dependencies": {
+    "node-uuid": "^1.4.7",
+    "request": "^2.75.0",
+    "request-promise-native": "^1.0.3"
+  },
+  "description": "Microsoft Bing Speech API client",
+  "devDependencies": {
+    "@types/chai": "^3.4.33",
+    "@types/mocha": "^2.2.32",
+    "@types/nock": "^8.0.33",
+    "@types/node": "^6.0.40",
+    "@types/node-uuid": "0.0.28",
+    "@types/sinon": "^1.16.30",
+    "@types/sinon-chai": "^2.7.27",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "nock": "^8.0.0",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0",
+    "tslint": "^3.15.1",
+    "typescript": "^2.0.3"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "b23f85dfedf922c2027bafd75a414ccd03fbae45",
+    "tarball": "https://registry.npmjs.org/bingspeech-api-client/-/bingspeech-api-client-2.0.1.tgz"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "gitHead": "03156a470dc18d4218c9e5efe07efa3290b043ac",
+  "homepage": "https://github.com/palmerabollo/bingspeech-api-client#readme",
+  "keywords": [
+    "bing",
+    "speech",
+    "microsoft"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "name": "palmerabollo",
+      "email": "palmerabollo@gmail.com"
+    }
+  ],
+  "name": "bingspeech-api-client",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palmerabollo/bingspeech-api-client.git"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -fR ./lib",
+    "compile": "tsc",
+    "lint": "tslint './src/**/*.ts'",
+    "prepublish": "npm run build",
+    "test": "npm run build && mocha -R spec 'lib/**/*.spec.js'"
+  },
+  "typings": "lib/index.d.ts",
+  "version": "2.0.1"
+}

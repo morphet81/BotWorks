@@ -1,5 +1,6 @@
 var exec        = require('child_process').exec,
-    bingSpeech  = require('bingspeech-api-client'),
+    // bingSpeech  = require('bingspeech-api-client'),
+    bingSpeech  = require('./bingspeech-api-client'),
     fs          = require('fs'),
     guid        = require('guid');
 

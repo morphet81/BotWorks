@@ -2,6 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/client.d.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/client.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/client.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/client.spec.d.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/client.spec.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/client.spec.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/index.d.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/index.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/index.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/models.d.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/models.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/lib/models.js.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bingspeech-api-client/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot-utils.js" afterPath="$PROJECT_DIR$/bot-utils.js" />
     </list>
@@ -36,9 +51,31 @@
       <file leaf-file-name="bot-utils.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="91" column="29" lean-forward="false" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+            <state relative-caret-position="30">
+              <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bingspeech-api-client/lib/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bingspeech-api-client/lib/client.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="48" column="94" lean-forward="false" selection-start-line="48" selection-start-column="94" selection-end-line="48" selection-end-column="94" />
+              <folding>
+                <marker date="1481595999000" expanded="true" signature="2227:2374" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,6 +155,7 @@
         <option value="$PROJECT_DIR$/locale/en/index.json" />
         <option value="$PROJECT_DIR$/locale/zh/index.json" />
         <option value="$PROJECT_DIR$/phoceis.js" />
+        <option value="$PROJECT_DIR$/bingspeech-api-client/lib/client.js" />
         <option value="$PROJECT_DIR$/bot-utils.js" />
       </list>
     </option>
@@ -196,11 +234,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="locale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zh" />
+              <option name="myItemId" value="bingspeech-api-client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -214,11 +248,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="locale" />
+              <option name="myItemId" value="bingspeech-api-client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="en" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -242,15 +276,15 @@
     <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/locale/zh" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/locale" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/assets/sounds" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/locale/zh" />
     </key>
   </component>
   <component name="RunManager">
@@ -333,7 +367,7 @@
       <workItem from="1480903000881" duration="69691000" />
       <workItem from="1481266986827" duration="7596000" />
       <workItem from="1481275586935" duration="2115000" />
-      <workItem from="1481525770827" duration="8166000" />
+      <workItem from="1481525770827" duration="9192000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -346,7 +380,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94514000" />
+    <option name="totallyTimeSpent" value="95540000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -407,14 +441,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_dump.js" />
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -552,13 +578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="45" lean-forward="false" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/bingspeech-api-client/lib/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -711,6 +730,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/bingspeech-api-client/lib/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="30" column="63" lean-forward="false" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
+          <folding>
+            <marker date="1476115287000" expanded="true" signature="2218:2365" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bingspeech-api-client/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bingspeech-api-client/lib/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="48" column="94" lean-forward="false" selection-start-line="48" selection-start-column="94" selection-end-line="48" selection-end-column="94" />
+          <folding>
+            <marker date="1481595999000" expanded="true" signature="2227:2374" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/phoceis.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -721,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot-utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="91" column="29" lean-forward="false" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+        <state relative-caret-position="30">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
           <folding />
         </state>
       </provider>
