@@ -5,8 +5,9 @@ var express         = require('express'),
     connector       = require('botbuilder-wechat-connector'),
     // connector       = require('./wechat'),
     util            = require('util'),
-    fs              = require('fs'),
-    botUser         = require('./user');
+    fs              = require('fs');
+
+require('request').debug = true
 
 // Create http server
 var app    = express();
