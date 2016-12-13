@@ -53,10 +53,11 @@ module.exports = {
                             }
                         }
                     ]);
-                    session.send(msg, function() {
-                        console.log('===========================');
+                    session.send(msg);
+                    session.sendBatch(function() {
+                        console.log('a;sdkfljas;dlfkja;sldfjlkadsf');
+                        resolve();
                     });
-                    resolve();
                 });
             }
             else {
@@ -72,8 +73,10 @@ module.exports = {
                     .addAttachment(attachment);
 
                 session.send(msg);
-
-                resolve();
+                session.sendBatch(function() {
+                    console.log('a;sdkfljas;dlfkja;sldfjlkadsf');
+                    resolve();
+                });
             }
         })
     },

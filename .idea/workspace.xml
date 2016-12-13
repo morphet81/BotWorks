@@ -4,6 +4,7 @@
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bot-utils.js" afterPath="$PROJECT_DIR$/bot-utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phoceis.js" afterPath="$PROJECT_DIR$/phoceis.js" />
     </list>
     <ignored path="BotWorks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,10 +37,10 @@
       <file leaf-file-name="phoceis.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/phoceis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="112" column="52" lean-forward="false" selection-start-line="112" selection-start-column="52" selection-end-line="112" selection-end-column="52" />
+            <state relative-caret-position="195">
+              <caret line="111" column="29" lean-forward="true" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="29" />
               <folding>
-                <marker date="1481612210000" expanded="true" signature="4014:4057" ph="..." />
+                <marker date="1481612616000" expanded="true" signature="3956:3999" ph="..." />
               </folding>
             </state>
           </provider>
@@ -48,8 +49,8 @@
       <file leaf-file-name="bot-utils.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="56" column="64" lean-forward="false" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+            <state relative-caret-position="283">
+              <caret line="59" column="23" lean-forward="false" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -120,8 +121,8 @@
         <option value="$PROJECT_DIR$/locale/zh/index.json" />
         <option value="$PROJECT_DIR$/bingspeech-api-client/lib/client.js" />
         <option value="$PROJECT_DIR$/preprocessor.js" />
-        <option value="$PROJECT_DIR$/phoceis.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/phoceis.js" />
         <option value="$PROJECT_DIR$/bot-utils.js" />
       </list>
     </option>
@@ -301,7 +302,7 @@
       <workItem from="1480903000881" duration="69691000" />
       <workItem from="1481266986827" duration="7596000" />
       <workItem from="1481275586935" duration="2115000" />
-      <workItem from="1481525770827" duration="17622000" />
+      <workItem from="1481525770827" duration="18010000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -314,7 +315,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103970000" />
+    <option name="totallyTimeSpent" value="104358000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -695,18 +696,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/phoceis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="112" column="52" lean-forward="false" selection-start-line="112" selection-start-column="52" selection-end-line="112" selection-end-column="52" />
+        <state relative-caret-position="195">
+          <caret line="111" column="29" lean-forward="true" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="29" />
           <folding>
-            <marker date="1481612210000" expanded="true" signature="4014:4057" ph="..." />
+            <marker date="1481612616000" expanded="true" signature="3956:3999" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bot-utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="56" column="64" lean-forward="false" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+        <state relative-caret-position="283">
+          <caret line="59" column="23" lean-forward="false" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
           <folding />
         </state>
       </provider>
