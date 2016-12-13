@@ -10,6 +10,10 @@ let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
 // Channels ids
 var channels = {
     wechat: 'wechat'
+};
+
+var isWechat = (session) => {
+    return session.message.address.channelId == channels.wechat;
 }
 
 module.exports = {
@@ -44,7 +48,7 @@ module.exports = {
     sendImage: function(builder, session, wechatConnector, imagePath, message, ...messageArgs) {
         return new Promise(function (resolve, reject) {
             // If user is using Wechat, need to upload the image first
-            if (session.message.address.channelId == channels.wechat) {
+            if (isWechat(session)) {
                 wechatConnector.wechatAPI.uploadMedia(imagePath, 'image', function (arg, fileInformation) {
                     var msg = new builder.Message(session).attachments([
                         {
@@ -101,12 +105,20 @@ module.exports = {
         return new Promise(function (resolve, reject) {
             var answer = session.createMessage(message, args);
 
-            // session.send(answer);
+            // Change the default wechat connector call back to know when the image is really sent
+            if(isWechat(session)) {
+                wechatConnector.callback = () => {
+                    resolve();
+                    wechatConnector.callback = undefined;       // Reset the callback
+                };
+            }
 
             session.startBatch();
             session.send(answer);
             session.sendBatch(function() {
-                resolve();
+                if(!isWechat(session)) {
+                    resolve();
+                }
             });
 
             // botUtils.sendVoice(builder, session, wechatConnector, answer.text);
