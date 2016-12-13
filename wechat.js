@@ -172,7 +172,7 @@ var WechatConnector = (function() {
             user = addr.user;
 
         if (message.text && message.text.length > 0) {
-            this.wechatAPI.sendText(user.id, message.text, errorHandle);
+            this.wechatAPI.sendText(user.id, message.text, getCallback(this));
         }
 
         if (message.attachments && message.attachments.length > 0) {
@@ -185,25 +185,25 @@ var WechatConnector = (function() {
 
                 switch(atmType) {
                     case AttachmentType.Image:
-                        this.wechatAPI.sendImage(user.id, atmCont.mediaId, errorHandle);
+                        this.wechatAPI.sendImage(user.id, atmCont.mediaId, getCallback(this));
                         break;
                     case AttachmentType.Voice:
-                        this.wechatAPI.sendVoice(user.id, atmCont.mediaId, errorHandle);
+                        this.wechatAPI.sendVoice(user.id, atmCont.mediaId, getCallback(this));
                         break;
                     case AttachmentType.Video:
-                        this.wechatAPI.sendVideo(user.id, atmCont.mediaId, atmCont.thumbMediaId, errorHandle);
+                        this.wechatAPI.sendVideo(user.id, atmCont.mediaId, atmCont.thumbMediaId, getCallback(this));
                         break;
                     case AttachmentType.Music:
-                        this.wechatAPI.sendMusic(user.id, atmCont, errorHandle);
+                        this.wechatAPI.sendMusic(user.id, atmCont, getCallback(this));
                         break;
                     case AttachmentType.News:
-                        this.wechatAPI.sendNews(user.id, atmCont, errorHandle);
+                        this.wechatAPI.sendNews(user.id, atmCont, getCallback(this));
                         break;
                     case AttachmentType.MpNews:
-                        this.wechatAPI.sendMpNews(user.id, atmCont.mediaId, errorHandle);
+                        this.wechatAPI.sendMpNews(user.id, atmCont.mediaId, getCallback(this));
                         break;
                     case AttachmentType.Card:
-                        this.wechatAPI.sendCard(user.id, atmCont, errorHandle);
+                        this.wechatAPI.sendCard(user.id, atmCont, getCallback(this));
                         break;
                     default:
                         // Unknow attachment
@@ -215,13 +215,13 @@ var WechatConnector = (function() {
 
     WechatConnector.prototype.callback = undefined;
 
+    function getCallback(caller) {
+        return (caller.callback ? caller.callback : errorHandle)
+    }
+
     function errorHandle(err) {
         if (err) {
             console.log('Error', err);
-        }
-
-        if(this.callback) {
-            this.callback();
         }
     }
 
