@@ -56,11 +56,17 @@ module.exports = {
                     ]);
 
                     // Set message
-                    msg.text(session.createMessage(message, messageArgs));
+                    msg.text('ok');
+
+                    console.log(session.createMessage(message, messageArgs));
+
+                    // Change the default wechat connector call back to know when the image is really sent
+                    wechatConnector.callback = () => {
+                        resolve();
+                        wechatConnector.callback = undefined;       // Reset the callback
+                    };
 
                     session.send(msg);
-
-                    resolve();
                 });
             }
             else {
