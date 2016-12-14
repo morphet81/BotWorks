@@ -146,11 +146,9 @@ var WechatConnector = (function() {
             });
         }
 
+        console.log(util.inspect(atts));
+
         msg = msg.attachments(atts);
-
-        console.log(util.inspect(msg));
-        console.log(util.inspect(msg.toMessage()));
-
         this.handler([msg.toMessage()]);
         return this;
     };

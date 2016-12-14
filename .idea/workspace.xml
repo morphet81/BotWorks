@@ -36,8 +36,18 @@
       <file leaf-file-name="wechat.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wechat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+            <state relative-caret-position="435">
+              <caret line="150" column="36" lean-forward="true" selection-start-line="150" selection-start-column="36" selection-end-line="150" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Message.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/botbuilder/lib/Message.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="85" column="34" lean-forward="false" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -302,7 +312,7 @@
       <workItem from="1480903000881" duration="69691000" />
       <workItem from="1481266986827" duration="7596000" />
       <workItem from="1481275586935" duration="2115000" />
-      <workItem from="1481525770827" duration="37385000" />
+      <workItem from="1481525770827" duration="37520000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -315,7 +325,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123733000" />
+    <option name="totallyTimeSpent" value="123868000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -493,14 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/botbuilder/lib/Message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="141" column="4" lean-forward="false" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -737,10 +739,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/botbuilder/lib/Message.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="85" column="34" lean-forward="false" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wechat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        <state relative-caret-position="435">
+          <caret line="150" column="36" lean-forward="true" selection-start-line="150" selection-start-column="36" selection-end-line="150" selection-end-column="36" />
           <folding />
         </state>
       </provider>
