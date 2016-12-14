@@ -3,7 +3,8 @@
 var _            = require('lodash'),
     builder      = require('botbuilder'),
     wechat       = require('wechat'),
-    WechatAPI    = require('wechat-api');
+    WechatAPI    = require('wechat-api'),
+    util         = require('util');
 
 const AttachmentType = {
     Image:      'wechat/image',
@@ -42,7 +43,7 @@ var WechatConnector = (function() {
         return wechat(config, function(req, res, next) {
             var wechatMessage = req.weixin;
 
-            console.inspect(req);
+            console.log(util.inspect(req));
 
             if (!self.options.enableReply) {
                 self.processMessage(wechatMessage);
