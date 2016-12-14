@@ -4,8 +4,8 @@ require('dotenv-extended').load();
 
 var express         = require('express'),
     builder         = require('botbuilder'),
-    connector       = require('botbuilder-wechat-connector'),
-    // connector       = require('./wechat'),
+    // connector       = require('botbuilder-wechat-connector'),
+    connector       = require('./wechat'),
     util            = require('util'),
     fs              = require('fs');
 
