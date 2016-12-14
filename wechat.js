@@ -76,6 +76,8 @@ var WechatConnector = (function() {
             .timestamp(convertTimestamp(wechatMessage.CreateTime))
             .entities();
 
+        console.log(`Message type is ${msgType}`);
+
         if (msgType == 'text') {
             msg = msg.text(wechatMessage.Content);
         } else {
@@ -146,7 +148,7 @@ var WechatConnector = (function() {
             });
         }
 
-        console.log(util.inspect(atts));
+        console.log(`Attachments: ${util.inspect(atts)}`);
 
         msg = msg.attachments(atts);
         this.handler([msg.toMessage()]);

@@ -16,14 +16,14 @@ module.exports = (wechatConnector) => {
             // var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
             // builder.Prompts.choice(session, 'holiday_climate', options);
             builder.Prompts.text(session, 'holiday_location');
-            console.log(util.inspect(session.message));
+            // console.log(util.inspect(session.message));
         },
         function (session, result) {
             builder.Prompts.text(session, 'holiday_location');
-            console.log(util.inspect(session.message));
+            // console.log(util.inspect(session.message));
         },
         function(session, result) {
-            console.log(util.inspect(session.message));
+            // console.log(util.inspect(session.message));
         }
     ];
 
