@@ -20,7 +20,7 @@ module.exports = (wechatConnector) => {
             builder.Prompts.text(session, 'holiday_location');
         },
         function(session, result) {
-            console.log(util.inspect(session.result));
+            console.log(util.inspect(result));
             console.log(util.inspect(session.message));
         }
     ];

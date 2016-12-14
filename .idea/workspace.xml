@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/client.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/client.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/client.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/client.spec.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/client.spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/client.spec.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/index.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/index.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/models.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/models.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/lib/models.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bingspeech-api-client/package.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/holiday.js" afterPath="$PROJECT_DIR$/holiday.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="BotWorks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +22,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -60,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="holiday.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="holiday.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/holiday.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+            <state relative-caret-position="330">
+              <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -139,8 +121,8 @@
         <option value="$PROJECT_DIR$/bot-utils.js" />
         <option value="$PROJECT_DIR$/phoceis.js" />
         <option value="$PROJECT_DIR$/wechat.js" />
-        <option value="$PROJECT_DIR$/holiday.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/holiday.js" />
       </list>
     </option>
   </component>
@@ -319,7 +301,7 @@
       <workItem from="1480903000881" duration="69691000" />
       <workItem from="1481266986827" duration="7596000" />
       <workItem from="1481275586935" duration="2115000" />
-      <workItem from="1481525770827" duration="38302000" />
+      <workItem from="1481525770827" duration="38459000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -332,7 +314,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124650000" />
+    <option name="totallyTimeSpent" value="124807000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -702,14 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot-utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -725,14 +699,6 @@
           <folding>
             <marker date="1481705667000" expanded="true" signature="1507:1550" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/holiday.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -756,6 +722,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="52" lean-forward="false" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/holiday.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
           <folding />
         </state>
       </provider>
