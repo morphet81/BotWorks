@@ -15,9 +15,11 @@ module.exports = (wechatConnector) => {
             session.send('holiday_welcome');
             var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
             builder.Prompts.choice(session, 'holiday_climate', options);
+            console.log(util.inspect(session.message.attachments));
         },
         function (session, result) {
             builder.Prompts.text(session, 'holiday_location');
+            console.log(util.inspect(session.message.attachments));
         },
         function(session, result) {
             console.log(util.inspect(session.message.attachments));
