@@ -26,10 +26,11 @@ var bot = new builder.UniversalBot(connector);
 bot.dialog('/', dialog);
 app.use('/api/messages', connector.listen());
 
-// Configure WeChat's bot
+// Configure WeChat's bot.
 var wechatConnector = new botbuilderWechat.WechatConnector({
-    appToken: process.env.WECHAT_TOKEN,
     appID: process.env.WECHAT_APP_ID,
+    appSecret: process.env.WECHAT_APP_SECRET,
+    appToken: process.env.WECHAT_TOKEN,
     encodingAESKey: process.env.WECHAT_ENCODING_AES_KEY
 });
 var wechatBot = new builder.UniversalBot(wechatConnector);
