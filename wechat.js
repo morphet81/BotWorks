@@ -115,7 +115,7 @@ var WechatConnector = (function() {
             });
         }
 
-        if (msgType = 'shortvideo') {
+        if (msgType == 'shortvideo') {
             atts.push({
                 contentType: AttachmentType.ShortVideo,
                 content: {
