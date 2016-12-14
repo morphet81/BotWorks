@@ -1,48 +1,104 @@
 require('dotenv-extended').load();
 
-var express             = require('express'),
-    builder             = require('botbuilder'),
-    botbuilderWechat    = require('botbuilder-wechat-connector');
+// require('request').debug = true
 
-// Create the app
+var express         = require('express'),
+    builder         = require('botbuilder'),
+    connector       = require('botbuilder-wechat-connector'),
+    // connector       = require('./wechat'),
+    util            = require('util'),
+    fs              = require('fs');
+
+// require('request').debug = true
+
+// Create http server
 var app    = express();
 
-// Create the dialog
-var dialog = [
-    function (session) {
-        builder.Prompts.text(session, 'Hello! What is your name?');
-    },
-    function (session, result) {
-        session.send(`Hi ${result.response}! Nice to meet you.`);
-    }
-];
-
-// Configure Bot Framework's bot
-var connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
-});
-var bot = new builder.UniversalBot(connector);
-bot.dialog('/', dialog);
-app.use('/api/messages', connector.listen());
-
-// Configure WeChat's bot.
-var wechatConnector = new botbuilderWechat.WechatConnector({
+// Create wechat connector
+var wechatConnector = new connector.WechatConnector({
     appID: process.env.WECHAT_APP_ID,
     appSecret: process.env.WECHAT_APP_SECRET,
     appToken: process.env.WECHAT_TOKEN,
     encodingAESKey: process.env.WECHAT_ENCODING_AES_KEY
 });
-var wechatBot = new builder.UniversalBot(wechatConnector);
-wechatBot.dialog('/', dialog);
+
+// Internal modules
+var holiday = require('./holiday')(wechatConnector);
+var phoceis = require('./phoceis')(wechatConnector);
+var welcome = require('./welcome')('/phoceis');
+var preprocessor = require('./preprocessor')(wechatConnector);
+
+var defaultDialog = holiday.dialog;
+
+/**********-**************/
+/******  WECHAT BOT  *****/
+/**********-**************/
+
+// Build the WeChat bot
+var bot = new builder.UniversalBot(
+    wechatConnector,
+    {
+        localizerSettings: {
+            botLocalePath: "./locale",
+            defaultLocale: "en"
+        }
+    }
+);
+
+// Pre-treatment of the message
+bot.use({
+    botbuilder: preprocessor.Core
+});
+
+// Bot dialogs
+bot.dialog('/', defaultDialog);
+bot.dialog('/holiday', holiday.dialog);
+bot.dialog('/phoceis', phoceis.dialog);
+welcome.initDialogs(bot);
+
 app.use('/wechat', wechatConnector.listen());
 
-// Default app page
+/************-****************/
+/******  MICROSOFT BOT   *****/
+/************-****************/
+
+var microsoftConnector = new builder.ChatConnector({
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
+
+var microsoftBot = new builder.UniversalBot(
+    microsoftConnector,
+    {
+        localizerSettings: {
+            botLocalePath: "./locale",
+            defaultLocale: "en"
+        }
+    }
+);
+
+// Bot dialogs
+microsoftBot.dialog('/', defaultDialog);
+microsoftBot.dialog('/holiday', holiday.dialog);
+microsoftBot.dialog('/phoceis', phoceis.dialog);
+welcome.initDialogs(microsoftBot);
+
+// Pre-treatment of the message
+microsoftBot.use({
+    botbuilder: preprocessor.Core
+});
+
+app.use('/microsoft', microsoftConnector.listen());
+
+/***************-*******************/
+/******     START LISTENING   ******/
+/***************-*******************/
+
 app.get('*', function(req, res) {
     res.send(200, 'Hello Wechat Bot');
 });
 
-// Start listening on port
+// Start listen on port
 app.listen(process.env.port || 3978, function() {
     console.log('server is running');
 });

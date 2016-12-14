@@ -1,6 +1,5 @@
 var exec        = require('child_process').exec,
-    bingSpeech  = require('bingspeech-api-client'),
-    // bingSpeech  = require('./bingspeech-api-client'),
+    bingSpeech  = require('morphet-bingspeech-api-client'),
     fs          = require('fs'),
     guid        = require('guid'),
     util        = require('util');
@@ -92,13 +91,13 @@ module.exports = {
     autoAnswer: function(builder, session, wechatConnector, message, ...args) {
         var answer = session.createMessage(message, args);
 
-        session.startBatch();
-        session.send(answer);
-        session.sendBatch(function() {
-            resolve();
-        });
+        // session.startBatch();
+        // session.send(answer);
+        // session.sendBatch(function() {
+        //     resolve();
+        // });
 
-        // botUtils.sendVoice(builder, session, wechatConnector, answer.text);
+        botUtils.sendVoice(builder, session, wechatConnector, answer.text);
         //
         // console.log(session.preferredLocale());
         // console.log(answer.text);

@@ -13,74 +13,69 @@ var builder     = require('botbuilder'),
 
 
 
-// function convert(s) {
-//     return s.split('').map(function(c) {
-//         return '&#' + c.charCodeAt(0) + ';';
-//     }).join('');
-// }
-//
-//
-// var request = require('request');
-// var util = require('util');
-// var guid = require('guid');
-// var utf8 = require('utf8');
-// var gbk = require('gbk');
-// var urlencode = require('urlencode');
-// // var bingSpeech  = require('./bingspeech-api-client');
-// var bingSpeech  = require('morphet-bingspeech-api-client');
-// let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
-//
-//
-//
-//
-// var message = '好的！ 让我们开始说';
-// // var message = urlencode(convert('好的！ 让我们开始说'));
-// // var message = '&#22909;&#30340;&#65281; &#35753;&#25105;&#20204;&#24320;&#22987;&#35828';
-// // var message = '124345';
-//
-// console.log(convert('salut'));
-//
-//
-// // console.log(message);
-// //
-// // var lang = 'zh-cn';
-// // var name = '';
-// // var text = `<speak version='1.0' xml:lang='${lang}'>
-// //                 <voice xml:lang='${lang}' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>${message}</voice>
-// //             </speak>`;
-// //
-// //
-// // request({
-// //     uri: 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken',
-// //     method: 'POST',
-// //     headers: {
-// //         'Ocp-Apim-Subscription-Key': process.env.BING_SPEECH_KEY
-// //     }
-// // }, function (err, res, token) {
-// //     request({
-// //         uri: 'https://speech.platform.bing.com/synthesize',
-// //         method: 'POST',
-// //         headers: {
-// //             'Authorization': 'Bearer ' + token,
-// //             'Content-Type': 'application/ssml+xml',
-// //             'Content-Length': text.length,
-// //             'X-Microsoft-OutputFormat': 'riff-8khz-8bit-mono-mulaw',
-// //             'X-Search-AppId': '00000000000000000000000000000000',
-// //             'X-Search-ClientID': '00000000000000000000000000000000',
-// //             'User-Agent': 'bingspeech-api-client'
-// //         },
-// //         timeout: 15000,
-// //         encoding: null,
-// //         body: text
-// //     }, function(err, res, body) {
-// //         console.log(res.statusCode);
-// //         fs.writeFile('./tmp/sound.wav', body, function(err) {
-// //             console.log("Cool   %s", err);
-// //         });
-// //     });
-// // });
-//
-// speechClient.synthesize(message, 'zh-cn')
+function convert(s) {
+    return s.split('').map(function(c) {
+        return '\\u' + ('0000' + c.charCodeAt(0).toString(16).toUpperCase()).slice(-4);
+    }).join('');
+}
+
+
+var request = require('request');
+var util = require('util');
+var guid = require('guid');
+var utf8 = require('utf8');
+var gbk = require('gbk');
+var urlencode = require('urlencode');
+// var bingSpeech  = require('./bingspeech-api-client');
+var bingSpeech  = require('bingspeech-api-client');
+let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
+
+var lang = 'zh-cn';
+var name = '';
+var text = `<speak version='1.0' xml:lang='${lang}'>
+                <voice xml:lang='${lang}' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'></voice>
+            </speak>`;
+
+
+request({
+    uri: 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken',
+    method: 'POST',
+    headers: {
+        'Ocp-Apim-Subscription-Key': process.env.BING_SPEECH_KEY
+    }
+}, function (err, res, token) {
+    request({
+        uri: 'https://speech.platform.bing.com/synthesize',
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/ssml+xml',
+            'Content-Length': text.length,
+            'X-Microsoft-OutputFormat': 'riff-8khz-8bit-mono-mulaw',
+            'X-Search-AppId': '00000000000000000000000000000000',
+            'X-Search-ClientID': '00000000000000000000000000000000',
+            'User-Agent': 'bingspeech-api-client'
+        },
+        timeout: 15000,
+        encoding: null,
+        body: text
+    }, function(err, res, body) {
+        console.log(res.statusCode);
+        fs.writeFile('./tmp/sound.wav', body, function(err) {
+            console.log("Cool   %s", err);
+        });
+    });
+});
+
+// var message = urlencode('好的！ 让我们开始说');
+var message = '好的！ 让我们开始说';
+// var message = '124345';
+
+message = message;
+
+console.log(convert(message));
+
+// speechClient.synthesize('hello')
 //     .then(response => {
 //         fs.writeFile('./tmp/sound.wav', response.wave, function(err) {
 //             console.log("Cool");

@@ -36,6 +36,7 @@
     "express": "^4.14.0",
     "fs": "0.0.1-security",
     "guid": "0.0.12",
+    "morphet-bingspeech-api-client": "^2.0.1",
     "mssql": "^3.3.0",
     "node-cache": "^4.1.0",
     "request": "^2.79.0",
