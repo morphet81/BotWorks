@@ -43,7 +43,7 @@ var WechatConnector = (function() {
         return wechat(config, function(req, res, next) {
             var wechatMessage = req.weixin;
 
-            console.log(util.inspect(req));
+            console.log(util.inspect(wechatMessage));
 
             if (!self.options.enableReply) {
                 self.processMessage(wechatMessage);
@@ -145,6 +145,9 @@ var WechatConnector = (function() {
                 }
             });
         }
+
+        console.log(util.inspect(msg));
+        console.log(util.inspect(msg.toMessage()));
 
         msg = msg.attachments(atts);
         this.handler([msg.toMessage()]);
