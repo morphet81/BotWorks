@@ -28,9 +28,6 @@ app.use('/api/messages', connector.listen());
 
 // Configure WeChat's bot
 var wechatConnector = new botbuilderWechat.WechatConnector({
-    appID: process.env.WECHAT_APP_ID,
-    appSecret: process.env.WECHAT_APP_SECRET,
-
     appToken: process.env.WECHAT_TOKEN,
     appID: process.env.WECHAT_APP_ID,
     encodingAESKey: process.env.WECHAT_ENCODING_AES_KEY
