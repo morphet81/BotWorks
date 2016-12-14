@@ -28,7 +28,7 @@ var phoceis = require('./phoceis')(wechatConnector);
 var welcome = require('./welcome')('/phoceis');
 var preprocessor = require('./preprocessor')(wechatConnector);
 
-var defaultDialog = holiday.dialog;
+var defaultDialog = phoceis.dialog;
 
 /**********-**************/
 /******  WECHAT BOT  *****/
