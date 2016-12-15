@@ -12,7 +12,7 @@ var express         = require('express'),
 var app    = express();
 
 // Make images public
-app.use(express.static('./assets/img'));
+app.use(express.static('./assets/img/demo'));
 
 // Create wechat connector
 var wechatConnector = new connector.WechatConnector({
