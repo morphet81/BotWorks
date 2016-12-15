@@ -35,25 +35,25 @@ module.exports = (wechatConnector) => {
                         "title": "Phi Phi Islands",
                         "description": "Beach, sun and Thai food!",
                         "url": "https://en.wikipedia.org/wiki/Phi_Phi_Islands",
-                        "picurl": "https://media.gadventures.com/media-server/cache/d8/66/d86652654b0220d20b9a6f86309371cf.jpg"
+                        "picurl": "http://phoceisasiabot.azurewebsites.net/phiphi.jpg"
                     },
                     {
                         "title": "Bali",
                         "description": "Discover the pearl of Indonesia!",
                         "url": "https://en.wikipedia.org/wiki/Bali",
-                        "picurl": "https://pix6.agoda.net/city/17193/17193-7x3.jpg"
+                        "picurl": "http://phoceisasiabot.azurewebsites.net/bali.jpg"
                     },
                     {
                         "title": "Malaysia",
                         "description": "Authenticity and modernity in the heart of Asia!",
                         "url": "https://en.wikipedia.org/wiki/Malaysia",
-                        "picurl": "http://www.rts.com.eg/wp-content/uploads/st_uploadfont/Malaysia.jpg"
+                        "picurl": "http://phoceisasiabot.azurewebsites.net/malaysia.jpg"
                     },
                     {
                         "title": "Sanya",
                         "description": "China in the sun and on the beach!",
                         "url": "https://en.wikipedia.org/wiki/Hainan",
-                        "picurl": "http://www.cnto.org/wp-content/uploads/2014/05/Sanya-Beach.jpg"
+                        "picurl": "http://phoceisasiabot.azurewebsites.net/hainan.jpg"
                     }
                 ]
             };
