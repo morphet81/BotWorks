@@ -11,6 +11,9 @@ var express         = require('express'),
 // Create http server
 var app    = express();
 
+// Make images public
+app.use(express.static('./assets/img'));
+
 // Create wechat connector
 var wechatConnector = new connector.WechatConnector({
     appID: process.env.WECHAT_APP_ID,

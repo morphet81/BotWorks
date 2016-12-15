@@ -50,7 +50,7 @@ module.exports = (wechatConnector) => {
                         "picurl": "http://www.rts.com.eg/wp-content/uploads/st_uploadfont/Malaysia.jpg"
                     },
                     {
-                        "title": "Hainan",
+                        "title": "Sanya",
                         "description": "China in the sun and on the beach!",
                         "url": "https://en.wikipedia.org/wiki/Hainan",
                         "picurl": "http://www.cnto.org/wp-content/uploads/2014/05/Sanya-Beach.jpg"
