@@ -69,7 +69,7 @@ var _getJsapiTicket = function() {
             }
         }
     )
-}
+};
 
 module.exports = {
     // Recover WeChat access token

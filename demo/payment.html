@@ -8,6 +8,14 @@
     <script src="jquery/dist/jquery.min.js"></script>
 
     <script type="text/javascript">
+        document.addEventListener(
+            'WeixinJSBridgeReady',
+            function() {
+                console.log('HHHHHHEEEEEYYYYYYYY');
+            },
+            false
+        );
+
         $(document).ready(function () {
             $('#config').html(wechatConfig.debug);
 
