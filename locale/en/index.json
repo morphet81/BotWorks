@@ -21,5 +21,9 @@
   "holiday_welcome": "Hi Alexandre! You want to go on holiday? All right! Let's find the perfect plan for you!",
   "holiday_climate": "What kind of climate do you prefer?",
   "holiday_climate_choice": "Warm|Cold|Temperate",
-  "holiday_location": "Alright! Now please share your location with me, I will try to optimize your destination choice ;-)"
+  "holiday_location": "Alright! Now please share your location with me, I will try to optimize your destination choice ;-)",
+  "holiday_location_confirm": "I see you are in Shanghai. There are plenty of places you can easily reach from there.",
+  "holiday_age": "To better match your expectations can you give your age?",
+  "holiday_keywords": "Alright! Now, can you tell me What words would best describe your perfect holiday?",
+  "holiday_start_search": "Thanks! I'm looking for the perfect match for you. Please wait for a sec."
 }

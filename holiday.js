@@ -11,17 +11,44 @@ module.exports = (wechatConnector) => {
     var module = {};
 
     module.dialog = [
-        function (session) {
-            session.send('holiday_welcome');
-            var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
-            builder.Prompts.choice(session, 'holiday_climate', options);
-        },
-        function (session) {
-            builder.Prompts.text(session, 'holiday_location');
-        },
-        function(session, result) {
-            console.log(util.inspect(result));
-            console.log(util.inspect(session.message));
+        // function (session) {
+        //     session.send('holiday_welcome');
+        //     var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
+        //     builder.Prompts.choice(session, 'holiday_climate', options);
+        // },
+        // function (session) {
+        //     builder.Prompts.text(session, 'holiday_location');
+        // },
+        // function(session) {
+        //     session.send('holiday_location_confirm');
+        //     builder.Prompts.text(session, 'holiday_age');
+        // },
+        // function(session) {
+        //     builder.Prompts.text(session, 'holiday_keywords');
+        // },
+        function(session) {
+            // builder.Prompts.text(session, 'holiday_start_search');
+            var attachments = {
+                contentType: 'wechat/news',
+                content: [
+                    {
+                        "title": "Phi Phi Islands",
+                        "description": "Phi Phi holiday",
+                        "url": "http://admin.wechat.com/wiki/index.php?title=Transferring_Multimedia_Files",
+                        "picurl": "https://media.gadventures.com/media-server/cache/d8/66/d86652654b0220d20b9a6f86309371cf.jpg"
+                    },
+                    {
+                        "title": "Phi Phi Islands",
+                        "description": "Phi Phi holiday",
+                        "url": "http://admin.wechat.com/wiki/index.php?title=Transferring_Multimedia_Files",
+                        "picurl": "https://media.gadventures.com/media-server/cache/d8/66/d86652654b0220d20b9a6f86309371cf.jpg"
+                    }
+                ]
+            };
+
+            var msg = new builder.Message(session).attachments([attachments]);
+
+            session.send(msg);
         }
     ];
 

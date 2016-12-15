@@ -19,6 +19,41 @@ var wechatConnector = new connector.WechatConnector({
     encodingAESKey: process.env.WECHAT_ENCODING_AES_KEY
 });
 
+
+
+
+
+
+// wechatConnector.wechatAPI.uploadMedia('./assets/img/demo/phiphi.jpg', 'image', function (arg, fileInformation) {
+//     var news = {
+//         "articles": [
+//             {
+//                 "title": 'Phi Phi Islands',
+//                 "thumb_media_id": fileInformation.media_id,
+//                 "author": 'Phoceis Travel',
+//                 "digest": 'test',
+//                 "show_cover_pic": '1',
+//                 "content": 'Hi everyone',
+//                 "content_source_url": 'http://admin.wechat.com/wiki/index.php?title=Transferring_Multimedia_Files'
+//             }
+//         ]
+//     }
+//
+//     wechatConnector.wechatAPI.uploadNews(news, function(arg, arg2) {
+//         console.log(util.inspect(arg2));
+//     });
+// });
+
+// var newsMediaId = 'DNQqvfkmR_gIoN489jj6RNXcl144DjmyaoBVta85eVWmIzRRuIIkV0ZZfRq9mYvm';
+
+
+
+
+
+
+
+
+
 // Internal modules
 var holiday = require('./holiday')(wechatConnector);
 var phoceis = require('./phoceis')(wechatConnector);
