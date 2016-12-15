@@ -38,7 +38,19 @@ module.exports = (wechatConnector) => {
                         "picurl": "https://media.gadventures.com/media-server/cache/d8/66/d86652654b0220d20b9a6f86309371cf.jpg"
                     },
                     {
-                        "title": "Phi Phi Islands",
+                        "title": "Bali",
+                        "description": "Phi Phi holiday",
+                        "url": "http://admin.wechat.com/wiki/index.php?title=Transferring_Multimedia_Files",
+                        "picurl": "https://media.gadventures.com/media-server/cache/d8/66/d86652654b0220d20b9a6f86309371cf.jpg"
+                    },
+                    {
+                        "title": "Malyasia",
+                        "description": "Phi Phi holiday",
+                        "url": "http://admin.wechat.com/wiki/index.php?title=Transferring_Multimedia_Files",
+                        "picurl": "https://media.gadventures.com/media-server/cache/d8/66/d86652654b0220d20b9a6f86309371cf.jpg"
+                    },
+                    {
+                        "title": "Hainan",
                         "description": "Phi Phi holiday",
                         "url": "http://admin.wechat.com/wiki/index.php?title=Transferring_Multimedia_Files",
                         "picurl": "https://media.gadventures.com/media-server/cache/d8/66/d86652654b0220d20b9a6f86309371cf.jpg"
