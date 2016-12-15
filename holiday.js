@@ -35,7 +35,7 @@ module.exports = (wechatConnector) => {
                         "title": "Phi Phi Islands",
                         "description": "Beach, sun and Thai food!",
                         "url": "https://en.wikipedia.org/wiki/Phi_Phi_Islands",
-                        "picurl": "http://phoceisasiabot.azurewebsites.net/phiphi.jpg"
+                        "picurl": ["http://phoceisasiabot.azurewebsites.net/phiphi.jpg","http://phoceisasiabot.azurewebsites.net/malaysia.jpg"]
                     },
                     {
                         "title": "Bali",
