@@ -6,13 +6,62 @@ var express         = require('express'),
     builder         = require('botbuilder'),
     connector       = require('morphet-botbuilder-wechat-connector'),
     util            = require('util'),
-    fs              = require('fs');
+    fs              = require('fs'),
+    request         = require('request'),
+    wechatUtils     = require('./wechat-utils'),
+    randomstring    = require("randomstring"),
+    sha1            = require('sha1');
 
 // Create http server
 var app    = express();
 
 // Make images public
 app.use(express.static('./assets/img/demo'));
+
+// Demo Payment page
+app.use(express.static('./demo'));
+
+// Get WeChat access token
+app.get('/wechat_token', function(req, res) {
+    wechatUtils.getAccessToken()
+        .then(function(accessToken) {
+            res.status(200).send(accessToken);
+        })
+        .catch(function (error) {
+            res.status(500).send(error);
+        });
+});
+
+// Get the jsapi ticket
+app.get('/jsapi_ticket', function(req, res) {
+    console.log(req.headers.host);
+
+    wechatUtils.getJsapiTicket()
+        .then(function(jsapiTicket) {
+            // Init signature calculation variables
+            var timeStamp = Date.now();
+            var nonceStr = randomstring.generate();
+
+            // Generate signature
+            var signatureRoot = `jsapi_ticket=${jsapiTicket}&noncestr=${nonceStr}&timestamp=${timeStamp}&url=http://localhost:3978/jsapi_ticket`;
+            var signature = sha1(signatureRoot);
+
+            // Wechat JS API config
+            var response = {
+                debug: true,
+                appId: process.env.WECHAT_APP_ID,
+                timestamp: timeStamp,
+                nonceStr: nonceStr,
+                signature: signature,
+                jsApiList: []
+            };
+
+            res.status(200).send(response);
+        })
+        .catch(function (error) {
+            res.status(500).send(`There was an error while trying to get the jsapi ticket: ${error}`);
+        });
+});
 
 // Create wechat connector
 var wechatConnector = new connector.WechatConnector({
@@ -21,41 +70,6 @@ var wechatConnector = new connector.WechatConnector({
     appToken: process.env.WECHAT_TOKEN,
     encodingAESKey: process.env.WECHAT_ENCODING_AES_KEY
 });
-
-
-
-
-
-
-// wechatConnector.wechatAPI.uploadMedia('./assets/img/demo/phiphi.jpg', 'image', function (arg, fileInformation) {
-//     var news = {
-//         "articles": [
-//             {
-//                 "title": 'Phi Phi Islands',
-//                 "thumb_media_id": fileInformation.media_id,
-//                 "author": 'Phoceis Travel',
-//                 "digest": 'test',
-//                 "show_cover_pic": '1',
-//                 "content": 'Hi everyone',
-//                 "content_source_url": 'http://admin.wechat.com/wiki/index.php?title=Transferring_Multimedia_Files'
-//             }
-//         ]
-//     }
-//
-//     wechatConnector.wechatAPI.uploadNews(news, function(arg, arg2) {
-//         console.log(util.inspect(arg2));
-//     });
-// });
-
-// var newsMediaId = 'DNQqvfkmR_gIoN489jj6RNXcl144DjmyaoBVta85eVWmIzRRuIIkV0ZZfRq9mYvm';
-
-
-
-
-
-
-
-
 
 // Internal modules
 var holiday = require('./holiday')(wechatConnector);
@@ -130,7 +144,7 @@ app.use('/microsoft', microsoftConnector.listen());
 /***************-*******************/
 
 app.get('*', function(req, res) {
-    res.send(200, 'Hello Wechat Bot');
+    res.status(200).send('Hello Wechat Bot');
 });
 
 // Start listen on port

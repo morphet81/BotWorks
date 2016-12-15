@@ -25,5 +25,14 @@
   "holiday_location_confirm": "I see you are in Shanghai. There are plenty of places you can easily reach from there.",
   "holiday_age": "To better match your expectations can you give your age?",
   "holiday_keywords": "Alright! Now, can you tell me What words would best describe your perfect holiday?",
-  "holiday_start_search": "Thanks! I'm looking for the perfect match for you. Please wait for a sec."
+  "holiday_start_search": "Thanks! I'm looking for the perfect match for you. Please wait for a sec.",
+  "holiday_select_destination": "Those are the best destinations I found for you. You can review it and tell me which one you prefer.",
+  "holiday_destination_selected": "Great! Let's find your flight to Bali! When do you want to leave?",
+  "holiday_select_return_date": "OK, and when do you want to come back?",
+  "holiday_go_flight_1": "I found a flight from Pudong Airport, Saturday 24th of December, 4:30PM with Hong-Kong Airlines. Is it ok for you?",
+  "holiday_search_new_flight": "OK I will look for another flight. What period of the day do you prefer?",
+  "holiday_select_day_period": "Early Morning (before 7:00AM)|Morning (before 12:00PM)|Afternoon (before 6:00PM)|Evening (before 12:00AM)",
+  "holiday_go_flight_2": "I found a flight from Pudong Airport to Denpasar Airport, Saturday 24th of December, 7:15PM with Hong-Kong Airlines. Is it ok for you?",
+  "holiday_return_flight": "For your trip back I found a flight from Denpasar Airport to Pudong Airport, Sunday 1st of January, 6:25PM with Hong-Kong Airlines. Is it ok for you?",
+  "holiday_hotel_preferences": "What kind of hotel do you want to book?"
 }
