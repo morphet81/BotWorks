@@ -9,8 +9,7 @@ var express         = require('express'),
     fs              = require('fs'),
     request         = require('request'),
     wechatUtils     = require('./wechat-utils'),
-    randomstring    = require("randomstring"),
-    sha1            = require('sha1');
+    cheerio         = require('cheerio');
 
 // Create http server
 var app    = express();
@@ -19,7 +18,8 @@ var app    = express();
 app.use(express.static('./assets/img/demo'));
 
 // Demo Payment page
-app.use(express.static('./demo'));
+// app.use(express.static('./demo'));
+app.use(express.static('./node_modules'));
 
 // Get WeChat access token
 app.get('/wechat_token', function(req, res) {
@@ -32,35 +32,35 @@ app.get('/wechat_token', function(req, res) {
         });
 });
 
+// Output the payment page
+app.get('/payment', function(req, res) {
+    wechatUtils.getJsapiConfig(req)
+        .then(function (wechatConfig) {
+            // Read the content of the page
+            var html = fs.readFileSync(__dirname + '/demo/payment.html', 'utf8');
+            var $ = cheerio.load(html);
+
+            // Append Wechat config
+            var scriptNode = `<script>var wechatConfig = ${JSON.stringify(wechatConfig)}</script>`;
+            $('body').append(scriptNode);
+
+            // Send resulting page
+            res.status(200).send($.html());
+        })
+        .catch(function (error) {
+            res.status(500).send(`There was an error while loading payment page: ${error}`);
+        })
+});
+
 // Get the jsapi ticket
-app.get('/jsapi_ticket', function(req, res) {
-    console.log(req.headers.host);
-
-    wechatUtils.getJsapiTicket()
-        .then(function(jsapiTicket) {
-            // Init signature calculation variables
-            var timeStamp = Date.now();
-            var nonceStr = randomstring.generate();
-
-            // Generate signature
-            var signatureRoot = `jsapi_ticket=${jsapiTicket}&noncestr=${nonceStr}&timestamp=${timeStamp}&url=http://localhost:3978/jsapi_ticket`;
-            var signature = sha1(signatureRoot);
-
-            // Wechat JS API config
-            var response = {
-                debug: true,
-                appId: process.env.WECHAT_APP_ID,
-                timestamp: timeStamp,
-                nonceStr: nonceStr,
-                signature: signature,
-                jsApiList: []
-            };
-
-            res.status(200).send(response);
+app.get('/wechat_api_config', function(req, res) {
+    wechatUtils.getJsapiConfig(req)
+        .then(function (wechatConfig) {
+            res.status(200).send(wechatConfig);
         })
         .catch(function (error) {
             res.status(500).send(`There was an error while trying to get the jsapi ticket: ${error}`);
-        });
+        })
 });
 
 // Create wechat connector
