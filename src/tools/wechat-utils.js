@@ -133,7 +133,7 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
     return new Promise(
         function (resolve, reject) {
 
-            console.log(`=========   ${openId}`);
+            console.log(`=========   ${util.inspect(openId)} ${util.inspect(totalFee)}`);
 
             wxPayment.createUnifiedOrder({
                 body: body,
