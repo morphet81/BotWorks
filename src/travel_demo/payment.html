@@ -21,6 +21,9 @@
                         paySign: prepaidConfig.sign,
                         success: function (res) {
                             $('#config').html('=============      ' + res);
+                        },
+                        error: function(error) {
+                            $('#config').html('=============      ' + error);
                         }
                     });
                 }
