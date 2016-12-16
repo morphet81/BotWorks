@@ -40,6 +40,12 @@ module.exports = {
                 });
         });
 
+        // Payment confirmation page
+        app.get('/payment/confirm', function (req, res) {
+            console.log(util.inspect(req.query));
+            console.log(util.inspect(req.body));
+        });
+
         // Output the payment page
         app.get('/payment', function (req, res) {
             // wechatUtils.createMerchantPrepayUrl(req, 'Trip to Bali', randomstring.generate(), 1, `http://bot.phoceis.cn/payment`, `bali_trip_demo`, "test");
@@ -67,7 +73,7 @@ module.exports = {
                 wechatUtils.getUserAccessToken(authCode)
                     .then(function (response) {
                         // Create the order on Wechat side
-                        wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 1, `http://${req.headers.host}${req.url}`, `bali_trip_demo`, response.openid)
+                        wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 1, `${process.env.WECHAT_PAYMENT_CALLBACK_PAGE}`, `bali_trip_demo`, response.openid)
                             .then(function(prepaidConfig) {
                                 // Get config params for using wechat JS API
                                 wechatUtils.getJsapiConfig(req)

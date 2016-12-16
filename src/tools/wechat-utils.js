@@ -157,35 +157,11 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
     )
 };
 
-var _createMerchantPrepayUrl = function(req, body, outTradeNo, totalFee, notifyUrl, productId, openId) {
-    return new Promise(
-        function (resolve, reject) {
-
-            var params = {
-                body: body,
-                out_trade_no: outTradeNo,
-                total_fee: totalFee,
-                spbill_create_ip: (req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(':')[0],
-                notify_url: notifyUrl.split('?')[0],
-                trade_type: 'JSAPI',
-                product_id: productId,
-                openid: openId
-            };
-
-            console.log(`=========   ${util.inspect(params)}`);
-
-            var url = wxPayment.createMerchantPrepayUrl(params);
-                console.log(`+++++++   ${util.inspect(url)}`);
-        }
-    )
-};
-
 
 module.exports = {
     getAccessToken: _getAccessToken,
     getJsapiTicket: _getJsapiTicket,
     getJsapiConfig: _getJsapiConfig,
     getUserAccessToken: _getUserAccessToken,
-    createUnifiedOrder: _createUnifiedOrder,
-    createMerchantPrepayUrl: _createMerchantPrepayUrl
+    createUnifiedOrder: _createUnifiedOrder
 };
