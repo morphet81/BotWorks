@@ -53,7 +53,7 @@ module.exports = {
 
             // If the auth code is not given, redirect the user to the wechat auth page
             if(authCode == undefined) {
-                // scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
+                scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
                 // console.log(`=======   ${scriptNode}`);
             }
             else {
@@ -63,14 +63,15 @@ module.exports = {
                         console.log(util.inspect(response));
                         // Create the order on Wechat side
                         wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 1, `http://${req.headers.host}${req.url}`, `bali_trip_demo`, response.open_id)
-                            .then(function(result) {
+                            .then(function(prepaidConfig) {
                                 // Get config params for using wechat JS API
                                 wechatUtils.getJsapiConfig(req)
                                     .then(function (wechatConfig) {
-                                        // scriptNode = `
-                                        //     <script>
-                                        //         var wechatConfig = ${JSON.stringify(wechatConfig)};
-                                        //     </script>`
+                                        scriptNode = `
+                                            <script>
+                                                var wechatConfig = ${JSON.stringify(wechatConfig)};
+                                                var prepaidConfig = ${prepaidConfig};
+                                            </script>`
 
                                     })
                                     .catch(function (error) {
