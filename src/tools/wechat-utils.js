@@ -132,6 +132,9 @@ var _getUserAccessToken =  function(authCode) {
 var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, productId, openId) {
     return new Promise(
         function (resolve, reject) {
+
+            console.log(`=========   ${openId}`);
+
             wxPayment.createUnifiedOrder({
                 body: body,
                 out_trade_no: outTradeNo,
