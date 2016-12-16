@@ -41,7 +41,7 @@ module.exports = {
         });
 
         // Payment confirmation page
-        app.get('/payment/confirm', function (req, res) {
+        app.get('/payment/confirm.php', function (req, res) {
             console.log(`query params: ${util.inspect(req.query)}`);
             console.log(`body: ${util.inspect(req.body)}`);
             res.status(200).send();
