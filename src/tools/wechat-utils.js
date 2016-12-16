@@ -82,7 +82,7 @@ var _getJsapiTicket = function() {
 };
 
 // Get config object for WeChat JS API
-var _getJsapiConfig = function(req) {
+var _getJsapiConfig = function(req, debug = false) {
     return new Promise(
         function(resolve, reject) {
             _getJsapiTicket()
@@ -97,7 +97,7 @@ var _getJsapiConfig = function(req) {
 
                     // Wechat JS API config
                     var response = {
-                        debug: true,
+                        debug: debug,
                         appId: process.env.WECHAT_APP_ID,
                         timestamp: timeStamp,
                         nonceStr: nonceStr,

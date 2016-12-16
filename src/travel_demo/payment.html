@@ -9,26 +9,26 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-//            wx.config(wechatConfig);
-//
-//            wx.ready(function () {
-//                if (prepaidConfig != undefined) {
-//                    wx.chooseWXPay({
-//                        timestamp: Date.now(),
-//                        nonceStr: prepaidConfig.nonce_str,
-//                        package: 'prepaid_id=' + prepaidConfig.prepay_id,
-//                        signType: 'MD5',
-//                        paySign: prepaidConfig.sign,
-//                        success: function (res) {
-//                            $('#config').html('=============      ' + res);
-//                        }
-//                    });
-//                }
-//            });
-//
-//            wx.error(function(error) {
-//
-//            });
+            wx.config(wechatConfig);
+
+            wx.ready(function () {
+                if (prepaidConfig != undefined) {
+                    wx.chooseWXPay({
+                        timestamp: Date.now(),
+                        nonceStr: prepaidConfig.nonce_str,
+                        package: 'prepaid_id=' + prepaidConfig.prepay_id,
+                        signType: 'MD5',
+                        paySign: prepaidConfig.sign,
+                        success: function (res) {
+                            $('#config').html('=============      ' + res);
+                        }
+                    });
+                }
+            });
+
+            wx.error(function(error) {
+
+            });
         })
     </script>
 </head>
