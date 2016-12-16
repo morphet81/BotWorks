@@ -100,12 +100,10 @@ module.exports = {
                                             <script>
                                                 var wechatConfig = ${JSON.stringify(wechatConfig)};
                                                 var prepaidConfig = ${JSON.stringify(prepaidConfig)};
-                                            </script>`
+                                        </script>`
 
                                         // Append the script
                                         $('head').prepend(scriptNode);
-
-                                        console.log($.html());
 
                                         // Send resulting page
                                         res.status(200).send($.html());
