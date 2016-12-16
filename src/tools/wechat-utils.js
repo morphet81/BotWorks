@@ -133,9 +133,7 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
     return new Promise(
         function (resolve, reject) {
 
-            console.log(`=========   ${util.inspect(openId)} ${util.inspect(totalFee)}`);
-
-            wxPayment.createUnifiedOrder({
+            var params = {
                 body: body,
                 out_trade_no: outTradeNo,
                 total_fee: totalFee,
@@ -144,7 +142,11 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
                 trade_type: 'JSAPI',
                 product_id: productId,
                 openid: openId
-            }, function (err, result) {
+            };
+
+            console.log(`=========   ${util.inspect(params)}`);
+
+            wxPayment.createUnifiedOrder(params, function (err, result) {
                 if(err == undefined) {
                     resolve(result);
                 }

@@ -88,7 +88,7 @@ module.exports = {
                 wechatUtils.getUserAccessToken(authCode)
                     .then(function (response) {
                         // Create the order on Wechat side
-                        wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 1, `http://${req.headers.host}${req.url}`, `bali_trip_demo`, response.openid)
+                        wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 100, `http://${req.headers.host}${req.url}`, `bali_trip_demo`, response.openid)
                             .then(function(prepaidConfig) {
                                 // Get config params for using wechat JS API
                                 wechatUtils.getJsapiConfig(req)
