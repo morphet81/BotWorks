@@ -132,6 +132,32 @@ var _getUserAccessToken =  function(authCode) {
 var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, productId, openId) {
     return new Promise(
         function (resolve, reject) {
+            var params = {
+                body: body,
+                out_trade_no: outTradeNo,
+                total_fee: totalFee,
+                spbill_create_ip: (req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(':')[0],
+                notify_url: notifyUrl.split('?')[0],
+                trade_type: 'JSAPI',
+                product_id: productId,
+                openid: openId
+            };
+
+            wxPayment.getBrandWCPayRequestParams(params, function (err, result) {
+                if(err == undefined) {
+                    resolve(result);
+                }
+                else {
+                    reject(err);
+                }
+            });
+        }
+    )
+};
+
+var _createMerchantPrepayUrl = function(req, body, outTradeNo, totalFee, notifyUrl, productId, openId) {
+    return new Promise(
+        function (resolve, reject) {
 
             var params = {
                 body: body,
@@ -146,14 +172,8 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
 
             console.log(`=========   ${util.inspect(params)}`);
 
-            wxPayment.createUnifiedOrder(params, function (err, result) {
-                if(err == undefined) {
-                    resolve(result);
-                }
-                else {
-                    reject(err);
-                }
-            });
+            var url = wxPayment.createMerchantPrepayUrl(params);
+                console.log(`+++++++   ${util.inspect(url)}`);
         }
     )
 };
@@ -164,5 +184,6 @@ module.exports = {
     getJsapiTicket: _getJsapiTicket,
     getJsapiConfig: _getJsapiConfig,
     getUserAccessToken: _getUserAccessToken,
-    createUnifiedOrder: _createUnifiedOrder
+    createUnifiedOrder: _createUnifiedOrder,
+    createMerchantPrepayUrl: _createMerchantPrepayUrl
 };

@@ -41,29 +41,7 @@ module.exports = {
 
         // Output the payment page
         app.get('/payment', function (req, res) {
-            // // Get config params for using wechat JS API
-            // var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
-            // var $ = cheerio.load(html);
-            // wechatUtils.getJsapiConfig(req)
-            //     .then(function (wechatConfig) {
-            //         console.log('wechatConfig ', util.inspect(wechatConfig));
-            //         var scriptNode = `
-            //                                 <script>
-            //                                     var wechatConfig = ${JSON.stringify(wechatConfig)};
-            //                                 </script>`
-            //
-            //         // Append the script
-            //         $('head').prepend(scriptNode);
-            //
-            //         console.log($.html());
-            //
-            //         // Send resulting page
-            //         res.status(200).send($.html());
-            //
-            //     })
-            //     .catch(function (error) {
-            //         res.status(500).send(`There was an error while getting JS API config: ${error}`);
-            //     })
+            // wechatUtils.createMerchantPrepayUrl(req, 'Trip to Bali', randomstring.generate(), 1, `http://bot.phoceis.cn/payment`, `bali_trip_demo`, "test");
 
 
             // Read the content of the page

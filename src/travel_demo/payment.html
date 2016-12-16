@@ -14,12 +14,11 @@
             wx.ready(function () {
                 if (prepaidConfig != undefined) {
                     wx.chooseWXPay({
-                        timestamp: Date.now(),
-                        nonceStr: prepaidConfig.nonce_str,
-                        package: 'prepaid_id=' + prepaidConfig.prepay_id,
-                        total_fee: 1,
-                        signType: 'MD5',
-                        paySign: prepaidConfig.sign,
+                        timestamp: prepaidConfig.timeStamp,
+                        nonceStr: prepaidConfig.nonceStr,
+                        package: prepaidConfig.package,
+                        signType: prepaidConfig.signType,
+                        paySign: prepaidConfig.paySign,
                         success: function (res) {
                             $('#config').html('=============      ' + res);
                         },
