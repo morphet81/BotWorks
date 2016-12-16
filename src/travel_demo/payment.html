@@ -12,19 +12,18 @@
             wx.config(wechatConfig);
 
             wx.ready(function () {
-                if(confirm('ok?')) {
-                    if (prepaidConfig != undefined) {
-                        wx.chooseWXPay({
-                            timestamp: Date.now(),
-                            nonceStr: prepaidConfig.nonce_str,
-                            package: 'prepaid_id=' + prepaidConfig.prepay_id,
-                            signType: 'MD5',
-                            paySign: prepaidConfig.sign,
-                            success: function (res) {
-                                $('#config').html('=============      ' + res);
-                            }
-                        });
-                    }
+                if (prepaidConfig != undefined) {
+                    wx.chooseWXPay({
+                        timestamp: Date.now(),
+                        nonceStr: prepaidConfig.nonce_str,
+                        package: 'prepaid_id=' + prepaidConfig.prepay_id,
+                        signType: 'MD5',
+                        paySign: prepaidConfig.sign,
+                        paySign: prepaidConfig.sign,
+                        success: function (res) {
+                            $('#config').html('=============      ' + res);
+                        }
+                    });
                 }
             });
 
