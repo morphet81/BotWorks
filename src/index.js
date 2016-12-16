@@ -57,23 +57,32 @@ module.exports = {
         });
 
         // Output the payment page
-        app.get('/payment(/:authCode)?', function (req, res) {
+        app.get('/payment', function (req, res) {
             wechatUtils.getJsapiConfig(req)
                 .then(function (wechatConfig) {
                     // Read the content of the page
                     var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
                     var $ = cheerio.load(html);
 
+                    // Get auth code
+                    var authCode = req.query.code;
+
                     // Append Wechat config
                     var scriptNode;
-                    if(req.params.authCode == undefined) {
+                    if(authCode == undefined) {
                         scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
                     }
                     else {
+                        wechatUtils.getUserAccessToken(authCode)
+                            .then(function (response) {
+                                console.log(util.inspect(response));
+                            })
+                            .catch(function (error) {
+                                console.log(`There was an error while recovering user's access token: ${error}`)
+                            });
                         scriptNode = `
                             <script>
                                 var wechatConfig = ${JSON.stringify(wechatConfig)};
-                                alert(${req.params.authCode})
                             </script>`
                     }
                     $('body').append(scriptNode);
