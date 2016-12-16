@@ -138,14 +138,15 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
                 total_fee: totalFee,
                 spbill_create_ip: (req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(':')[0],
                 notify_url: notifyUrl.split('?')[0],
-                trade_type: 'JSAPI',
+                trade_type: 'NATIVE',//'JSAPI',
                 product_id: productId,
                 openid: openId
             };
 
             console.log(util.inspect(params));
 
-            wxPayment.getBrandWCPayRequestParams(params, function (err, result) {
+            wxPayment.createUnifiedOrder(params, function (err, result) {
+
                 if(err == undefined) {
                     resolve(result);
                 }
@@ -153,6 +154,15 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
                     reject(err);
                 }
             });
+
+            // wxPayment.getBrandWCPayRequestParams(params, function (err, result) {
+            //     if(err == undefined) {
+            //         resolve(result);
+            //     }
+            //     else {
+            //         reject(err);
+            //     }
+            // });
         }
     )
 };
