@@ -37,7 +37,7 @@ module.exports = {
 
         // Output the payment page
         app.get('/payment', function (req, res) {
-            console.log(req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+            console.log((req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(':')[0]);
 
 
             // Read the content of the page
@@ -52,7 +52,7 @@ module.exports = {
 
             // If the auth code is not given, redirect the user to the wechat auth page
             if(authCode == undefined) {
-                scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
+                // scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
             }
             else {
                 // Recover user's open id (through user access token)
