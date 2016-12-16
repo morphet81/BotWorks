@@ -81,7 +81,7 @@ module.exports = {
                                         $('body').append(scriptNode);
 
                                         // Send resulting page
-                                        res.status(200).send($.html());
+                                        res.status(200).send("Hey guys");
 
                                     })
                                     .catch(function (error) {
