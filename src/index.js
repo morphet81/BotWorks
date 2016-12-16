@@ -9,7 +9,8 @@ var express         = require('express'),
     fs              = require('fs'),
     request         = require('request'),
     wechatUtils     = require('./tools/wechat-utils'),
-    cheerio         = require('cheerio');
+    cheerio         = require('cheerio'),
+    randomstring    = require("randomstring");
 
 module.exports = {
     init: function () {
@@ -37,9 +38,6 @@ module.exports = {
 
         // Output the payment page
         app.get('/payment', function (req, res) {
-            console.log((req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(':')[0]);
-
-
             // Read the content of the page
             var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
             var $ = cheerio.load(html);
@@ -52,25 +50,33 @@ module.exports = {
 
             // If the auth code is not given, redirect the user to the wechat auth page
             if(authCode == undefined) {
-                // scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
+                scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
+                console.log(`=======   ${scriptNode}`);
             }
             else {
                 // Recover user's open id (through user access token)
                 wechatUtils.getUserAccessToken(authCode)
                     .then(function (response) {
                         console.log(util.inspect(response));
-                        // Get config params for using wechat JS API
-                        wechatUtils.getJsapiConfig(req)
-                            .then(function (wechatConfig) {
-                                // scriptNode = `
-                                //     <script>
-                                //         var wechatConfig = ${JSON.stringify(wechatConfig)};
-                                //     </script>`
+                        // Create the order on Wechat side
+                        wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 1, `http://${req.headers.host}${req.url}`, `bali_trip_demo`, response.open_id)
+                            .then(function(response) {
+                                // Get config params for using wechat JS API
+                                wechatUtils.getJsapiConfig(req)
+                                    .then(function (wechatConfig) {
+                                        // scriptNode = `
+                                        //     <script>
+                                        //         var wechatConfig = ${JSON.stringify(wechatConfig)};
+                                        //     </script>`
 
+                                    })
+                                    .catch(function (error) {
+                                        res.status(500).send(`There was an error while getting JS API config: ${error}`);
+                                    })
                             })
                             .catch(function (error) {
-                                res.status(500).send(`There was an error while getting JS API config: ${error}`);
-                            })
+                                console.log(`Error while create an order: ${error}`);
+                            });
                     })
                     .catch(function (error) {
                         console.log(`There was an error while recovering user's access token: ${error}`)

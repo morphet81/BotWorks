@@ -143,11 +143,11 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
                 body: body,
                 out_trade_no: outTradeNo,
                 total_fee: totalFee,
-                spbill_create_ip: '192.168.2.210',
-                notify_url: 'http://wxpayment_notify_url',
+                spbill_create_ip: (req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(':')[0],
+                notify_url: notifyUrl,
                 trade_type: 'JSAPI',
-                product_id: '1234567890',
-                openid: 'xxxxxxxx'
+                product_id: productId,
+                openid: openId
             }, function (err, result) {
                 if(err == undefined) {
                     resolve(result);
