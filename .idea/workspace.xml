@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/wechat-utils.js" afterPath="$PROJECT_DIR$/src/tools/wechat-utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
     </list>
     <ignored path="BotWorks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,24 +43,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="75" column="40" lean-forward="false" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
+            <state relative-caret-position="270">
+              <caret line="75" column="171" lean-forward="false" selection-start-line="75" selection-start-column="171" selection-end-line="75" selection-end-column="171" />
               <folding>
-                <marker date="1481878723000" expanded="true" signature="3438:3605" ph="..." />
-                <marker date="1481878723000" expanded="true" signature="3438:3694" ph="..." />
+                <marker date="1481879780000" expanded="true" signature="3461:3628" ph="..." />
+                <marker date="1481879780000" expanded="true" signature="3461:3717" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wechat-utils.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wechat-utils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/tools/wechat-utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="145" column="46" lean-forward="false" selection-start-line="145" selection-start-column="46" selection-end-line="145" selection-end-column="46" />
+            <state relative-caret-position="364">
+              <caret line="147" column="66" lean-forward="false" selection-start-line="147" selection-start-column="66" selection-end-line="147" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -68,7 +69,7 @@
       <file leaf-file-name="wx-payment.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/wx-payment/lib/wx-payment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
+            <state relative-caret-position="187">
               <caret line="183" column="48" lean-forward="true" selection-start-line="183" selection-start-column="48" selection-end-line="183" selection-end-column="48" />
               <folding />
             </state>
@@ -185,8 +186,8 @@
         <option value="$PROJECT_DIR$/src/travel_demo/payment.html" />
         <option value="$PROJECT_DIR$/assets/css/demo.scss" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/tools/wechat-utils.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
       </list>
     </option>
   </component>
@@ -447,7 +448,7 @@
       <workItem from="1481275586935" duration="2115000" />
       <workItem from="1481525770827" duration="38931000" />
       <workItem from="1481767101362" duration="15528000" />
-      <workItem from="1481852706807" duration="17934000" />
+      <workItem from="1481852706807" duration="18163000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -460,7 +461,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158741000" />
+    <option name="totallyTimeSpent" value="158970000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -830,26 +831,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/wx-payment/lib/wx-payment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="183" column="48" lean-forward="true" selection-start-line="183" selection-start-column="48" selection-end-line="183" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/demo.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/travel_demo/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -862,22 +847,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/wx-payment/lib/wx-payment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="75" column="40" lean-forward="false" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
-          <folding>
-            <marker date="1481878723000" expanded="true" signature="3438:3605" ph="..." />
-            <marker date="1481878723000" expanded="true" signature="3438:3694" ph="..." />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="183" column="48" lean-forward="true" selection-start-line="183" selection-start-column="48" selection-end-line="183" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/travel_demo/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tools/wechat-utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="145" column="46" lean-forward="false" selection-start-line="145" selection-start-column="46" selection-end-line="145" selection-end-column="46" />
+        <state relative-caret-position="364">
+          <caret line="147" column="66" lean-forward="false" selection-start-line="147" selection-start-column="66" selection-end-line="147" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="75" column="171" lean-forward="false" selection-start-line="75" selection-start-column="171" selection-end-line="75" selection-end-column="171" />
+          <folding>
+            <marker date="1481879780000" expanded="true" signature="3461:3628" ph="..." />
+            <marker date="1481879780000" expanded="true" signature="3461:3717" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
