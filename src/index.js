@@ -80,8 +80,10 @@ module.exports = {
                                         // Append the script
                                         $('body').append(scriptNode);
 
+                                        console.log($.html());
+
                                         // Send resulting page
-                                        res.status(200).send("Hey guys");
+                                        res.status(200).send($.html());
 
                                     })
                                     .catch(function (error) {
