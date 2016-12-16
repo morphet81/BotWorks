@@ -9,30 +9,27 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            alert('test');
-
             $('#config').html(wechatConfig.debug);
 
             wx.config(wechatConfig);
 
             wx.ready(function () {
-                if(confirm('Wechat is ready')) {
-                    if(prepaidConfig != undefined) {
-                        wx.chooseWXPay({
-                            timestamp: Date.now(),
-                            nonceStr: prepaidConfig.nonce_str,
-                            package: 'prepaid_id=' + prepaidConfig.prepay_id,
-                            signType: 'MD5',
-                            paySign: prepaidConfig.sign,
-                            success: function (res) {
-                                alert('ok   ' + res);
-                            }
-                        });
-                    }
+                alert('Wechat is ready ' + prepaidConfig);
+                if(prepaidConfig != undefined) {
+                    wx.chooseWXPay({
+                        timestamp: Date.now(),
+                        nonceStr: prepaidConfig.nonce_str,
+                        package: 'prepaid_id=' + prepaidConfig.prepay_id,
+                        signType: 'MD5',
+                        paySign: prepaidConfig.sign,
+                        success: function (res) {
+                            alert('ok   ' + res);
+                        }
+                    });
                 }
             });
 
-            wx.error(function() {
+            wx.error(function(error) {
                 alert('Error with Wechat: ' + error);
             });
         })
