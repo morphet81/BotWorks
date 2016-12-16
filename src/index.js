@@ -89,11 +89,11 @@ module.exports = {
                                     })
                             })
                             .catch(function (error) {
-                                console.log(`Error while create an order: ${error}`);
+                                res.status(500).send(`Error while create an order: ${error}`);
                             });
                     })
                     .catch(function (error) {
-                        console.log(`There was an error while recovering user's access token: ${error}`)
+                        res.status(500).send(`There was an error while recovering user's access token: ${error}`)
                     });
             }
         });
