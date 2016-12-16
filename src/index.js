@@ -78,7 +78,7 @@ module.exports = {
                                             </script>`
 
                                         // Append the script
-                                        $('body').append(scriptNode);
+                                        $('head').prepend(scriptNode);
 
                                         console.log($.html());
 

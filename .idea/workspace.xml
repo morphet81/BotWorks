@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/travel_demo/payment.html" afterPath="$PROJECT_DIR$/src/travel_demo/payment.html" />
     </list>
     <ignored path="BotWorks.iws" />
@@ -26,9 +27,11 @@
       <file leaf-file-name="payment.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/travel_demo/payment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-              <folding />
+            <state relative-caret-position="135">
+              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding>
+                <marker date="1481872714000" expanded="true" signature="263:1332" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,10 +39,10 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="69" column="74" lean-forward="false" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+            <state relative-caret-position="420">
+              <caret line="80" column="70" lean-forward="true" selection-start-line="80" selection-start-column="70" selection-end-line="80" selection-end-column="70" />
               <folding>
-                <marker date="1481871893000" expanded="true" signature="3273:3513" ph="..." />
+                <marker date="1481872682000" expanded="true" signature="3273:3513" ph="..." />
               </folding>
             </state>
           </provider>
@@ -420,7 +423,7 @@
       <workItem from="1481275586935" duration="2115000" />
       <workItem from="1481525770827" duration="38931000" />
       <workItem from="1481767101362" duration="15528000" />
-      <workItem from="1481852706807" duration="11962000" />
+      <workItem from="1481852706807" duration="12195000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -433,7 +436,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152769000" />
+    <option name="totallyTimeSpent" value="153002000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -836,19 +839,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="69" column="74" lean-forward="false" selection-start-line="69" selection-start-column="74" selection-end-line="69" selection-end-column="74" />
+        <state relative-caret-position="420">
+          <caret line="80" column="70" lean-forward="true" selection-start-line="80" selection-start-column="70" selection-end-line="80" selection-end-column="70" />
           <folding>
-            <marker date="1481871893000" expanded="true" signature="3273:3513" ph="..." />
+            <marker date="1481872682000" expanded="true" signature="3273:3513" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/travel_demo/payment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-          <folding />
+        <state relative-caret-position="135">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <marker date="1481872714000" expanded="true" signature="263:1332" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
