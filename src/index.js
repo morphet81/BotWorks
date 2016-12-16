@@ -99,7 +99,7 @@ module.exports = {
                                         var scriptNode = `
                                             <script>
                                                 var wechatConfig = ${JSON.stringify(wechatConfig)};
-                                                // var prepaidConfig = ${prepaidConfig};
+                                                var prepaidConfig = ${JSON.stringify(prepaidConfig)};
                                             </script>`
 
                                         // Append the script
