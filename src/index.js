@@ -48,13 +48,15 @@ module.exports = {
             // Get auth code
             var authCode = req.query.code;
 
-            // Additional script for the payment page, depending on the step in payment process
-            var scriptNode;
-
             // If the auth code is not given, redirect the user to the wechat auth page
             if(authCode == undefined) {
                 scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
-                // console.log(`=======   ${scriptNode}`);
+
+                // Append the script
+                $('body').append(scriptNode);
+
+                // Send resulting page
+                res.status(200).send($.html());
             }
             else {
                 // Recover user's open id (through user access token)
@@ -69,11 +71,17 @@ module.exports = {
                                 wechatUtils.getJsapiConfig(req)
                                     .then(function (wechatConfig) {
                                         console.log('wechatConfig ', util.inspect(wechatConfig));
-                                        scriptNode = `
+                                        var scriptNode = `
                                             <script>
                                                 var wechatConfig = ${JSON.stringify(wechatConfig)};
                                                 var prepaidConfig = ${prepaidConfig};
                                             </script>`
+
+                                        // Append the script
+                                        $('body').append(scriptNode);
+
+                                        // Send resulting page
+                                        res.status(200).send($.html());
 
                                     })
                                     .catch(function (error) {
@@ -88,10 +96,6 @@ module.exports = {
                         console.log(`There was an error while recovering user's access token: ${error}`)
                     });
             }
-            $('body').append(scriptNode);
-
-            // Send resulting page
-            res.status(200).send($.html());
         });
 
         // Get the jsapi ticket
