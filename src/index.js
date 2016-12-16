@@ -10,7 +10,7 @@ var express         = require('express'),
     request         = require('request'),
     wechatUtils     = require('./tools/wechat-utils'),
     cheerio         = require('cheerio'),
-    randomstring    = require("randomstring");
+    randomstring    = require('randomstring');
 
 module.exports = {
     init: function () {
