@@ -9,31 +9,10 @@ var express         = require('express'),
     fs              = require('fs'),
     request         = require('request'),
     wechatUtils     = require('./tools/wechat-utils'),
-    cheerio         = require('cheerio'),
-    wxPayment       = require('wx-payment');
+    cheerio         = require('cheerio');
 
 module.exports = {
     init: function () {
-        wxPayment.init({
-            appid: process.env.WECHAT_APP_ID,
-            mch_id: process.env.WECHAT_MERCHANT_ID,
-            apiKey: process.env.WECHAT_API_KEY,
-            pfx: fs.readFileSync('./assets/certificates/apiclient_cert.p12')
-        });
-
-        wxPayment.createUnifiedOrder({
-            body: '支付测试',
-            out_trade_no: 'order1',
-            total_fee: 100,
-            spbill_create_ip: '192.168.2.210',
-            notify_url: 'http://wxpayment_notify_url',
-            trade_type: 'JSAPI',
-            product_id: '1234567890',
-            openid: 'xxxxxxxx'
-        }, function (err, result) {
-            console.log(result);
-        });
-
 
         // Create http server
         var app = express();
@@ -58,41 +37,49 @@ module.exports = {
 
         // Output the payment page
         app.get('/payment', function (req, res) {
-            wechatUtils.getJsapiConfig(req)
-                .then(function (wechatConfig) {
-                    // Read the content of the page
-                    var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
-                    var $ = cheerio.load(html);
+            console.log(req.headers['x-forwarded-for'] || req.connection.remoteAddress);
 
-                    // Get auth code
-                    var authCode = req.query.code;
 
-                    // Append Wechat config
-                    var scriptNode;
-                    if(authCode == undefined) {
-                        scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
-                    }
-                    else {
-                        wechatUtils.getUserAccessToken(authCode)
-                            .then(function (response) {
-                                console.log(util.inspect(response));
+            // Read the content of the page
+            var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
+            var $ = cheerio.load(html);
+
+            // Get auth code
+            var authCode = req.query.code;
+
+            // Additional script for the payment page, depending on the step in payment process
+            var scriptNode;
+
+            // If the auth code is not given, redirect the user to the wechat auth page
+            if(authCode == undefined) {
+                scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
+            }
+            else {
+                // Recover user's open id (through user access token)
+                wechatUtils.getUserAccessToken(authCode)
+                    .then(function (response) {
+                        console.log(util.inspect(response));
+                        // Get config params for using wechat JS API
+                        wechatUtils.getJsapiConfig(req)
+                            .then(function (wechatConfig) {
+                                // scriptNode = `
+                                //     <script>
+                                //         var wechatConfig = ${JSON.stringify(wechatConfig)};
+                                //     </script>`
+
                             })
                             .catch(function (error) {
-                                console.log(`There was an error while recovering user's access token: ${error}`)
-                            });
-                        scriptNode = `
-                            <script>
-                                var wechatConfig = ${JSON.stringify(wechatConfig)};
-                            </script>`
-                    }
-                    $('body').append(scriptNode);
+                                res.status(500).send(`There was an error while getting JS API config: ${error}`);
+                            })
+                    })
+                    .catch(function (error) {
+                        console.log(`There was an error while recovering user's access token: ${error}`)
+                    });
+            }
+            $('body').append(scriptNode);
 
-                    // Send resulting page
-                    res.status(200).send($.html());
-                })
-                .catch(function (error) {
-                    res.status(500).send(`There was an error while loading payment page: ${error}`);
-                })
+            // Send resulting page
+            res.status(200).send($.html());
         });
 
         // Get the jsapi ticket
@@ -126,7 +113,7 @@ module.exports = {
         /******  WECHAT BOT  *****/
         /**********-**************/
 
-        // Build the WeChat bot
+            // Build the WeChat bot
         var bot = new builder.UniversalBot(
             wechatConnector,
             {
@@ -135,7 +122,7 @@ module.exports = {
                     defaultLocale: "en"
                 }
             }
-        );
+            );
 
         // Pre-treatment of the message
         bot.use({

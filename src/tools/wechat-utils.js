@@ -2,10 +2,20 @@ var util            = require('util'),
     request         = require('request'),
     NodeCache       = require( "node-cache"),
     randomstring    = require("randomstring"),
-    sha1            = require('sha1');
+    sha1            = require('sha1'),
+    wxPayment       = require('wx-payment'),
+    fs              = require('fs');
 
 // Instantiate cache manager
 var appCache = new NodeCache();
+
+// Init WeChat payment library
+wxPayment.init({
+    appid: process.env.WECHAT_APP_ID,
+    mch_id: process.env.WECHAT_MERCHANT_ID,
+    apiKey: process.env.WECHAT_API_KEY,
+    pfx: fs.readFileSync(process.env.WECHAT_CERT_FILE_PATH)
+});
 
 // Constants
 const kWechatAccessToken = 'wechat_access_token';
@@ -126,9 +136,35 @@ var _getUserAccessToken =  function(authCode) {
     )
 };
 
+var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, productId, openId) {
+    return new Promise(
+        function (resolve, reject) {
+            wxPayment.createUnifiedOrder({
+                body: body,
+                out_trade_no: outTradeNo,
+                total_fee: totalFee,
+                spbill_create_ip: '192.168.2.210',
+                notify_url: 'http://wxpayment_notify_url',
+                trade_type: 'JSAPI',
+                product_id: '1234567890',
+                openid: 'xxxxxxxx'
+            }, function (err, result) {
+                if(err == undefined) {
+                    resolve(result);
+                }
+                else {
+                    reject(err);
+                }
+            });
+        }
+    )
+};
+
+
 module.exports = {
     getAccessToken: _getAccessToken,
     getJsapiTicket: _getJsapiTicket,
     getJsapiConfig: _getJsapiConfig,
-    getUserAccessToken: _getUserAccessToken
+    getUserAccessToken: _getUserAccessToken,
+    createUnifiedOrder: _createUnifiedOrder
 };
