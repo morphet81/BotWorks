@@ -41,63 +41,88 @@ module.exports = {
 
         // Output the payment page
         app.get('/payment', function (req, res) {
-            // Read the content of the page
+            // Get config params for using wechat JS API
             var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
             var $ = cheerio.load(html);
-
-            // Get auth code
-            var authCode = req.query.code;
-
-            // If the auth code is not given, redirect the user to the wechat auth page
-            if(authCode == undefined) {
-                scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
-
-                // Append the script
-                $('body').append(scriptNode);
-
-                // Send resulting page
-                res.status(200).send($.html());
-            }
-            else {
-                // Recover user's open id (through user access token)
-                wechatUtils.getUserAccessToken(authCode)
-                    .then(function (response) {
-                        console.log('Response ', util.inspect(response));
-                        // Create the order on Wechat side
-                        wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 1, `http://${req.headers.host}${req.url}`, `bali_trip_demo`, response.openid)
-                            .then(function(prepaidConfig) {
-                                console.log('prepaidConfig ', util.inspect(prepaidConfig));
-                                // Get config params for using wechat JS API
-                                wechatUtils.getJsapiConfig(req)
-                                    .then(function (wechatConfig) {
-                                        console.log('wechatConfig ', util.inspect(wechatConfig));
-                                        var scriptNode = `
+            wechatUtils.getJsapiConfig(req)
+                .then(function (wechatConfig) {
+                    console.log('wechatConfig ', util.inspect(wechatConfig));
+                    var scriptNode = `
                                             <script>
                                                 var wechatConfig = ${JSON.stringify(wechatConfig)};
-                                                var prepaidConfig = ${prepaidConfig};
                                             </script>`
 
-                                        // Append the script
-                                        $('head').prepend(scriptNode);
+                    // Append the script
+                    $('head').prepend(scriptNode);
 
-                                        console.log($.html());
+                    console.log($.html());
 
-                                        // Send resulting page
-                                        res.status(200).send($.html());
+                    // Send resulting page
+                    res.status(200).send($.html());
 
-                                    })
-                                    .catch(function (error) {
-                                        res.status(500).send(`There was an error while getting JS API config: ${error}`);
-                                    })
-                            })
-                            .catch(function (error) {
-                                res.status(500).send(`Error while create an order: ${error}`);
-                            });
-                    })
-                    .catch(function (error) {
-                        res.status(500).send(`There was an error while recovering user's access token: ${error}`)
-                    });
-            }
+                })
+                .catch(function (error) {
+                    res.status(500).send(`There was an error while getting JS API config: ${error}`);
+                })
+
+
+            // // Read the content of the page
+            // var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
+            // var $ = cheerio.load(html);
+            //
+            // // Get auth code
+            // var authCode = req.query.code;
+            //
+            // // If the auth code is not given, redirect the user to the wechat auth page
+            // if(authCode == undefined) {
+            //     scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
+            //
+            //     // Append the script
+            //     $('body').append(scriptNode);
+            //
+            //     // Send resulting page
+            //     res.status(200).send($.html());
+            // }
+            // else {
+            //     // Recover user's open id (through user access token)
+            //     wechatUtils.getUserAccessToken(authCode)
+            //         .then(function (response) {
+            //             console.log('Response ', util.inspect(response));
+            //             // Create the order on Wechat side
+            //             wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 1, `http://${req.headers.host}${req.url}`, `bali_trip_demo`, response.openid)
+            //                 .then(function(prepaidConfig) {
+            //                     console.log('prepaidConfig ', util.inspect(prepaidConfig));
+            //                     // Get config params for using wechat JS API
+            //                     wechatUtils.getJsapiConfig(req)
+            //                         .then(function (wechatConfig) {
+            //                             console.log('wechatConfig ', util.inspect(wechatConfig));
+            //                             var scriptNode = `
+            //                                 <script>
+            //                                     var wechatConfig = ${JSON.stringify(wechatConfig)};
+            //                                     var prepaidConfig = ${prepaidConfig};
+            //                                 </script>`
+            //
+            //                             // Append the script
+            //                             $('head').prepend(scriptNode);
+            //
+            //                             console.log($.html());
+            //
+            //                             // Send resulting page
+            //                             res.status(200).send($.html());
+            //
+            //                         })
+            //                         .catch(function (error) {
+            //                             res.status(500).send(`There was an error while getting JS API config: ${error}`);
+            //                         })
+            //                 })
+            //                 .catch(function (error) {
+            //                     res.status(500).send(`Error while create an order: ${error}`);
+            //                 });
+            //         })
+            //         .catch(function (error) {
+            //             res.status(500).send(`There was an error while recovering user's access token: ${error}`)
+            //         });
+            // }
         });
 
         // Get the jsapi ticket
