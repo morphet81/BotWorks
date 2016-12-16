@@ -145,6 +145,8 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
 
             wxPayment.getBrandWCPayRequestParams(params, function (err, result) {
                 if(err == undefined) {
+                    var url = `weixin://wxpay/bizpayurl?sign=${result.paySign}&mch_id=${process.env.WECHAT_MERCHANT_ID}&product_id=${productId}&appid=${process.env.WECHAT_APP_ID}&time_stamp=${result.timeStamp}&nonce_str=${result.nonceStr}`;
+                    console.log(url);
                     resolve(result);
                 }
                 else {
