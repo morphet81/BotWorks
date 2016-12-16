@@ -18,6 +18,9 @@ module.exports = {
         // Create http server
         var app = express();
 
+        // Wechat public files for wechat server
+        app.use(express.static('./assets/wechat_public'));
+
         // Make images public
         app.use(express.static('./assets/img/demo'));
 
@@ -50,8 +53,8 @@ module.exports = {
 
             // If the auth code is not given, redirect the user to the wechat auth page
             if(authCode == undefined) {
-                scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
-                console.log(`=======   ${scriptNode}`);
+                // scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
+                // console.log(`=======   ${scriptNode}`);
             }
             else {
                 // Recover user's open id (through user access token)
@@ -60,7 +63,7 @@ module.exports = {
                         console.log(util.inspect(response));
                         // Create the order on Wechat side
                         wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 1, `http://${req.headers.host}${req.url}`, `bali_trip_demo`, response.open_id)
-                            .then(function(response) {
+                            .then(function(result) {
                                 // Get config params for using wechat JS API
                                 wechatUtils.getJsapiConfig(req)
                                     .then(function (wechatConfig) {

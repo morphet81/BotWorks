@@ -118,20 +118,13 @@ var _getJsapiConfig = function(req) {
 var _getUserAccessToken =  function(authCode) {
     return new Promise(
         function (resolve, reject) {
-            var accessToken = appCache.get(kWechatAccessToken);
-
-            if(accessToken == undefined) {
-                request.get(`https://api.weixin.qq.com/sns/oauth2/access_token?grant_type=authorization_code&appid=${process.env.WECHAT_APP_ID}&secret=${process.env.WECHAT_APP_SECRET}&code=${authCode}`)
-                    .on('data', function (chunk) {
-                        resolve(JSON.parse(chunk));
-                    })
-                    .on('error', function (err) {
-                        reject(err);
-                    });
-            }
-            else {
-                resolve(accessToken);
-            }
+            request.get(`https://api.weixin.qq.com/sns/oauth2/access_token?grant_type=authorization_code&appid=${process.env.WECHAT_APP_ID}&secret=${process.env.WECHAT_APP_SECRET}&code=${authCode}`)
+                .on('data', function (chunk) {
+                    resolve(JSON.parse(chunk));
+                })
+                .on('error', function (err) {
+                    reject(err);
+                });
         }
     )
 };
