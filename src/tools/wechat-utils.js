@@ -143,9 +143,9 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
                 openid: openId
             };
 
-            console.log(util.inspect(params));
-
             wxPayment.createUnifiedOrder(params, function (err, result) {
+
+                console.log(util.inspect(result));
 
                 if(err == undefined) {
                     resolve(result);
