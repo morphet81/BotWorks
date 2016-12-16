@@ -60,13 +60,14 @@ module.exports = {
                 // Recover user's open id (through user access token)
                 wechatUtils.getUserAccessToken(authCode)
                     .then(function (response) {
-                        console.log(util.inspect(response));
                         // Create the order on Wechat side
                         wechatUtils.createUnifiedOrder(req, 'Trip to Bali', randomstring.generate(), 1, `http://${req.headers.host}${req.url}`, `bali_trip_demo`, response.open_id)
                             .then(function(prepaidConfig) {
+                                console.log(util.inspect(prepaidConfig));
                                 // Get config params for using wechat JS API
                                 wechatUtils.getJsapiConfig(req)
                                     .then(function (wechatConfig) {
+                                        console.log(util.inspect(wechatConfig));
                                         scriptNode = `
                                             <script>
                                                 var wechatConfig = ${JSON.stringify(wechatConfig)};
