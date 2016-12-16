@@ -42,18 +42,13 @@ module.exports = {
 
         // Payment confirmation page
         app.get('/payment/confirm', function (req, res) {
-            console.log(util.inspect(req.query));
-            console.log(util.inspect(req.body));
+            console.log(`query params: ${util.inspect(req.query)}`);
+            console.log(`body: ${util.inspect(req.body)}`);
             res.status(200).send();
         });
 
         // Output the payment page
         app.get('/payment', function (req, res) {
-            // wechatUtils.createMerchantPrepayUrl(req, 'Trip to Bali', randomstring.generate(), 1, `http://bot.phoceis.cn/payment`, `bali_trip_demo`, "test");
-
-            console.log(util.inspect(req.query));
-            console.log(util.inspect(req.body));
-
             // Read the content of the page
             var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
             var $ = cheerio.load(html);
