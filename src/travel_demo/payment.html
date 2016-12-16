@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Trip Payment</title>
+
+    <link rel="stylesheet" type="text/css" href="/demo.css" />
 
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="jquery/dist/jquery.min.js"></script>
@@ -20,10 +23,10 @@
                         signType: prepaidConfig.signType,
                         paySign: prepaidConfig.paySign,
                         success: function (res) {
-                            $('#config').html('=============      ' + res);
+                            wx.closeWindow();
                         },
                         error: function(error) {
-                            $('#config').html('=============      ' + error);
+                            alert('Payment failed. Please try again later...')
                         }
                     });
                 }
@@ -37,11 +40,9 @@
 </head>
 <body>
 
-<h1>Payment for your trip</h1>
+<img id="wechat_img" src="/wechat.png"/>
 
-<h2 id="config"></h2>
-
-<h2 id="result"></h2>
+<h1>Your payment is processing. Please follow WeChat instuctions.</h1>
 
 </body>
 </html>
