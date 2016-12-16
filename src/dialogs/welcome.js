@@ -1,6 +1,6 @@
 var builder = require('botbuilder')
-botUser = require('./user'),
-    botUtils = require('./bot-utils'),
+botUser = require('./../data/user'),
+    botUtils = require('./../tools/bot-utils'),
     util = require('util');
 
 var localePromptDialog = [

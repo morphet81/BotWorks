@@ -71,43 +71,41 @@ var _getJsapiTicket = function() {
     )
 };
 
+// Get config object for WeChat JS API
+var _getJsapiConfig = function(req) {
+    return new Promise(
+        function(resolve, reject) {
+            _getJsapiTicket()
+                .then(function(jsapiTicket) {
+                    // Init signature calculation variables
+                    var timeStamp = Date.now();
+                    var nonceStr = randomstring.generate();
+
+                    // Generate signature
+                    var signatureRoot = `jsapi_ticket=${jsapiTicket}&noncestr=${nonceStr}&timestamp=${timeStamp}&url=http://${req.headers.host}${req.url}`;
+                    var signature = sha1(signatureRoot);
+
+                    // Wechat JS API config
+                    var response = {
+                        debug: true,
+                        appId: process.env.WECHAT_APP_ID,
+                        timestamp: timeStamp,
+                        nonceStr: nonceStr,
+                        signature: signature,
+                        jsApiList: ['chooseWXPay']
+                    };
+
+                    resolve(response);
+                })
+                .catch(function (error) {
+                    reject(error);
+                });
+        }
+    )
+}
+
 module.exports = {
-    // Recover WeChat access token
-    getAccessToken:  _getAccessToken,
-
-    // Recover jsapi ticket
+    getAccessToken: _getAccessToken,
     getJsapiTicket: _getJsapiTicket,
-
-    // Get config object for WeChat JS API
-    getJsapiConfig: function(req) {
-        return new Promise(
-            function(resolve, reject) {
-                _getJsapiTicket()
-                    .then(function(jsapiTicket) {
-                        // Init signature calculation variables
-                        var timeStamp = Date.now();
-                        var nonceStr = randomstring.generate();
-
-                        // Generate signature
-                        var signatureRoot = `jsapi_ticket=${jsapiTicket}&noncestr=${nonceStr}&timestamp=${timeStamp}&url=http://${req.headers.host}${req.url}`;
-                        var signature = sha1(signatureRoot);
-
-                        // Wechat JS API config
-                        var response = {
-                            debug: true,
-                            appId: process.env.WECHAT_APP_ID,
-                            timestamp: timeStamp,
-                            nonceStr: nonceStr,
-                            signature: signature,
-                            jsApiList: ['chooseWXPay']
-                        };
-
-                        resolve(response);
-                    })
-                    .catch(function (error) {
-                        reject(error);
-                    });
-            }
-        )
-    }
+    getJsapiConfig: _getJsapiConfig
 };

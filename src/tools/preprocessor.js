@@ -5,7 +5,7 @@ var spellService    = require('./spell-service'),
     guid            = require('guid'),
     bingSpeech      = require('bingspeech-api-client'),
     botUtils        = require('./bot-utils'),
-    botUser         = require('./user');
+    botUser         = require('./../data/user');
 
 let speechClient = new bingSpeech.BingSpeechClient(process.env.BING_SPEECH_KEY);
 

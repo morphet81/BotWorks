@@ -49,7 +49,9 @@
     "restify": "^4.3.0",
     "sequence": "^3.0.0",
     "sha1": "^1.1.1",
-    "sync": "^0.2.5"
+    "sync": "^0.2.5",
+    "wechat-payment-node": "^1.3.6",
+    "wx-payment": "^1.1.0"
   },
   "devDependencies": {}
 }

@@ -1,10 +1,9 @@
-var botUtils        = require('./bot-utils'),
+var botUtils        = require('../tools/bot-utils'),
     util            = require('util'),
     database        = require('./database');
 
 var User = function() {
     this.save = (callback) => {
-        console.log('===    %s', util.inspect(this));
         database.saveUser(this, callback);
     };
 

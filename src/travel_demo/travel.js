@@ -1,6 +1,6 @@
 var builder     = require('botbuilder'),
-    botUtils    = require('./bot-utils'),
-    botUser     = require('./user'),
+    botUtils    = require('../tools/bot-utils'),
+    botUser     = require('../data/user'),
     fs          = require('fs');
 
 // Main dialog with LUIS
