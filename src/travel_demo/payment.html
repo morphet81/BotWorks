@@ -9,7 +9,9 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            alert('=============      ' + wechatConfig);
+            if(confirm("ok ?")) {
+                alert('=============      ' + (wechatConfig == undefined ? "undefined" : wechatConfig));
+            }
             $('#config').html('=============      ' + wechatConfig);
 
             wx.config(wechatConfig);

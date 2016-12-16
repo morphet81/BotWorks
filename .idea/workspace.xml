@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="" />
+    <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/travel_demo/payment.html" afterPath="$PROJECT_DIR$/src/travel_demo/payment.html" />
+    </list>
     <ignored path="BotWorks.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +25,8 @@
       <file leaf-file-name="payment.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/travel_demo/payment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="52" lean-forward="true" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+            <state relative-caret-position="195">
+              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -417,7 +419,7 @@
       <workItem from="1481275586935" duration="2115000" />
       <workItem from="1481525770827" duration="38931000" />
       <workItem from="1481767101362" duration="15528000" />
-      <workItem from="1481852706807" duration="11588000" />
+      <workItem from="1481852706807" duration="11706000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -430,7 +432,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152395000" />
+    <option name="totallyTimeSpent" value="152513000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -843,8 +845,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/travel_demo/payment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="52" lean-forward="true" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
+        <state relative-caret-position="195">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding />
         </state>
       </provider>
