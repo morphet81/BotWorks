@@ -152,14 +152,14 @@ var WechatConnector = (function() {
         this.handler = handler;
     };
 
-    // WechatConnector.prototype.send = function (messages, cb) {
-    //
-    //     console.log(util.inspect(messages));
-    //
-    //     for (var i = 0; i < messages.length; i++) {
-    //         this.postMessage(messages[i]);
-    //     }
-    // };
+    WechatConnector.prototype.send = function (messages, cb) {
+
+        console.log(util.inspect(messages));
+
+        for (var i = 0; i < messages.length; i++) {
+            this.postMessage(messages[i]);
+        }
+    };
 
     // WechatConnector.prototype.startConversation = function (address, cb) {
     //     var addr = _.assign(address, {
