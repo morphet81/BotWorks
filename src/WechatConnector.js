@@ -154,10 +154,14 @@ var WechatConnector = (function() {
 
     WechatConnector.prototype.send = function (messages, cb) {
 
-        console.log(util.inspect(messages));
+        // console.log(util.inspect(messages));
+        //
+        // for (var i = 0; i < messages.length; i++) {
+        //     this.postMessage(messages[i]);
+        // }
 
-        for (var i = 0; i < messages.length; i++) {
-            this.postMessage(messages[i]);
+        if(done) {
+            done(null);
         }
     };
 
