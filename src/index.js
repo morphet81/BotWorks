@@ -79,7 +79,7 @@ module.exports = {
 
 
                                 // Get config params for using wechat JS API
-                                wechatUtils.getJsapiConfig(req)
+                                wechatUtils.getJsapiConfig(req, true)
                                     .then(function (wechatConfig) {
 
 
