@@ -41,14 +41,14 @@ module.exports = {
         });
 
         // Payment confirmation page
-        app.get('/payment/confirm.php', function (req, res) {
+        app.get('/confirm', function (req, res) {
             console.log(`query params: ${util.inspect(req.query)}`);
             console.log(`body: ${util.inspect(req.body)}`);
             res.status(200).send();
         });
 
         // Output the payment page
-        app.get('/payment/pay', function (req, res) {
+        app.get('/payment', function (req, res) {
             // Read the content of the page
             var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
             var $ = cheerio.load(html);
