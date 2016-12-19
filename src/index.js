@@ -72,19 +72,9 @@ module.exports = {
                         // Create the order on Wechat side
                         wechatUtils.createUnifiedOrder(req, 'Trip to Bali 300', randomstring.generate(), 1, `${process.env.WECHAT_PAYMENT_CALLBACK_PAGE}`, `bali_trip_demo_test`, response.openid)
                             .then(function(prepaidConfig) {
-
-
-                                console.log(util.inspect(prepaidConfig));
-
-
                                 // Get config params for using wechat JS API
-                                wechatUtils.getJsapiConfig(req, true)
+                                wechatUtils.getJsapiConfig(req)
                                     .then(function (wechatConfig) {
-
-
-                                        console.log(util.inspect(wechatConfig));
-
-
                                         var scriptNode = `
                                             <script>
                                                 var wechatConfig = ${JSON.stringify(wechatConfig)};
