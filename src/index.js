@@ -58,7 +58,7 @@ module.exports = {
 
             // If the auth code is not given, redirect the user to the wechat auth page
             if(authCode == undefined) {
-                var scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${req.headers.host}${req.url}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
+                var scriptNode = `<script>window.location = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.WECHAT_APP_ID}&redirect_uri=http://${process.env.WECHAT_PAYMENT_PAGE}&response_type=code&scope=snsapi_base#wechat_redirect"</script>`;
 
                 // Append the script
                 $('body').append(scriptNode);
