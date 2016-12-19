@@ -114,7 +114,7 @@ module.exports = (wechatConnector) => {
             builder.Prompts.text(session, 'holiday_hotel_payment');
         },
         function(session) {
-            builder.Prompts.text(session, 'holiday_hotel_payment_validation');
+            session.send('holiday_hotel_payment_validation');
 
             var showValidation = setInterval(function () {
                 clearInterval(showValidation);
