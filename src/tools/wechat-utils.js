@@ -137,7 +137,7 @@ var _createUnifiedOrder = function(req, body, outTradeNo, totalFee, notifyUrl, p
                 out_trade_no: outTradeNo,
                 total_fee: totalFee,
                 spbill_create_ip: (req.headers['x-forwarded-for'] || req.connection.remoteAddress).split(':')[0],
-                notify_uri: notifyUrl.split('?')[0],
+                notify_url: notifyUrl.split('?')[0],
                 trade_type: 'JSAPI',
                 product_id: productId,
                 openid: openId
