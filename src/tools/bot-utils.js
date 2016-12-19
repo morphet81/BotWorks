@@ -24,7 +24,7 @@ module.exports = {
         var cmd = 'ffmpeg -y -i ' + input + ' ' + output;
 
         if(isWin) {
-            cmd = '.\\assets\\ffmpeg\\ffmpeg -y -i ' + input + ' ' + output;
+            cmd = '.\\src\\assets\\ffmpeg\\ffmpeg -y -i ' + input + ' ' + output;
         }
 
         console.log('Will execute command "%s"', cmd);

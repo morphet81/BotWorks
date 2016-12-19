@@ -34,5 +34,6 @@
   "holiday_select_day_period": "Early Morning (before 7:00AM)|Morning (before 12:00PM)|Afternoon (before 6:00PM)|Evening (before 12:00AM)",
   "holiday_go_flight_2": "I found a flight from Pudong Airport to Denpasar Airport, Saturday 24th of December, 7:15PM with Hong-Kong Airlines. Is it ok for you?",
   "holiday_return_flight": "For your trip back I found a flight from Denpasar Airport to Pudong Airport, Sunday 1st of January, 6:25PM with Hong-Kong Airlines. Is it ok for you?",
-  "holiday_hotel_preferences": "What kind of hotel do you want to book?"
+  "holiday_hotel_preferences": "What kind of hotel do you want to book?",
+  "holiday_hotel_suggestion": "Does this hotel fit your expectations?"
 }

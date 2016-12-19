@@ -19,15 +19,15 @@ module.exports = {
         var app = express();
 
         // Wechat public files for wechat server
-        app.use(express.static('./assets/wechat_public'));
+        app.use(express.static('./src/assets/wechat_public'));
 
         // Make images public
-        app.use(express.static('./assets/img/demo'));
-        app.use(express.static('./assets/css'));
+        app.use(express.static('./src/assets/img/demo'));
+        app.use(express.static('./src/assets/css'));
 
         // Demo Payment page
         // app.use(express.static('./demo'));
-        app.use(express.static('./node_modules'));
+        app.use(express.static('./src/node_modules'));
 
         // Get WeChat access token
         app.get('/wechat_token', function (req, res) {
@@ -146,7 +146,7 @@ module.exports = {
             wechatConnector,
             {
                 localizerSettings: {
-                    botLocalePath: "./assets/locale",
+                    botLocalePath: "./src/assets/locale",
                     defaultLocale: "en"
                 }
             }
@@ -178,7 +178,7 @@ module.exports = {
             microsoftConnector,
             {
                 localizerSettings: {
-                    botLocalePath: "./assets/locale",
+                    botLocalePath: "./src/assets/locale/",
                     defaultLocale: "en"
                 }
             }
