@@ -106,10 +106,10 @@ module.exports = (wechatConnector) => {
         //
         //     session.send(msg);
         // },
-        function(session) {
-            var options = session.localizer.gettext(session.preferredLocale(), "yes_no");
-            builder.Prompts.choice(session, 'holiday_hotel_confirmation', options);
-        },
+        // function(session) {
+        //     var options = session.localizer.gettext(session.preferredLocale(), "yes_no");
+        //     builder.Prompts.choice(session, 'holiday_hotel_confirmation', options);
+        // },
         function(session) {
             session.send('holiday_hotel_payment');
 
