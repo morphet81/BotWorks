@@ -48,7 +48,7 @@ module.exports = {
         });
 
         // Output the payment page
-        app.get('/payment/payment.php', function (req, res) {
+        app.get('/payment/pay', function (req, res) {
             // Read the content of the page
             var html = fs.readFileSync(__dirname + '/travel_demo/payment.html', 'utf8');
             var $ = cheerio.load(html);
