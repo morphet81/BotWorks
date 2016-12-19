@@ -153,6 +153,9 @@ var WechatConnector = (function() {
     };
 
     WechatConnector.prototype.send = function (messages, cb) {
+
+        console.log(util.inspect(messages));
+
         for (var i = 0; i < messages.length; i++) {
             this.postMessage(messages[i]);
         }
@@ -170,9 +173,6 @@ var WechatConnector = (function() {
         var self = this,
             addr = message.address,
             user = addr.user;
-
-        console.log(util.inspect(message));
-        console.log(util.inspect(cb));
 
         if (message.text && message.text.length > 0) {
             this.wechatAPI.sendText(user.id, message.text, errorHandle);
