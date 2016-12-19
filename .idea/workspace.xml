@@ -27,18 +27,9 @@
       <file leaf-file-name="travel.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="108" column="27" lean-forward="true" selection-start-line="108" selection-start-column="27" selection-end-line="108" selection-end-column="27" />
-              <folding>
-                <marker date="1482135386000" expanded="true" signature="3390:3602" ph="{...}" />
-                <marker date="1482135386000" expanded="true" signature="3633:3716" ph="{...}" />
-                <marker date="1482135386000" expanded="true" signature="3747:3832" ph="{...}" />
-                <marker date="1482135386000" expanded="true" signature="3863:3952" ph="{...}" />
-                <marker date="1482135386000" expanded="true" signature="3983:5103" ph="{...}" />
-                <marker date="1482135386000" expanded="true" signature="4075:4951" ph="{&quot;contentType&quot;: 'wechat/news'...}" />
-                <marker date="1482135386000" expanded="true" signature="4152:4934" ph="[...]" />
-                <marker date="1482135386000" expanded="true" signature="4177:4913" ph="{&quot;title&quot;: &quot;Ramada Bintang Bali Resort&quot;...}" />
-              </folding>
+            <state relative-caret-position="529">
+              <caret line="116" column="75" lean-forward="false" selection-start-line="116" selection-start-column="75" selection-end-line="116" selection-end-column="75" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,8 +37,8 @@
       <file leaf-file-name="index.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/assets/locale/en/index.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="29" />
+            <state relative-caret-position="490">
+              <caret line="42" column="35" lean-forward="false" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -449,7 +440,7 @@
       <workItem from="1481525770827" duration="38931000" />
       <workItem from="1481767101362" duration="15528000" />
       <workItem from="1481852706807" duration="20103000" />
-      <workItem from="1482117113986" duration="7393000" />
+      <workItem from="1482117113986" duration="8010000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -462,7 +453,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168303000" />
+    <option name="totallyTimeSpent" value="168920000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -475,7 +466,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26920366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -484,7 +475,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25662652" sideWeight="0.4947146" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25662652" sideWeight="0.4947146" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -840,26 +831,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/locale/en/index.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="3" selection-end-line="38" selection-end-column="29" />
+        <state relative-caret-position="490">
+          <caret line="42" column="35" lean-forward="false" selection-start-line="42" selection-start-column="3" selection-end-line="42" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="108" column="27" lean-forward="true" selection-start-line="108" selection-start-column="27" selection-end-line="108" selection-end-column="27" />
-          <folding>
-            <marker date="1482135386000" expanded="true" signature="3390:3602" ph="{...}" />
-            <marker date="1482135386000" expanded="true" signature="3633:3716" ph="{...}" />
-            <marker date="1482135386000" expanded="true" signature="3747:3832" ph="{...}" />
-            <marker date="1482135386000" expanded="true" signature="3863:3952" ph="{...}" />
-            <marker date="1482135386000" expanded="true" signature="3983:5103" ph="{...}" />
-            <marker date="1482135386000" expanded="true" signature="4075:4951" ph="{&quot;contentType&quot;: 'wechat/news'...}" />
-            <marker date="1482135386000" expanded="true" signature="4152:4934" ph="[...]" />
-            <marker date="1482135386000" expanded="true" signature="4177:4913" ph="{&quot;title&quot;: &quot;Ramada Bintang Bali Resort&quot;...}" />
-          </folding>
+        <state relative-caret-position="529">
+          <caret line="116" column="75" lean-forward="false" selection-start-line="116" selection-start-column="75" selection-end-line="116" selection-end-column="75" />
+          <folding />
         </state>
       </provider>
     </entry>
