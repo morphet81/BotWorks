@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/travel_demo/travel.js" afterPath="$PROJECT_DIR$/src/travel_demo/travel.js" />
     </list>
     <ignored path="BotWorks.iws" />
@@ -26,8 +25,8 @@
       <file leaf-file-name="travel.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="27" selection-end-column="10" />
+            <state relative-caret-position="439">
+              <caret line="121" column="21" lean-forward="false" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -370,7 +369,7 @@
       <workItem from="1481525770827" duration="38931000" />
       <workItem from="1481767101362" duration="15528000" />
       <workItem from="1481852706807" duration="20103000" />
-      <workItem from="1482117113986" duration="14092000" />
+      <workItem from="1482117113986" duration="14139000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -383,7 +382,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175002000" />
+    <option name="totallyTimeSpent" value="175049000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -739,16 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="137" column="42" lean-forward="false" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="42" />
-          <folding>
-            <marker date="1482141946000" expanded="true" signature="3364:3620" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/botbuilder/lib/botbuilder.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -765,6 +754,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="137" column="42" lean-forward="false" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="42" />
+          <folding>
+            <marker date="1482141946000" expanded="true" signature="3364:3620" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/WechatConnector.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
@@ -775,8 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="27" selection-end-column="10" />
+        <state relative-caret-position="439">
+          <caret line="121" column="21" lean-forward="false" selection-start-line="121" selection-start-column="21" selection-end-line="121" selection-end-column="21" />
           <folding />
         </state>
       </provider>
