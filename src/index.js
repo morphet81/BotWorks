@@ -81,6 +81,11 @@ module.exports = {
                                 // Get config params for using wechat JS API
                                 wechatUtils.getJsapiConfig(req, true)
                                     .then(function (wechatConfig) {
+
+
+                                        console.log(util.inspect(wechatConfig));
+
+
                                         var scriptNode = `
                                             <script>
                                                 var wechatConfig = ${JSON.stringify(wechatConfig)};
@@ -89,11 +94,6 @@ module.exports = {
 
                                         // Append the script
                                         $('head').prepend(scriptNode);
-
-
-                                        console.log(util.inspect($.html()));
-
-
 
                                         // Send resulting page
                                         res.status(200).send($.html());
