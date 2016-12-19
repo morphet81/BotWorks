@@ -15,25 +15,27 @@
             wx.config(wechatConfig);
 
             wx.ready(function () {
-                if (prepaidConfig != undefined) {
-                    wx.chooseWXPay({
-                        timestamp: prepaidConfig.timeStamp,
-                        nonceStr: prepaidConfig.nonceStr,
-                        package: prepaidConfig.package,
-                        signType: prepaidConfig.signType,
-                        paySign: prepaidConfig.paySign,
-                        success: function (res) {
-                            wx.closeWindow();
-                        },
-                        error: function(error) {
-                            alert('Payment failed. Please try again later...')
-                        }
-                    });
+                if(confirm('OK or not ? ')) {
+                    if (prepaidConfig != undefined) {
+                        wx.chooseWXPay({
+                            timestamp: prepaidConfig.timeStamp,
+                            nonceStr: prepaidConfig.nonceStr,
+                            package: prepaidConfig.package,
+                            signType: prepaidConfig.signType,
+                            paySign: prepaidConfig.paySign,
+                            success: function (res) {
+                                wx.closeWindow();
+                            },
+                            error: function (error) {
+                                alert('Payment failed. Please try again later...')
+                            }
+                        });
+                    }
                 }
             });
 
             wx.error(function(error) {
-
+                alert('error');
             });
         })
     </script>
