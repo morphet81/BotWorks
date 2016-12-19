@@ -76,8 +76,8 @@ module.exports = (wechatConnector) => {
         //     builder.Prompts.text(session, 'holiday_go_flight_1');
         // },
         function(session) {
-            var options = session.localizer.gettext(session.preferredLocale(), "holiday_select_day_period");
-            builder.Prompts.choice(session, 'holiday_search_new_flight', options);
+            // var options = session.localizer.gettext(session.preferredLocale(), "holiday_select_day_period");
+            // builder.Prompts.choice(session, 'holiday_search_new_flight', options);
 
             builder.Prompts.choice(session, 'holiday_search_new_flight', '<a id="a" href="#">Option 1</a><br/><a id="b">Option 2</a>');
         },
