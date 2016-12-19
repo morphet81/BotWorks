@@ -154,14 +154,14 @@ var WechatConnector = (function() {
 
     WechatConnector.prototype.send = function (messages, cb) {
 
-        // console.log(util.inspect(messages));
-        //
-        // for (var i = 0; i < messages.length; i++) {
-        //     this.postMessage(messages[i]);
-        // }
+        console.log(util.inspect(messages));
 
-        if(done) {
-            done(null);
+        for (var i = 0; i < messages.length; i++) {
+            this.postMessage(messages[i]);
+        }
+
+        if(cb) {
+            cb(null);
         }
     };
 
@@ -174,50 +174,50 @@ var WechatConnector = (function() {
     // };
 
     WechatConnector.prototype.postMessage = function (message, cb) {
-        var self = this,
-            addr = message.address,
-            user = addr.user;
-
-        if (message.text && message.text.length > 0) {
-            this.wechatAPI.sendText(user.id, message.text, errorHandle);
-        }
-
-        if (message.attachments && message.attachments.length > 0) {
-            for (var i = 0; i < message.attachments.length; i++) {
-                var atm = message.attachments[i],
-                    atmType = atm.contentType,
-                    atmCont = atm.content;
-
-                if (!atmCont) continue;
-
-                switch(atmType) {
-                    case AttachmentType.Image:
-                        this.wechatAPI.sendImage(user.id, atmCont.mediaId, errorHandle);
-                        break;
-                    case AttachmentType.Voice:
-                        this.wechatAPI.sendVoice(user.id, atmCont.mediaId, errorHandle);
-                        break;
-                    case AttachmentType.Video:
-                        this.wechatAPI.sendVideo(user.id, atmCont.mediaId, atmCont.thumbMediaId, errorHandle);
-                        break;
-                    case AttachmentType.Music:
-                        this.wechatAPI.sendMusic(user.id, atmCont, errorHandle);
-                        break;
-                    case AttachmentType.News:
-                        this.wechatAPI.sendNews(user.id, atmCont, errorHandle);
-                        break;
-                    case AttachmentType.MpNews:
-                        this.wechatAPI.sendMpNews(user.id, atmCont.mediaId, errorHandle);
-                        break;
-                    case AttachmentType.Card:
-                        this.wechatAPI.sendCard(user.id, atmCont, errorHandle);
-                        break;
-                    default:
-                        // Unknow attachment
-                        break;
-                }
-            }
-        }
+        // var self = this,
+        //     addr = message.address,
+        //     user = addr.user;
+        //
+        // if (message.text && message.text.length > 0) {
+        //     this.wechatAPI.sendText(user.id, message.text, errorHandle);
+        // }
+        //
+        // if (message.attachments && message.attachments.length > 0) {
+        //     for (var i = 0; i < message.attachments.length; i++) {
+        //         var atm = message.attachments[i],
+        //             atmType = atm.contentType,
+        //             atmCont = atm.content;
+        //
+        //         if (!atmCont) continue;
+        //
+        //         switch(atmType) {
+        //             case AttachmentType.Image:
+        //                 this.wechatAPI.sendImage(user.id, atmCont.mediaId, errorHandle);
+        //                 break;
+        //             case AttachmentType.Voice:
+        //                 this.wechatAPI.sendVoice(user.id, atmCont.mediaId, errorHandle);
+        //                 break;
+        //             case AttachmentType.Video:
+        //                 this.wechatAPI.sendVideo(user.id, atmCont.mediaId, atmCont.thumbMediaId, errorHandle);
+        //                 break;
+        //             case AttachmentType.Music:
+        //                 this.wechatAPI.sendMusic(user.id, atmCont, errorHandle);
+        //                 break;
+        //             case AttachmentType.News:
+        //                 this.wechatAPI.sendNews(user.id, atmCont, errorHandle);
+        //                 break;
+        //             case AttachmentType.MpNews:
+        //                 this.wechatAPI.sendMpNews(user.id, atmCont.mediaId, errorHandle);
+        //                 break;
+        //             case AttachmentType.Card:
+        //                 this.wechatAPI.sendCard(user.id, atmCont, errorHandle);
+        //                 break;
+        //             default:
+        //                 // Unknow attachment
+        //                 break;
+        //         }
+        //     }
+        // }
     };
 
     function errorHandle(err) {
