@@ -108,7 +108,7 @@ module.exports = (wechatConnector) => {
         // },
         function(session) {
             var options = session.localizer.gettext(session.preferredLocale(), "yes_no");
-            builder.Prompts.choice(session, 'holiday_climate', options);
+            builder.Prompts.choice(session, 'holiday_hotel_confirmation', options);
         },
         function(session) {
             builder.Prompts.text(session, 'holiday_hotel_payment');
