@@ -182,42 +182,42 @@ var WechatConnector = (function() {
             this.wechatAPI.sendText(user.id, message.text, errorHandle);
         }
 
-        // if (message.attachments && message.attachments.length > 0) {
-        //     for (var i = 0; i < message.attachments.length; i++) {
-        //         var atm = message.attachments[i],
-        //             atmType = atm.contentType,
-        //             atmCont = atm.content;
-        //
-        //         if (!atmCont) continue;
-        //
-        //         switch(atmType) {
-        //             case AttachmentType.Image:
-        //                 this.wechatAPI.sendImage(user.id, atmCont.mediaId, errorHandle);
-        //                 break;
-        //             case AttachmentType.Voice:
-        //                 this.wechatAPI.sendVoice(user.id, atmCont.mediaId, errorHandle);
-        //                 break;
-        //             case AttachmentType.Video:
-        //                 this.wechatAPI.sendVideo(user.id, atmCont.mediaId, atmCont.thumbMediaId, errorHandle);
-        //                 break;
-        //             case AttachmentType.Music:
-        //                 this.wechatAPI.sendMusic(user.id, atmCont, errorHandle);
-        //                 break;
-        //             case AttachmentType.News:
-        //                 this.wechatAPI.sendNews(user.id, atmCont, errorHandle);
-        //                 break;
-        //             case AttachmentType.MpNews:
-        //                 this.wechatAPI.sendMpNews(user.id, atmCont.mediaId, errorHandle);
-        //                 break;
-        //             case AttachmentType.Card:
-        //                 this.wechatAPI.sendCard(user.id, atmCont, errorHandle);
-        //                 break;
-        //             default:
-        //                 // Unknow attachment
-        //                 break;
-        //         }
-        //     }
-        // }
+        if (message.attachments && message.attachments.length > 0) {
+            for (var i = 0; i < message.attachments.length; i++) {
+                var atm = message.attachments[i],
+                    atmType = atm.contentType,
+                    atmCont = atm.content;
+
+                if (!atmCont) continue;
+
+                switch(atmType) {
+                    case AttachmentType.Image:
+                        this.wechatAPI.sendImage(user.id, atmCont.mediaId, errorHandle);
+                        break;
+                    case AttachmentType.Voice:
+                        this.wechatAPI.sendVoice(user.id, atmCont.mediaId, errorHandle);
+                        break;
+                    case AttachmentType.Video:
+                        this.wechatAPI.sendVideo(user.id, atmCont.mediaId, atmCont.thumbMediaId, errorHandle);
+                        break;
+                    case AttachmentType.Music:
+                        this.wechatAPI.sendMusic(user.id, atmCont, errorHandle);
+                        break;
+                    case AttachmentType.News:
+                        this.wechatAPI.sendNews(user.id, atmCont, errorHandle);
+                        break;
+                    case AttachmentType.MpNews:
+                        this.wechatAPI.sendMpNews(user.id, atmCont.mediaId, errorHandle);
+                        break;
+                    case AttachmentType.Card:
+                        this.wechatAPI.sendCard(user.id, atmCont, errorHandle);
+                        break;
+                    default:
+                        // Unknow attachment
+                        break;
+                }
+            }
+        }
     };
 
     function errorHandle(err) {
