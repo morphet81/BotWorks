@@ -47,6 +47,13 @@ module.exports = {
             res.status(200).send();
         });
 
+        // Payment confirmation page
+        app.get('/slkdjfowiefdskfls', function (req, res) {
+            console.log(`query params: ${util.inspect(req.query)}`);
+            console.log(`body: ${util.inspect(req.body)}`);
+            res.status(200).send();
+        });
+
         // Output the payment page
         app.get('/payment', function (req, res) {
             // Read the content of the page
