@@ -26,8 +26,7 @@ module.exports = {
         app.use(express.static('./src/assets/css'));
 
         // Demo Payment page
-        // app.use(express.static('./demo'));
-        app.use(express.static('./src/node_modules'));
+        app.use(express.static('./node_modules'));
 
         // Get WeChat access token
         app.get('/wechat_token', function (req, res) {
