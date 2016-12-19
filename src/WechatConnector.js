@@ -174,14 +174,14 @@ var WechatConnector = (function() {
     // };
 
     WechatConnector.prototype.postMessage = function (message, cb) {
-        // var self = this,
-        //     addr = message.address,
-        //     user = addr.user;
-        //
-        // if (message.text && message.text.length > 0) {
-        //     this.wechatAPI.sendText(user.id, message.text, errorHandle);
-        // }
-        //
+        var self = this,
+            addr = message.address,
+            user = addr.user;
+
+        if (message.text && message.text.length > 0) {
+            this.wechatAPI.sendText(user.id, message.text, errorHandle);
+        }
+
         // if (message.attachments && message.attachments.length > 0) {
         //     for (var i = 0; i < message.attachments.length; i++) {
         //         var atm = message.attachments[i],
