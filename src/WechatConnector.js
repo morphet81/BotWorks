@@ -148,9 +148,9 @@ var WechatConnector = (function() {
         return this;
     };
 
-    // WechatConnector.prototype.onEvent = function (handler) {
-    //     this.handler = handler;
-    // };
+    WechatConnector.prototype.onEvent = function (handler) {
+        this.handler = handler;
+    };
 
     // WechatConnector.prototype.send = function (messages, cb) {
     //
