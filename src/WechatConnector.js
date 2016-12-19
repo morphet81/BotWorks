@@ -148,26 +148,26 @@ var WechatConnector = (function() {
         return this;
     };
 
-    WechatConnector.prototype.onEvent = function (handler) {
-        this.handler = handler;
-    };
+    // WechatConnector.prototype.onEvent = function (handler) {
+    //     this.handler = handler;
+    // };
 
-    WechatConnector.prototype.send = function (messages, cb) {
+    // WechatConnector.prototype.send = function (messages, cb) {
+    //
+    //     console.log(util.inspect(messages));
+    //
+    //     for (var i = 0; i < messages.length; i++) {
+    //         this.postMessage(messages[i]);
+    //     }
+    // };
 
-        console.log(util.inspect(messages));
-
-        for (var i = 0; i < messages.length; i++) {
-            this.postMessage(messages[i]);
-        }
-    };
-
-    WechatConnector.prototype.startConversation = function (address, cb) {
-        var addr = _.assign(address, {
-            conversation: { id: 'Convo1' }
-        });
-
-        cb(null, addr);
-    };
+    // WechatConnector.prototype.startConversation = function (address, cb) {
+    //     var addr = _.assign(address, {
+    //         conversation: { id: 'Convo1' }
+    //     });
+    //
+    //     cb(null, addr);
+    // };
 
     WechatConnector.prototype.postMessage = function (message, cb) {
         var self = this,
@@ -214,31 +214,6 @@ var WechatConnector = (function() {
                 }
             }
         }
-    };
-
-    WechatConnector.prototype.isInConversation = function (address, cb) {
-        var _this = this;
-        this.lookupUser(address, function (user) {
-            var conversationId = address.conversation ? address.conversation.id : null;
-            var storageCtx = {
-                userId: user.id,
-                conversationId: conversationId,
-                address: address,
-                persistUserData: false,
-                persistConversationData: false
-            };
-            _this.getStorageData(storageCtx, function (data) {
-                var lastAccess;
-                if (data && data.privateConversationData && data.privateConversationData.hasOwnProperty(consts.Data.SessionState)) {
-                    var ss = data.privateConversationData[consts.Data.SessionState];
-                    if (ss && ss.lastAccess) {
-                        lastAccess = new Date(ss.lastAccess);
-                    }
-                }
-                console.log('==========     ', lastAccess);
-                cb(null, lastAccess);
-            }, _this.errorLogger(cb));
-        }, this.errorLogger(cb));
     };
 
     function errorHandle(err) {
