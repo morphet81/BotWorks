@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WechatConnector.js" afterPath="$PROJECT_DIR$/src/WechatConnector.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/locale/en/index.json" afterPath="$PROJECT_DIR$/src/assets/locale/en/index.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/travel_demo/travel.js" afterPath="$PROJECT_DIR$/src/travel_demo/travel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xiaomi.js" afterPath="$PROJECT_DIR$/xiaomi.js" />
     </list>
     <ignored path="BotWorks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,8 +28,8 @@
       <file leaf-file-name="travel.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="124" column="89" lean-forward="true" selection-start-line="124" selection-start-column="89" selection-end-line="124" selection-end-column="89" />
+            <state relative-caret-position="319">
+              <caret line="111" column="10" lean-forward="false" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -35,36 +38,13 @@
       <file leaf-file-name="WechatConnector.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WechatConnector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="73" column="51" lean-forward="true" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+            <state relative-caret-position="510">
+              <caret line="61" column="13" lean-forward="false" selection-start-line="53" selection-start-column="12" selection-end-line="61" selection-end-column="13" />
               <folding>
-                <marker date="1482308360000" expanded="true" signature="2845:3104" ph="..." />
-                <marker date="1482308360000" expanded="true" signature="2845:3262" ph="..." />
-                <marker date="1482308360000" expanded="true" signature="3094:3104" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="xiaomi.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xiaomi.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="25" column="41" lean-forward="false" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#46#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="62" lean-forward="true" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
-              <folding>
-                <marker date="1482290367000" expanded="true" signature="3364:3620" ph="..." />
+                <marker date="1482311061000" expanded="true" signature="1346:1617" ph="..." />
+                <marker date="1482311061000" expanded="true" signature="1346:1784" ph="..." />
+                <marker date="1482311061000" expanded="true" signature="1607:1617" ph="..." />
+                <marker date="1482311061000" expanded="true" signature="1802:2030" ph="//..." />
               </folding>
             </state>
           </provider>
@@ -73,8 +53,8 @@
       <file leaf-file-name="index.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/assets/locale/en/index.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="40" column="276" lean-forward="true" selection-start-line="40" selection-start-column="276" selection-end-line="40" selection-end-column="302" />
+            <state relative-caret-position="388">
+              <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -92,7 +72,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>guid</find>
       <find>console</find>
       <find>=====</find>
       <find>unlink</find>
@@ -122,6 +101,7 @@
       <find>send</find>
       <find>cb)</find>
       <find>ramada</find>
+      <find>holiday_return_flight</find>
     </findStrings>
     <replaceStrings>
       <replace>\</replace>
@@ -172,10 +152,10 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/travel_demo/payment.html" />
-        <option value="$PROJECT_DIR$/src/assets/locale/en/index.json" />
-        <option value="$PROJECT_DIR$/src/travel_demo/travel.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/xiaomi.js" />
+        <option value="$PROJECT_DIR$/src/assets/locale/en/index.json" />
+        <option value="$PROJECT_DIR$/src/travel_demo/travel.js" />
         <option value="$PROJECT_DIR$/src/WechatConnector.js" />
       </list>
     </option>
@@ -324,60 +304,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BotWorks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BotWorks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BotWorks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BotWorks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BotWorks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BotWorks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wechat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -497,7 +423,7 @@
       <workItem from="1481767101362" duration="15528000" />
       <workItem from="1481852706807" duration="20103000" />
       <workItem from="1482117113986" duration="14579000" />
-      <workItem from="1482282513122" duration="7387000" />
+      <workItem from="1482282513122" duration="8497000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -510,7 +436,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182876000" />
+    <option name="totallyTimeSpent" value="183986000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -787,6 +713,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -850,22 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="124" column="89" lean-forward="true" selection-start-line="124" selection-start-column="89" selection-end-line="124" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/locale/en/index.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="40" column="276" lean-forward="true" selection-start-line="40" selection-start-column="276" selection-end-line="40" selection-end-column="302" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/wechat/lib/wechat.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1530">
@@ -882,16 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xiaomi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="41" lean-forward="false" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#46#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -902,14 +803,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/xiaomi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#46#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/locale/en/index.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="111" column="10" lean-forward="false" selection-start-line="111" selection-start-column="10" selection-end-line="111" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/WechatConnector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="73" column="51" lean-forward="true" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+        <state relative-caret-position="510">
+          <caret line="61" column="13" lean-forward="false" selection-start-line="53" selection-start-column="12" selection-end-line="61" selection-end-column="13" />
           <folding>
-            <marker date="1482308360000" expanded="true" signature="2845:3104" ph="..." />
-            <marker date="1482308360000" expanded="true" signature="2845:3262" ph="..." />
-            <marker date="1482308360000" expanded="true" signature="3094:3104" ph="..." />
+            <marker date="1482311061000" expanded="true" signature="1346:1617" ph="..." />
+            <marker date="1482311061000" expanded="true" signature="1346:1784" ph="..." />
+            <marker date="1482311061000" expanded="true" signature="1607:1617" ph="..." />
+            <marker date="1482311061000" expanded="true" signature="1802:2030" ph="//..." />
           </folding>
         </state>
       </provider>

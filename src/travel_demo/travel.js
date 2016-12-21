@@ -98,7 +98,17 @@ module.exports = (wechatConnector) => {
             builder.Prompts.text(session, 'holiday_return_flight');
         },
         function(session) {
-            builder.Prompts.text(session, 'holiday_hotel_preferences');
+            builder.Prompts.text(session, 'holiday_passport');
+        },
+        function(session) {
+            builder.Prompts.text(session, 'holiday_phone_number');
+        },
+        function(session) {
+            session.send('holiday_location_confirm');
+
+            setTimeout(function () {
+                builder.Prompts.text(session, 'holiday_hotel_preferences');
+            }, timeout);
         },
         function(session) {
             var attachments = {

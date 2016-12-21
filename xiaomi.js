@@ -12,6 +12,7 @@ var i = 0;
 var test = function() {
     // Click the button
     $("#J_flashBtn").trigger("click");
+    location.reload();
 
     if(i % 3 == 0) {
         console.log('Check clicking : ' + i);
@@ -32,4 +33,4 @@ var test = function() {
     i++;
 };
 
-var autoClick = setInterval(test, 400);
+// var autoClick = setInterval(test, 400);

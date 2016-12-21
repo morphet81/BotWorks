@@ -20,7 +20,7 @@
   "change_locale_not_found": "Sorry, I don't speak %s yet :-( ",
   "change_locale_ok": "Alright! Let's start speaking %s",
 
-  "holiday_welcome": "Hi Alexandre! You want to go on holiday? All right! Let's find the perfect plan for you!",
+  "holiday_welcome": "Hi Alexandre! I am Jarvis, I'm here to help you planning your perfect vacations. So let's find the perfect plan for you!",
   "holiday_climate": "What kind of climate do you prefer?",
   "holiday_climate_choice": "Warm|Cold|Temperate",
   "holiday_location": "Alright! Now please share your location with me, I will try to optimize your destination choice ;-)",
@@ -36,6 +36,9 @@
   "holiday_select_day_period": "Early Morning (before 7:00AM)|Morning (before 12:00PM)|Afternoon (before 6:00PM)|Evening (before 12:00AM)",
   "holiday_go_flight_2": "I found a flight from Pudong Airport to Denpasar Airport, Saturday 24th of December, 7:15PM with Hong-Kong Airlines for 1400CNY. Is it ok for you?",
   "holiday_return_flight": "For your trip back I found a flight from Denpasar Airport to Pudong Airport, Sunday 1st of January, 6:25PM with Hong-Kong Airlines for 1100CNY. Is it ok for you?",
+  "holiday_passport": "Great! Just need you passport number to book your flight, I don't have it yet.",
+  "holiday_phone_number": "Thanks. Is phone number stil 134 23 45 23 54?",
+  "holiday_phone_number_confirm": "Cool, let's continue then.",
   "holiday_hotel_preferences": "What kind of hotel do you want to book?",
   "holiday_hotel_suggestion": "This hotel can be booked for you whole stay for a total rate of 5800CNY. Does it fit your expectations?",
   "holiday_hotel_confirmation": "Perfect, we have now you trip details.\nYou will leave on the Saturday 24th of December, 4:30PM from Pudong Airport to Denpasar Airport.\nYour return is on the 1st of January, 6:25PM, from Denpasar Airport to Pudong Airport.\nYou will stay at Ramada Bintang Bali Resort during your trip.\nThe total amount of your trip is 1400 + 1100 + 5800 = 8300CNY.\nAre these information correct?",
