@@ -42,30 +42,8 @@ var WechatConnector = (function() {
         return wechat(config, function(req, res, next) {
 
             var content = `欢迎您关注<a href="http://www.univadis.cn">医纬达中国</a>！
-
- 
-
->>新用户
-
-- <a href="http://www.univadis.cn/wxbinding?openid=[_openid_]&utm_campaign=univadis_wechat_menu&utm_source=wechat&utm_medium=social&utm_term=univadis_wechat_tracking&utm_content=wechat_binding">点此绑定账号</a>，享受阅读原文一键登录，专享更多专业资讯推送。
-
-- 如您尚无医纬达账号，<a href="http://www.univadis.cn/register?openid=[_openid_]&utm_campaign=univadis_wechat_menu&utm_source=wechat&utm_medium=social&utm_term=univadis_wechat_tracking&utm_content=wechat_registration">请您点此注册</a>。注册登录后，将自动完成绑定。
-
-
-
->>实用小技能：
-
-点击获取<a href="http://www.univadis.cn/msd-manual?utm_campaign=univadis_wechat_menu_tools&utm_source=wechat&utm_medium=social&utm_term=univadis_wechat_tracking&utm_content=msd_manual">默沙东手册</a>
-
-点击获取<a href="http://www.univadis.cn/anatomical-illustrations?utm_campaign=univadis_wechat_menu_tools&utm_source=wechat&utm_medium=social&utm_term=univadis_wechat_tracking&utm_content=anatomical_illustrations">解剖学图谱</a>
-
-点击获取<a href="http://www.univadis.cn/just-published#?f0=-1&utm_campaign=univadis_wechat_menu_news&utm_source=wechat&utm_medium=social&utm_term=univadis_wechat_tracking&utm_content=lancet">The Lancet 柳叶刀</a>
-
-点击参与竞赛<a href="http://www.univadis.cn/medical-quiz#?&utm_campaign=univadiscup&utm_source=wechat&utm_medium=social&utm_term=univadis_wechat_tracking&utm_content=competition">Univadis Cup</a>
-
-
-
->>更多往期精彩，<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3NzU5MzExOQ==#wechat_webview_type=1&wechat_redirect">点此获取</a>。`;
+\n>>新用户
+\n- <a href="http://www.univadis.cn/wxbinding?openid=[_openid_]&utm_campaign=univadis_wechat_menu&utm_source=wechat&utm_medium=social&utm_term=univadis_wechat_tracking&utm_content=wechat_binding">点此绑定账号</a>，享受阅读原文一键登录，专享更多专业资讯推送。`;
 
 
             var wechatMessage = req.weixin;

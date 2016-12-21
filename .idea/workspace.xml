@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/xiaomi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WechatConnector.js" afterPath="$PROJECT_DIR$/src/WechatConnector.js" />
     </list>
     <ignored path="BotWorks.iws" />
@@ -37,12 +35,12 @@
       <file leaf-file-name="WechatConnector.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WechatConnector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="76" column="43" lean-forward="false" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
+            <state relative-caret-position="90">
+              <caret line="45" column="229" lean-forward="false" selection-start-line="45" selection-start-column="229" selection-end-line="45" selection-end-column="229" />
               <folding>
-                <marker date="1482308064000" expanded="true" signature="2849:3108" ph="..." />
-                <marker date="1482308064000" expanded="true" signature="2849:3307" ph="..." />
-                <marker date="1482308064000" expanded="true" signature="3098:3108" ph="..." />
+                <marker date="1482308229000" expanded="true" signature="1656:1915" ph="..." />
+                <marker date="1482308229000" expanded="true" signature="1656:2114" ph="..." />
+                <marker date="1482308229000" expanded="true" signature="1905:1915" ph="..." />
               </folding>
             </state>
           </provider>
@@ -51,8 +49,8 @@
       <file leaf-file-name="xiaomi.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xiaomi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+            <state relative-caret-position="345">
+              <caret line="25" column="41" lean-forward="false" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
               </folding>
@@ -499,7 +497,7 @@
       <workItem from="1481767101362" duration="15528000" />
       <workItem from="1481852706807" duration="20103000" />
       <workItem from="1482117113986" duration="14579000" />
-      <workItem from="1482282513122" duration="7117000" />
+      <workItem from="1482282513122" duration="7256000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -512,7 +510,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182606000" />
+    <option name="totallyTimeSpent" value="182745000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -534,7 +532,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25662652" sideWeight="0.4947146" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25662652" sideWeight="0.4947146" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -886,8 +884,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xiaomi.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        <state relative-caret-position="345">
+          <caret line="25" column="41" lean-forward="false" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
           </folding>
@@ -906,12 +904,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WechatConnector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="76" column="43" lean-forward="false" selection-start-line="76" selection-start-column="43" selection-end-line="76" selection-end-column="43" />
+        <state relative-caret-position="90">
+          <caret line="45" column="229" lean-forward="false" selection-start-line="45" selection-start-column="229" selection-end-line="45" selection-end-column="229" />
           <folding>
-            <marker date="1482308064000" expanded="true" signature="2849:3108" ph="..." />
-            <marker date="1482308064000" expanded="true" signature="2849:3307" ph="..." />
-            <marker date="1482308064000" expanded="true" signature="3098:3108" ph="..." />
+            <marker date="1482308229000" expanded="true" signature="1656:1915" ph="..." />
+            <marker date="1482308229000" expanded="true" signature="1656:2114" ph="..." />
+            <marker date="1482308229000" expanded="true" signature="1905:1915" ph="..." />
           </folding>
         </state>
       </provider>
