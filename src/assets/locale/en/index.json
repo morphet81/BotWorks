@@ -39,6 +39,6 @@
   "holiday_hotel_preferences": "What kind of hotel do you want to book?",
   "holiday_hotel_suggestion": "This hotel can be booked for you whole stay for a total rate of 5800CNY. Does it fit your expectations?",
   "holiday_hotel_confirmation": "Perfect, we have now you trip details.\nYou will leave on the Saturday 24th of December, 4:30PM from Pudong Airport to Denpasar Airport.\nYour return is on the 1st of January, 6:25PM, from Denpasar Airport to Pudong Airport.\nYou will stay at Ramada Bintang Bali Resort during your trip.\nThe total amount of your trip is 1400 + 1100 + 5800 = 8300CNY.\nAre these information correct?",
-  "holiday_hotel_payment": "<a href=\"http://bot.phoceis.cn/payment\">Wonderful! Now you can pay your trip directly in Wechat by clicking this message. Once it's finished, please come back and tell me it's done!</a>",
+  "holiday_hotel_payment": "<a href=\"http://bot.phoceis.cn/payment\">Wonderful! Now you can pay your trip directly in Wechat by clicking this message. Once it's finished, please come </a>",
   "holiday_hotel_payment_validation": "Alright, your trip is now booked for you. You can review your trip information anytime asking to me. You can also ask me to send you details by email or SMS. Thanks for using Phoceis Chatbot and we hope to see you again later."
 }
