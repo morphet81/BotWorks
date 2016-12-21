@@ -7,14 +7,19 @@ var builder     = require('botbuilder'),
 var englishRecognizer = new builder.LuisRecognizer(process.env.LUIS_EN_MODEL_URL);
 var chineseRecognizer = new builder.LuisRecognizer(process.env.LUIS_CN_MODEL_URL);
 
+var timeout = 1000;
+
 module.exports = (wechatConnector) => {
     var module = {};
 
     module.dialog = [
         function (session) {
             session.send('holiday_welcome');
-            var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
-            builder.Prompts.choice(session, 'holiday_climate', options);
+
+            setTimeout(function() {
+                var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
+                builder.Prompts.choice(session, 'holiday_climate', options);
+            }, timeout);
         },
         function (session) {
             builder.Prompts.text(session, 'holiday_location');
@@ -31,7 +36,7 @@ module.exports = (wechatConnector) => {
 
             setTimeout(function () {
                 session.send('holiday_select_destination');
-            }, 1000);
+            }, timeout);
 
             setTimeout(function () {
                 var attachments = {
@@ -68,7 +73,7 @@ module.exports = (wechatConnector) => {
                     .attachments([attachments]);
 
                 session.send(msg);
-            }, 2000);
+            }, timeout * 2);
         },
         function(session) {
             builder.Prompts.text(session, 'holiday_destination_selected');
@@ -94,21 +99,24 @@ module.exports = (wechatConnector) => {
         },
         function(session) {
             session.send('holiday_hotel_suggestion');
-            var attachments = {
-                contentType: 'wechat/news',
-                content: [
-                    {
-                        "title": "Ramada Bintang Bali Resort",
-                        "description": "Ramada Bintang Bali Resort",
-                        "url": "http://www.booking.com/hotel/id/ramada-bintang-bali.fr.html?aid=318615;label=English_China_EN_CN_29379811585-gaPYh97LnEDbSprFki%2AjAAS111460510945%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap1t1%3Aneg%3Afi%3Atiaud-146342138230%3Adsa-64415538385%3Alp9061444%3Ali%3Adec%3Adm;sid=e59c6948a2238a96be5902c2cfa1747a;dest_id=-2683839;dest_type=city;dist=0;hpos=1;room1=A%2CA;sb_price_type=total;srfid=68b14b6e0ffc181d210611e6823e22cc8b84437cX1;type=total;ucfs=1&",
-                        "picurl": "http://phoceisasiabot.azurewebsites.net/hotel_bali.jpg"
-                    }
-                ]
-            };
 
-            var msg = new builder.Message(session).attachments([attachments]);
+            setTimeout(function () {
+                var attachments = {
+                    contentType: 'wechat/news',
+                    content: [
+                        {
+                            "title": "Ramada Bintang Bali Resort",
+                            "description": "Ramada Bintang Bali Resort",
+                            "url": "http://www.booking.com/hotel/id/ramada-bintang-bali.fr.html?aid=318615;label=English_China_EN_CN_29379811585-gaPYh97LnEDbSprFki%2AjAAS111460510945%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap1t1%3Aneg%3Afi%3Atiaud-146342138230%3Adsa-64415538385%3Alp9061444%3Ali%3Adec%3Adm;sid=e59c6948a2238a96be5902c2cfa1747a;dest_id=-2683839;dest_type=city;dist=0;hpos=1;room1=A%2CA;sb_price_type=total;srfid=68b14b6e0ffc181d210611e6823e22cc8b84437cX1;type=total;ucfs=1&",
+                            "picurl": "http://phoceisasiabot.azurewebsites.net/hotel_bali.jpg"
+                        }
+                    ]
+                };
 
-            session.send(msg);
+                var msg = new builder.Message(session).attachments([attachments]);
+
+                session.send(msg);
+            }, timeout);
         },
         function(session) {
             var options = session.localizer.gettext(session.preferredLocale(), "yes_no");
@@ -118,12 +126,9 @@ module.exports = (wechatConnector) => {
             builder.Prompts.text(session, 'holiday_hotel_payment');
 
             setTimeout(function () {
-                session.send('ok');
-            }, 2000);
-        },
-        function(session) {
-            session.send('holiday_hotel_payment_validation');
-        },
+                session.send('holiday_hotel_payment_validation');
+            }, timeout * 2);
+        }
     ];
 
     return module;
