@@ -107,7 +107,7 @@ module.exports = (wechatConnector) => {
                     {
                         "title": "Ramada Bintang Bali Resort",
                         "description": "Ramada Bintang Bali Resort",
-                        "url": "http://www.booking.com/hotel/id/ramada-bintang-bali.fr.html?aid=318615;label=English_China_EN_CN_29379811585-gaPYh97LnEDbSprFki%2AjAAS111460510945%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap1t1%3Aneg%3Afi%3Atiaud-146342138230%3Adsa-64415538385%3Alp9061444%3Ali%3Adec%3Adm;sid=e59c6948a2238a96be5902c2cfa1747a;dest_id=-2683839;dest_type=city;dist=0;hpos=1;room1=A%2CA;sb_price_type=total;srfid=68b14b6e0ffc181d210611e6823e22cc8b84437cX1;type=total;ucfs=1&",
+                        "url": "https://www.wyndhamhotels.com/ramada/kuta-bali-indonesia/ramada-bintang-bali-resort/overview?Cid=SEAPR&gclid=Cj0KEQiAyuPCBRCimuayhb3qqvwBEiQAgz62kZWFNAFMH8zSCiflPfIjCA-FoGblCHOb7wzPCa0jbIMaAkey8P8HAQ",
                         "picurl": "http://phoceisasiabot.azurewebsites.net/hotel_bali.jpg"
                     }
                 ]
