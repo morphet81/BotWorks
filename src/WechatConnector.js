@@ -41,9 +41,7 @@ var WechatConnector = (function() {
 
         return wechat(config, function(req, res, next) {
 
-            var content = `欢迎您关注<a href="http://www.univadis.cn">医纬达中国</a>！
-\n>>新用户
-\n- <a href="http://www.univadis.cn/wxbinding?openid=[_openid_]&utm_campaign=univadis_wechat_menu&utm_source=wechat&utm_medium=social&utm_term=univadis_wechat_tracking&utm_content=wechat_binding">点此绑定账号</a>，享受阅读原文一键登录，专享更多专业资讯推送。`;
+            var content = `test`;
 
 
             var wechatMessage = req.weixin;
