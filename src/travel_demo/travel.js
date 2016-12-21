@@ -13,24 +13,27 @@ module.exports = (wechatConnector) => {
     var module = {};
 
     module.dialog = [
-        // function (session) {
-        //     session.send('holiday_welcome');
-        //
-        //     setTimeout(function() {
-        //         var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
-        //         builder.Prompts.choice(session, 'holiday_climate', options);
-        //     }, timeout);
-        // },
-        // function (session) {
-        //     builder.Prompts.text(session, 'holiday_location');
-        // },
-        // function(session) {
-        //     session.send('holiday_location_confirm');
-        //     builder.Prompts.text(session, 'holiday_age');
-        // },
-        // function(session) {
-        //     builder.Prompts.text(session, 'holiday_keywords');
-        // },
+        function (session) {
+            session.send('holiday_welcome');
+
+            setTimeout(function() {
+                var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
+                builder.Prompts.choice(session, 'holiday_climate', options);
+            }, timeout);
+        },
+        function (session) {
+            builder.Prompts.text(session, 'holiday_location');
+        },
+        function(session) {
+            session.send('holiday_location_confirm');
+
+            setTimeout(function () {
+                builder.Prompts.text(session, 'holiday_age');
+            }, timeout);
+        },
+        function(session) {
+            builder.Prompts.text(session, 'holiday_keywords');
+        },
         function(session) {
             session.send('holiday_start_search');
 
