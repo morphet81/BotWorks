@@ -13,24 +13,24 @@ module.exports = (wechatConnector) => {
     var module = {};
 
     module.dialog = [
-        function (session) {
-            session.send('holiday_welcome');
-
-            setTimeout(function() {
-                var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
-                builder.Prompts.choice(session, 'holiday_climate', options);
-            }, timeout);
-        },
-        function (session) {
-            builder.Prompts.text(session, 'holiday_location');
-        },
-        function(session) {
-            session.send('holiday_location_confirm');
-            builder.Prompts.text(session, 'holiday_age');
-        },
-        function(session) {
-            builder.Prompts.text(session, 'holiday_keywords');
-        },
+        // function (session) {
+        //     session.send('holiday_welcome');
+        //
+        //     setTimeout(function() {
+        //         var options = session.localizer.gettext(session.preferredLocale(), "holiday_climate_choice");
+        //         builder.Prompts.choice(session, 'holiday_climate', options);
+        //     }, timeout);
+        // },
+        // function (session) {
+        //     builder.Prompts.text(session, 'holiday_location');
+        // },
+        // function(session) {
+        //     session.send('holiday_location_confirm');
+        //     builder.Prompts.text(session, 'holiday_age');
+        // },
+        // function(session) {
+        //     builder.Prompts.text(session, 'holiday_keywords');
+        // },
         function(session) {
             session.send('holiday_start_search');
 
@@ -38,42 +38,42 @@ module.exports = (wechatConnector) => {
                 session.send('holiday_select_destination');
             }, timeout * 2);
 
-            // setTimeout(function () {
-            //     var attachments = {
-            //         contentType: 'wechat/news',
-            //         content: [
-            //             {
-            //                 "title": "Phi Phi Islands",
-            //                 "description": "Beach, sun and Thai food!",
-            //                 "url": "https://en.wikipedia.org/wiki/Phi_Phi_Islands",
-            //                 "picurl": "http://phoceisasiabot.azurewebsites.net/phiphi.jpg"
-            //             },
-            //             {
-            //                 "title": "Bali",
-            //                 "description": "Discover the pearl of Indonesia!",
-            //                 "url": "https://en.wikipedia.org/wiki/Bali",
-            //                 "picurl": "http://phoceisasiabot.azurewebsites.net/bali.jpg"
-            //             },
-            //             {
-            //                 "title": "Malaysia",
-            //                 "description": "Authenticity and modernity in the heart of Asia!",
-            //                 "url": "https://en.wikipedia.org/wiki/Malaysia",
-            //                 "picurl": "http://phoceisasiabot.azurewebsites.net/malaysia.jpg"
-            //             },
-            //             {
-            //                 "title": "Sanya",
-            //                 "description": "China in the sun and on the beach!",
-            //                 "url": "https://en.wikipedia.org/wiki/Hainan",
-            //                 "picurl": "http://phoceisasiabot.azurewebsites.net/hainan.jpg"
-            //             }
-            //         ]
-            //     };
-            //
-            //     var msg = new builder.Message(session)
-            //         .attachments([attachments]);
-            //
-            //     session.send(msg);
-            // }, timeout * 2.5);
+            setTimeout(function () {
+                var attachments = {
+                    contentType: 'wechat/news',
+                    content: [
+                        {
+                            "title": "Phi Phi Islands",
+                            "description": "Beach, sun and Thai food!",
+                            "url": "https://en.wikipedia.org/wiki/Phi_Phi_Islands",
+                            "picurl": "http://phoceisasiabot.azurewebsites.net/phiphi.jpg"
+                        },
+                        {
+                            "title": "Bali",
+                            "description": "Discover the pearl of Indonesia!",
+                            "url": "https://en.wikipedia.org/wiki/Bali",
+                            "picurl": "http://phoceisasiabot.azurewebsites.net/bali.jpg"
+                        },
+                        {
+                            "title": "Malaysia",
+                            "description": "Authenticity and modernity in the heart of Asia!",
+                            "url": "https://en.wikipedia.org/wiki/Malaysia",
+                            "picurl": "http://phoceisasiabot.azurewebsites.net/malaysia.jpg"
+                        },
+                        {
+                            "title": "Sanya",
+                            "description": "China in the sun and on the beach!",
+                            "url": "https://en.wikipedia.org/wiki/Hainan",
+                            "picurl": "http://phoceisasiabot.azurewebsites.net/hainan.jpg"
+                        }
+                    ]
+                };
+
+                var msg = new builder.Message(session)
+                    .attachments([attachments]);
+
+                session.send(msg);
+            }, timeout * 2.5);
 
             setTimeout(function () {
                 builder.Prompts.text(session, 'holiday_select_prompt');

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="" />
+    <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/travel_demo/travel.js" afterPath="$PROJECT_DIR$/src/travel_demo/travel.js" />
+    </list>
     <ignored path="BotWorks.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,16 +26,14 @@
       <file leaf-file-name="travel.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="75" selection-end-column="33" />
+            <state relative-caret-position="424">
+              <caret line="32" column="13" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="32" selection-end-column="13" />
               <folding>
-                <marker date="1482283876000" expanded="true" signature="1398:3244" ph="{...}" />
-                <marker date="1482283876000" expanded="true" signature="1437:3048" ph="{&quot;contentType&quot;: 'wechat/news'...}" />
-                <marker date="1482283876000" expanded="true" signature="1522:3027" ph="[...]" />
-                <marker date="1482283876000" expanded="true" signature="1551:1896" ph="{&quot;title&quot;: &quot;Phi Phi Islands&quot;...}" />
-                <marker date="1482283876000" expanded="true" signature="1925:2253" ph="{&quot;title&quot;: &quot;Bali&quot;...}" />
-                <marker date="1482283876000" expanded="true" signature="2282:2638" ph="{&quot;title&quot;: &quot;Malaysia&quot;...}" />
-                <marker date="1482283876000" expanded="true" signature="2667:3002" ph="{&quot;title&quot;: &quot;Sanya&quot;...}" />
+                <marker date="1482284413000" expanded="true" signature="494:827" ph="{...}" />
+                <marker date="1482284413000" expanded="true" signature="592:803" ph="{...}" />
+                <marker date="1482284413000" expanded="true" signature="859:939" ph="{...}" />
+                <marker date="1482284413000" expanded="true" signature="970:1102" ph="{...}" />
+                <marker date="1482284413000" expanded="true" signature="1133:1213" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -410,7 +411,7 @@
       <workItem from="1481767101362" duration="15528000" />
       <workItem from="1481852706807" duration="20103000" />
       <workItem from="1482117113986" duration="14579000" />
-      <workItem from="1482282513122" duration="1023000" />
+      <workItem from="1482282513122" duration="1378000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -423,7 +424,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176512000" />
+    <option name="totallyTimeSpent" value="176867000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -791,16 +792,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="75" selection-end-column="33" />
+        <state relative-caret-position="424">
+          <caret line="32" column="13" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="32" selection-end-column="13" />
           <folding>
-            <marker date="1482283876000" expanded="true" signature="1398:3244" ph="{...}" />
-            <marker date="1482283876000" expanded="true" signature="1437:3048" ph="{&quot;contentType&quot;: 'wechat/news'...}" />
-            <marker date="1482283876000" expanded="true" signature="1522:3027" ph="[...]" />
-            <marker date="1482283876000" expanded="true" signature="1551:1896" ph="{&quot;title&quot;: &quot;Phi Phi Islands&quot;...}" />
-            <marker date="1482283876000" expanded="true" signature="1925:2253" ph="{&quot;title&quot;: &quot;Bali&quot;...}" />
-            <marker date="1482283876000" expanded="true" signature="2282:2638" ph="{&quot;title&quot;: &quot;Malaysia&quot;...}" />
-            <marker date="1482283876000" expanded="true" signature="2667:3002" ph="{&quot;title&quot;: &quot;Sanya&quot;...}" />
+            <marker date="1482284413000" expanded="true" signature="494:827" ph="{...}" />
+            <marker date="1482284413000" expanded="true" signature="592:803" ph="{...}" />
+            <marker date="1482284413000" expanded="true" signature="859:939" ph="{...}" />
+            <marker date="1482284413000" expanded="true" signature="970:1102" ph="{...}" />
+            <marker date="1482284413000" expanded="true" signature="1133:1213" ph="{...}" />
           </folding>
         </state>
       </provider>
