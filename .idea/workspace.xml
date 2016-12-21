@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WechatConnector.js" afterPath="$PROJECT_DIR$/src/WechatConnector.js" />
     </list>
     <ignored path="BotWorks.iws" />
@@ -36,12 +35,12 @@
       <file leaf-file-name="WechatConnector.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WechatConnector.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="43" column="33" lean-forward="true" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+            <state relative-caret-position="225">
+              <caret line="73" column="51" lean-forward="true" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
               <folding>
-                <marker date="1482308318000" expanded="true" signature="1374:1633" ph="..." />
-                <marker date="1482308318000" expanded="true" signature="1374:1832" ph="..." />
-                <marker date="1482308318000" expanded="true" signature="1623:1633" ph="..." />
+                <marker date="1482308360000" expanded="true" signature="2845:3104" ph="..." />
+                <marker date="1482308360000" expanded="true" signature="2845:3262" ph="..." />
+                <marker date="1482308360000" expanded="true" signature="3094:3104" ph="..." />
               </folding>
             </state>
           </provider>
@@ -498,7 +497,7 @@
       <workItem from="1481767101362" duration="15528000" />
       <workItem from="1481852706807" duration="20103000" />
       <workItem from="1482117113986" duration="14579000" />
-      <workItem from="1482282513122" duration="7350000" />
+      <workItem from="1482282513122" duration="7387000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -511,7 +510,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182839000" />
+    <option name="totallyTimeSpent" value="182876000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -905,12 +904,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WechatConnector.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="43" column="33" lean-forward="true" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        <state relative-caret-position="225">
+          <caret line="73" column="51" lean-forward="true" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
           <folding>
-            <marker date="1482308318000" expanded="true" signature="1374:1633" ph="..." />
-            <marker date="1482308318000" expanded="true" signature="1374:1832" ph="..." />
-            <marker date="1482308318000" expanded="true" signature="1623:1633" ph="..." />
+            <marker date="1482308360000" expanded="true" signature="2845:3104" ph="..." />
+            <marker date="1482308360000" expanded="true" signature="2845:3262" ph="..." />
+            <marker date="1482308360000" expanded="true" signature="3094:3104" ph="..." />
           </folding>
         </state>
       </provider>
