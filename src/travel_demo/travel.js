@@ -36,7 +36,7 @@ module.exports = (wechatConnector) => {
 
             setTimeout(function () {
                 session.send('holiday_select_destination');
-            }, timeout);
+            }, timeout * 2);
 
             setTimeout(function () {
                 var attachments = {
@@ -73,7 +73,11 @@ module.exports = (wechatConnector) => {
                     .attachments([attachments]);
 
                 session.send(msg);
-            }, timeout * 2);
+            }, timeout * 2.5);
+
+            setTimeout(function () {
+                builder.Prompts.text(session, 'holiday_select_prompt');
+            }, timeout * 3);
         },
         function(session) {
             builder.Prompts.text(session, 'holiday_destination_selected');
@@ -98,7 +102,8 @@ module.exports = (wechatConnector) => {
             builder.Prompts.text(session, 'holiday_hotel_preferences');
         },
         function(session) {
-            session.send('holiday_hotel_suggestion');
+            // session.send('holiday_hotel_suggestion');
+            builder.Prompts.text('holiday_hotel_suggestion');
 
             setTimeout(function () {
                 var attachments = {
