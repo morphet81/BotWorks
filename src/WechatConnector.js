@@ -45,8 +45,6 @@ var WechatConnector = (function() {
             if (!self.options.enableReply) {
                 self.processMessage(wechatMessage);
 
-                console.log(util.inspect(wechatMessage));
-
                 res.status(200).end();
             } else {
                 next();
