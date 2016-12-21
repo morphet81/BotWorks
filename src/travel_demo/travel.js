@@ -102,7 +102,7 @@ module.exports = (wechatConnector) => {
         },
         function(session) {
             // session.send('holiday_hotel_suggestion');
-            builder.Prompts.text('holiday_hotel_suggestion');
+            builder.Prompts.text(session, 'holiday_hotel_suggestion');
 
             setTimeout(function () {
                 var attachments = {
