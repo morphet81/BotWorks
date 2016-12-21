@@ -161,7 +161,7 @@ module.exports = {
         app.get('/wechat', function (req, res) {
             var wechatMessage = req.weixin;
             console.log(util.inspect(wechatMessage));
-            res.status(200).end(`<xml>
+            res.status(200).send(`<xml>
                 <ToUserName><![CDATA[${wechatMessage.FromUserName}]]></ToUserName>
                 <FromUserName><![CDATA[${wechatMessage.ToUserName}]]></FromUserName>
                 <CreateTime>${Date.now()}</CreateTime>
