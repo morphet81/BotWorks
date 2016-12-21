@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f51c2a06-f41a-4591-a6e2-9c4221d65502" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/locale/en/index.json" afterPath="$PROJECT_DIR$/src/assets/locale/en/index.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/travel_demo/travel.js" afterPath="$PROJECT_DIR$/src/travel_demo/travel.js" />
     </list>
@@ -23,21 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="travel.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="travel.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="132" column="26" lean-forward="false" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
+            <state relative-caret-position="210">
+              <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="126" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/assets/locale/en/index.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="445">
-              <caret line="41" column="184" lean-forward="false" selection-start-line="41" selection-start-column="184" selection-end-line="41" selection-end-column="184" />
+              <caret line="41" column="151" lean-forward="false" selection-start-line="41" selection-start-column="151" selection-end-line="41" selection-end-column="151" />
               <folding />
             </state>
           </provider>
@@ -137,8 +138,8 @@
         <option value="$PROJECT_DIR$/src/travel_demo/payment.html" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/WechatConnector.js" />
-        <option value="$PROJECT_DIR$/src/assets/locale/en/index.json" />
         <option value="$PROJECT_DIR$/src/travel_demo/travel.js" />
+        <option value="$PROJECT_DIR$/src/assets/locale/en/index.json" />
       </list>
     </option>
   </component>
@@ -405,7 +406,7 @@
       <workItem from="1481767101362" duration="15528000" />
       <workItem from="1481852706807" duration="20103000" />
       <workItem from="1482117113986" duration="14579000" />
-      <workItem from="1482282513122" duration="2145000" />
+      <workItem from="1482282513122" duration="2321000" />
     </task>
     <task id="LOCAL-00001" summary="app.js">
       <created>1479714803628</created>
@@ -418,7 +419,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177634000" />
+    <option name="totallyTimeSpent" value="177810000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -769,14 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/locale/en/index.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="41" column="184" lean-forward="false" selection-start-line="41" selection-start-column="184" selection-end-line="41" selection-end-column="184" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WechatConnector.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -787,8 +780,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/travel_demo/travel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="132" column="26" lean-forward="false" selection-start-line="132" selection-start-column="26" selection-end-line="132" selection-end-column="26" />
+        <state relative-caret-position="210">
+          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="126" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/locale/en/index.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="41" column="151" lean-forward="false" selection-start-line="41" selection-start-column="151" selection-end-line="41" selection-end-column="151" />
           <folding />
         </state>
       </provider>
