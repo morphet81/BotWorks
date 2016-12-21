@@ -35,10 +35,6 @@ module.exports = (wechatConnector) => {
             session.send('holiday_start_search');
 
             setTimeout(function () {
-                session.send('holiday_select_destination');
-            }, timeout * 2);
-
-            setTimeout(function () {
                 var attachments = {
                     contentType: 'wechat/news',
                     content: [
@@ -76,7 +72,7 @@ module.exports = (wechatConnector) => {
             }, timeout * 2.5);
 
             setTimeout(function () {
-                builder.Prompts.text(session, 'holiday_select_prompt');
+                builder.Prompts.text(session, 'holiday_select_destination');
             }, timeout * 3);
         },
         function(session) {
