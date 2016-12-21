@@ -41,14 +41,25 @@ var WechatConnector = (function() {
 
         return wechat(config, function(req, res, next) {
             var wechatMessage = req.weixin;
+            console.log(util.inspect(wechatMessage));
+            res.status(200).send(`<xml>
+                <ToUserName><![CDATA[${wechatMessage.FromUserName}]]></ToUserName>
+                <FromUserName><![CDATA[${wechatMessage.ToUserName}]]></FromUserName>
+                <CreateTime>${Date.now()}</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[Your Open ID is ${wechatMessage.FromUserName}]]></Content>
+            <MsgId>${Math.floor(Math.random() * 100000)}</MsgId>
+            </xml>`);
 
-            if (!self.options.enableReply) {
-                self.processMessage(wechatMessage);
-
-                res.status(200).end();
-            } else {
-                next();
-            }
+            // var wechatMessage = req.weixin;
+            //
+            // if (!self.options.enableReply) {
+            //     self.processMessage(wechatMessage);
+            //
+            //     res.status(200).end();
+            // } else {
+            //     next();
+            // }
         });
     };
 

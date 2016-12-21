@@ -156,20 +156,7 @@ module.exports = {
         bot.dialog('/phoceis', phoceis.dialog);
         welcome.initDialogs(bot);
 
-        // app.use('/wechat', wechatConnector.listen());
-
-        app.get('/wechat', function (req, res) {
-            var wechatMessage = req.weixin;
-            console.log(util.inspect(wechatMessage));
-            res.status(200).send(`<xml>
-                <ToUserName><![CDATA[${wechatMessage.FromUserName}]]></ToUserName>
-                <FromUserName><![CDATA[${wechatMessage.ToUserName}]]></FromUserName>
-                <CreateTime>${Date.now()}</CreateTime>
-                <MsgType><![CDATA[text]]></MsgType>
-                <Content><![CDATA[Your Open ID is ${wechatMessage.FromUserName}]]></Content>
-            <MsgId>${Math.floor(Math.random() * 100000)}</MsgId>
-            </xml>`);
-        });
+        app.use('/wechat', wechatConnector.listen());
 
         /************-****************/
         /******  MICROSOFT BOT   *****/
